@@ -1,0 +1,320 @@
+Index(['Unnamed: 0', 'Speech DB ID', 'Date', 'Parliamentary period', 'Sitting',
+       'Document DB ID', 'Speaker', 'Speaker party', 'Interjection count',
+       'Interjection content', 'Paragraph count', 'Speech text'],
+      dtype='object')
+Number of lines total
+30198
+Parties in the 9th Bundestag:
+['spd' 'cducsu' 'fdp' nan 'wav' 'kpd' 'linke' 'afd']
+Wav speakers
+['Hans-Gerd Fröhlich']
+Kpd speakers
+['Heinz Renner']
+7428    Herr Abgeordneter, ich bitte Sie. Sie fangen w...
+Name: Speech text, dtype: object
+Unknown speakers
+[nan 'Broil' 'Ruhnau' 'StücKlen' 'Dr. Würzen' 'SaUer (Stuttgart)'
+ '.Stücklen' 'HInsken' 'Kurt Becker' 'Dr. Hiehle' 'Dr. Hartkopf'
+ 'Stücklen:' 'Stückten' 'Leithäuser' 'Stutzer:' 'Dr. Dohnanyl' 'Windelen:'
+ 'Alfred Bundestages' 'R enger' 'Ich Klep' 'Gärtner:' 'Schwalbach]'
+ 'Dr. Fülgraff' 'Elias' 'Dr. Cortierer' 'Dr. CorterIer' 'Dr. Granzow'
+ 'Eduard LIntner' 'Dr. Erkel' 'Dr. FrIedmann' 'Stückien' 'Wubs'
+ 'Dr. MIltner' 'Lahnstln' 'WIndelen' 'Dr. Keutzmann' 'Dr. CzaJa'
+ 'Dr. Corterler' 'Dr. Freiherr Bülleshelm' 'Breuel' 'LInsmeier' 'Flessner'
+ 'Hostmeier' 'Dr. Krelle' 'WischnewskI' 'Rastemborski' 'Güner' 'Ellas'
+ 'Heimrich' 'Stolze' 'Frank' 'Schmidt: (Nürnberg)' 'Wurbs:']
+170      Frau Präsidentin! Meine Damen und Herren! In e...
+172      Ja, sehr gerne, obwohl ich mitten in einem Ged...
+173      Aber Herr Kollge Jens, ich bin hier bei der Be...
+175                                            Bitte sehr.
+177      Ich nehme zur Kenntnis, daß der Herr Lahnstein...
+                               ...                        
+27998    Herr Kollege, ich kenne Herrn Bundesminister G...
+28054    (Nürnberg) (SPD): Herr Staatssekretär, wie bew...
+29203    Herr Staatsminister, halten Sie es immerhin fü...
+29970    Das ist meine Vermutung, die ich wohl aussprec...
+30120                     Herr\tAbgeordneter Dr. Schäuble!
+Name: Speech text, Length: 463, dtype: object
+Number of speeches mentioning coal in the 9th Bundestag
+254
+Number of speeches mentioning climate in the 9th Bundestag
+151
+Index(['Unnamed: 0', 'Speech DB ID', 'Date', 'Parliamentary period', 'Sitting',
+       'Document DB ID', 'Speaker', 'Speaker party', 'Interjection count',
+       'Interjection content', 'Paragraph count', 'Speech text'],
+      dtype='object')
+Parties in the 19th Bundestag:
+['fdp' 'spd' 'afd' 'linke' 'cducsu' 'gruene' nan]
+Number of speeches mentioning coal in the 19th Bundestag
+436
+Number of speeches mentioning climate in the 19th Bundestag
+1266
+MPs characteristic since 9period till 19 period.
+Direct elected mps
+['Dr. Hans Geisler (Radeberg)' 'Dr. Heiner Geißler' 'Dr. Wolfgang Geldern'
+ ... 'Peter Bleser' 'Wolfgang Dehnel' 'Karl Deres']
+Number of distinct direct elected mps
+1190
+List mps
+['Dr. Wolfgang Geldern' 'Dr. Karlheinz Guttmacher' 'Karl Haehser' ...
+ 'Gertrud Dempwolf' 'Albert Deß' 'Gerhard Dewitz']
+Number of distinct list mps
+1819
+All distinct mps
+['Achim Großmann' 'Achim Post (Minden)' 'Adelheid Tröscher' ...
+ 'Yvonne Ploetz' 'Zaklin Nastic' 'Özcan Mutlu']
+Number of all distinct mps
+2619
+All mps which held a list and a direct mandate
+b"['Achim Post (Minden)' 'Adelheid Tr\xc3\xb6scher' 'Adolf Roth (Gie\xc3\x9fen)'\n 'Adolf Stockleben' 'Albert Rupprecht' 'Alwin Br\xc3\xbcck' 'Andrea Wicklein'\n 'Andreas Scheuer' 'Andreas Storm' 'Anette H\xc3\xbcbinger'\n 'Angelika Kr\xc3\xbcger-Lei\xc3\x9fner' 'Anita Sch\xc3\xa4fer (Saalstadt)' 'Anke Fuchs (K\xc3\xb6ln)'\n 'Annette Fa\xc3\x9fe' 'Annette Widmann-Mauz' 'Antje Huber' 'Antje Tillmann'\n 'Antje-Marie Steen' 'Arne Fuhrmann' 'Artur Auernhammer' 'Astrid Klug'\n 'Axel E. Fischer (Karlsruhe-Land)' 'Aydan \xc3\x96zo\xc4\x9fuz' 'Beatrix Philipp'\n 'Bernd Reuter' 'Bernd Scheelen' 'Bernd Westphal' 'Bernd Wilz'\n 'Bernhard Kaster' 'Bettina Hagedorn' 'Bodo Seidenthal' 'Brigitte Lange'\n 'Caren Marks' 'Carl-Eduard Bismarck' 'Carsten Schneider (Erfurt)'\n 'Christel Deichmann' 'Christel Riemann-Hanewinckel' 'Christian Hirte'\n 'Christian Lenzer' 'Christine Lambrecht' 'Christoph Matschie'\n 'Christoph Str\xc3\xa4sser' 'Claudia Crawford' 'Claus J\xc3\xa4ger' 'Clemens Schwalbe'\n 'Dagmar Freitag' 'Dagmar G. W\xc3\xb6hrl' 'Dagmar Ziegler' 'Daniela Ludwig'\n 'Dankward Buwitt' 'Detlef M\xc3\xbcller (Chemnitz)' 'Detlev Larcher'\n 'Dieter P\xc3\xbctzhofen' 'Diethard Sch\xc3\xbctze (Berlin)' 'Dietmar Nietan'\n 'Dietrich Austermann' 'Dirk Fischer (Hamburg)' 'Doris Barnett'\n 'Dorothee B\xc3\xa4r' 'Dr. Alfred Emmerlich' 'Dr. Carl Otto Lenz (Bergstra\xc3\x9fe)'\n 'Dr. Carola Reimann' 'Dr. Christian Neuling'\n 'Dr. Christian Schwarz-Schilling' 'Dr. Christoph Bergner'\n 'Dr. Cornelie Sonntag-Wolgast' 'Dr. Dagmar Enkelmann'\n 'Dr. Dietrich Mahlo' 'Dr. Dr. h.c. Karl A. Lamers' 'Dr. Eberhard Brecht'\n 'Dr. Edelbert Richter' 'Dr. Egon J\xc3\xbcttner' 'Dr. Erika Ober'\n 'Dr. Ernst Dieter Rossmann' 'Dr. Ernst Ulrich Weizs\xc3\xa4cker' 'Dr. Eva H\xc3\xb6gl'\n 'Dr. Franz Josef Jung' 'Dr. Fritz Wittmann' 'Dr. Gerald Thalheim'\n 'Dr. Gerhard Reddemann' 'Dr. Gero Pfennig' 'Dr. Hans Apel'\n 'Dr. Hans-Jochen Vogel' 'Dr. Hans-Peter Friedrich (Hof)'\n 'Dr. Hans-Ulrich Kr\xc3\xbcger' 'Dr. Harald Kahl' 'Dr. Hartmut Soell'\n 'Dr. Heinz Riesenhuber' 'Dr. Helge Braun' 'Dr. Helmut Kohl'\n 'Dr. Herbert Czaja' 'Dr. Heribert Blens' 'Dr. Herta D\xc3\xa4ubler-Gmelin'\n 'Dr. Johannes Gerster (Mainz)' 'Dr. Joseph-Theodor Blank'\n 'Dr. J\xc3\xbcrgen Linde' 'Dr. J\xc3\xbcrgen Warnke' 'Dr. Karl Becker (Frankfurt)'\n 'Dr. Karl-Heinz Hornhues' 'Dr. Klaus K\xc3\xbcbler' 'Dr. Klaus W. Lippold'\n 'Dr. Konstanze Wegner' 'Dr. Kristina Schr\xc3\xb6der (Wiesbaden)'\n 'Dr. Manfred Lischewski' 'Dr. Margrit Wetzel' 'Dr. Maria B\xc3\xb6hmer'\n 'Dr. Marliese Dobberthien' 'Dr. Martin Oldenst\xc3\xa4dt'\n 'Dr. Martin Schwanholz' 'Dr. Martina Krogmann' 'Dr. Michael B\xc3\xbcrsch'\n 'Dr. Michael Meister' 'Dr. Nils Diederich' 'Dr. Norbert Wieczorek'\n 'Dr. Ole Schr\xc3\xb6der' 'Dr. Oscar Schneider (N\xc3\xbcrnberg)' 'Dr. Ottfried Hennig'\n 'Dr. Paul Hoffacker' 'Dr. Paul Kr\xc3\xbcger' 'Dr. Peter Corterier'\n 'Dr. Peter Eckardt' 'Dr. Peter Struck' 'Dr. Petra Sitte'\n 'Dr. Reinhard Meyer zu Bentrup' 'Dr. Rita S\xc3\xbcssmuth' 'Dr. Rolf Olderog'\n 'Dr. Rosemarie Hein' 'Dr. Roy K\xc3\xbchne' 'Dr. Rudolf Sprung'\n 'Dr. Rupert Scholz' 'Dr. Sascha Raabe' 'Dr. Silke Launert'\n 'Dr. Uwe K\xc3\xbcster' 'Dr. Volker Hauff' 'Dr. Volkmar K\xc3\xb6hler (Wolfsburg)'\n 'Dr. Wendelin Enders' 'Dr. Wolfgang Geldern' 'Dr. Wolfgang G\xc3\xb6tzer'\n 'Dr. Wolfgang Schwenk (Stade)' 'Dr. Wolfgang Wodarg'\n 'Dr. h.c. Gernot Erler' 'Dr. h.c. Hans Michelbach'\n 'Dr. h.c. Wolfgang Thierse' 'Dr.-Ing. Dietmar Kansy' 'Eckart Kuhlwein'\n 'Eckhardt Rehberg' 'Editha Limbach' 'Egon Lutz' 'Eike Hovermann'\n 'Elke Ferner' 'Elmar Kolb' 'Enak Ferlemann' 'Engelbert Nelle'\n 'Erich Berschkeit' 'Erika Reinhardt' 'Erika Steinbach' 'Ernst Hinsken'\n 'Ernst Kastning' 'Ernst Schwanhold' 'Erwin Horn' 'Eugen Glombig'\n 'Franz Josef Conrad (Riegelsberg)' 'Franz Romer' 'Franz Th\xc3\xb6nnes'\n 'Friedhelm Julius Beucher' 'Friedrich Bohl' 'Fritz Rudolf K\xc3\xb6rper'\n 'Gabriele Hiller-Ohm' 'Gabriele L\xc3\xb6sekrug-M\xc3\xb6ller' 'Georg Fahrenschon'\n 'Georg Schlaga' 'Gerda Hasselfeldt' 'Gerhard Jahn'\n 'Gerhard Neumann (Gotha)' 'Gerhard Schr\xc3\xb6der' 'Gerhard Schulz'\n 'Gero Storjohann' 'Gerold Reichenbach' 'Gert Willner' 'Gisela Hilbrecht'\n 'Gudrun Schaich-Walch' 'Gunter Wei\xc3\x9fgerber' 'G\xc3\xbcnter Gloser' 'G\xc3\xbcnter Kiehm'\n 'G\xc3\xbcnther Heyenn' 'G\xc3\xbcnther Jansen' 'Hannelore R\xc3\xb6nsch (Wiesbaden)'\n 'Hans B\xc3\xbcchler (Hof)' 'Hans Eichel' 'Hans Huyn' 'Hans Klein (M\xc3\xbcnchen)'\n 'Hans Martin Bury' 'Hans Matth\xc3\xb6fer' 'Hans Peter Schmitz (Baesweiler)'\n 'Hans-Christian Str\xc3\xb6bele' 'Hans-Georg Marwitz' 'Hans-Joachim Hacker'\n 'Hans-Otto Wilhelm (Mainz)' 'Hans-Werner M\xc3\xbcller (Wadern)'\n 'Hansheinz Hauser (Krefeld)' 'Harm Dallmeyer'\n 'Hartmut B\xc3\xbcttner (Sch\xc3\xb6nebeck)' 'Hartmut Koschyk' 'Hedi Wegener'\n 'Heide Simonis' 'Heidemarie Wieczorek-Zeul' 'Heinrich Klein (Dieburg)'\n 'Heinrich Lummer' 'Heinrich-Wilhelm Rons\xc3\xb6hr' 'Heinz F. Landr\xc3\xa9'\n 'Heinz Schemken' 'Heinz-Adolf H\xc3\xb6rsken' 'Helmut Brandt' 'Helmut Lamp'\n 'Helmut Link (Frankfurt)' 'Henning Otte' 'Herbert Lattmann'\n 'Hermann Gr\xc3\xb6he' 'Hildegard M\xc3\xbcller' 'Hildegard Wester' 'Holger Ortel'\n 'Horst Jungmann (Wittmoldt)' 'Horst Schild'\n 'Horst Schmidbauer (N\xc3\xbcrnberg)' 'Ilse Schumann' 'Inge Wettig-Danielmeier'\n 'Ingo Wellenreuther' 'Ingrid Holzh\xc3\xbcter' 'Ingrid Roitzsch (Quickborn)'\n 'Iris Gleicke' 'Jan Korte' 'Jelena Hoffmann (Chemnitz)' 'Jens Koeppen'\n 'Joachim Clemens' 'Joachim H\xc3\xb6rster' 'Jochen Feilcke'\n 'Johannes Ganz (St. Wendel)' 'Johannes Singhammer' 'Johannes Steiniger'\n 'Josef Hollerith' 'Julia Kl\xc3\xb6ckner' 'J\xc3\xbcrgen Echternach' 'J\xc3\xbcrgen Klimke'\n 'J\xc3\xbcrgen Sikora' 'Kai Wegner' 'Karin Kortmann' 'Karl Diller' 'Karl Eigen'\n 'Karl Fred Zander' 'Karl-Arnold Eickmeyer' 'Karl-Josef Laumann'\n 'Karsten D. Voigt (Frankfurt)' 'Karsten M\xc3\xb6ring'\n 'Katherina Reiche (Potsdam)' 'Katrin Kunert' 'Kerstin Griese'\n 'Kerstin Radomski' 'Klaus Daubertsh\xc3\xa4user' 'Klaus Daweke' 'Klaus Riegert'\n 'Klaus Uwe Benneter' 'Klaus-Dieter K\xc3\xbchbacher' 'Klaus-J\xc3\xbcrgen Hedrich'\n 'Kurt Bodewig' 'Kurt Palis' 'Kurt Vogelsang' 'Kurt-Dieter Grill'\n 'Lars Klingbeil' 'Lena Strothmann' 'Lothar Binding (Heidelberg)'\n 'Lothar Curdt' 'Ludwig Eich' 'Lydia Westrich' 'Maik Beermann'\n 'Manfred Hampel' 'Manfred Heise' 'Manfred Kanther' 'Manfred Opel'\n 'Manfred Reimann' 'Manfred Schmidt (M\xc3\xbcnchen)' 'Margarete Sp\xc3\xa4te'\n 'Maria Eichhorn' 'Maria Michalk' 'Marianne Klappert'\n 'Marion Caspers-Merk' 'Markus Uhl' 'Martin Hohmann' 'Mechthild Rawert'\n 'Michael Grosse-Br\xc3\xb6mer' 'Michael Hartmann (Wackernheim)'\n 'Michael M\xc3\xbcller (D\xc3\xbcsseldorf)' 'Michael Schmude' 'Michael St\xc3\xbcbgen'\n 'Michael Wonneberger' 'Michaela Geiger' 'Michaela Noll'\n 'Monika Brudlewsky' 'Norbert Otto (Erfurt)' 'Ortrun Sch\xc3\xa4tzle'\n 'Oskar Lafontaine' 'Ottmar Schreiner' 'Otto Bernhardt' 'Otto Zink'\n 'Patricia Lips' 'Paul Breuer' 'Peter Altmaier' 'Peter Conradi'\n 'Peter H. Carstensen (Nordstrand)' 'Peter Kittelmann'\n 'Peter Kurt W\xc3\xbcrzbach' 'Peter Letzgus' 'Peter Wilhelm H\xc3\xb6ffkes'\n 'Peter W\xc3\xbcrtz' 'Petra Ernstberger' 'Petra Hinz (Essen)'\n 'Prof. Dr. Eckhart Pick' 'Prof. Dr. Hans Hugo Klein (G\xc3\xb6ttingen)'\n 'Prof. Dr. Roswitha Wisniewski' 'Prof. Dr. Uwe Holtz' 'Prof. Egon Bahr'\n 'Prof. Monika Ganseforth' 'Rainer Eppelmann' 'Ralph Lenkert'\n 'Regina Schmidt-Zadel' 'Reinhard Grindel' 'Reinhard Weis (Stendal)'\n 'Renate Blank' 'Renate Rennebach' 'Renate Schmidt (N\xc3\xbcrnberg)'\n 'Richard Bayha' 'Richard Schuhmann (Delitzsch)' 'Rolf Schwanitz'\n 'Ronald Pofalla' 'Ronja Kemmer' 'Rudi Schmitt (Wiesbaden)' 'Rudolf Hauck'\n 'Rudolf Ruf' 'Rudolf Scharping' 'Ruprecht Polenz' 'R\xc3\xbcdiger Kruse'\n 'R\xc3\xbcdiger Veit' 'Sabine B\xc3\xa4tzing-Lichtenth\xc3\xa4ler' 'Sabine Kaspereit'\n 'Sarah Ryglewski' 'Sibylle Pfeiffer' 'Siegfried Hornung'\n 'Siegfried Vergin' 'Siegmar Mosdorf' 'Siegrun Klemmer' 'Sigrun L\xc3\xb6wisch'\n 'Silvia Schmidt (Eisleben)' 'Simon Wittmann (T\xc3\xa4nnesberg)' 'Simone Violka'\n 'Steffen Kampeter' 'Stephan Hilsberg' 'Susanne Jaffke-Witt'\n 'Swen Schulz (Spandau)' 'Thomas Kossendey' 'Thomas Nord' 'Thomas Rachel'\n 'Uda Heller' 'Ulla Schmidt (Aachen)' 'Ulrich Junghanns' 'Ulrich Kelber'\n 'Ulrich Petzold' 'Ulrike Mehl' 'Uta Zapf' 'Ute Granold' 'Ute Kumpf'\n 'Ute Vogt' 'Uwe G\xc3\xb6llner' 'Uwe Hiksch' 'Uwe-Bernd L\xc3\xbchr'\n 'Volkmar Kretkowski' 'Volkmar Vogel (Kleinsaara)'\n 'Walter Link (Diepholz)' 'Waltraud Wolff (Wolmirstedt)'\n 'Werner Kuhn (Zingst)' 'Wieland Sorge' 'Wilfried B\xc3\xb6hm (Melsungen)'\n 'Willi Brase' 'Willi Zylajew' 'Wolfgang Behrendt'\n 'Wolfgang B\xc3\xb6rnsen (B\xc3\xb6nstrup)' 'Wolfgang Lohmann (L\xc3\xbcdenscheid)'\n 'Wolfgang Neskovic' 'Wolfgang Schulhoff' 'Wolfgang Steiger'\n 'Wolfgang Vogt (D\xc3\xbcren)' 'Yvonne Magwas']"
+Number of mps which held a list and a direct mandata
+390
+All mps with list mandate only
+['Adolf Müller (Remscheid)' 'Adolf Schmidt (Wattenscheid)' 'Agnes Alpers'
+ ... 'Yvonne Ploetz' 'Zaklin Nastic' 'Özcan Mutlu']
+Number of mps with list mandate only
+1405
+All mps with direct mandate only
+['Achim Großmann' 'Adolf Ostertag' 'Albert Burger' 'Albert Pfuhl'
+ 'Albert Stegemann' 'Albrecht Papenroth' 'Alexander Dobrindt'
+ 'Alexander Funk' 'Alexander Hoffmann' 'Alexander Krauß'
+ 'Alexander Radwan' 'Alexander Throm' 'Alfred Biehle' 'Alfred Hartenbach'
+ 'Alfred Hubertus Neuhaus' 'Alfred Meininghaus' 'Alois Gerig' 'Alois Karl'
+ 'Alois Rainer' 'Alois Waldburg-Zeil' 'Andrea Lindholz'
+ 'Andreas G. Lämmel' 'Andreas Jung' 'Andreas Krautscheid'
+ 'Andreas Mattfeldt' 'Andreas Steier' 'Andreas Steppuhn'
+ 'Angelika Mertens' 'Angelika Pfeiffer' 'Anja Karliczek' 'Anke Hartnagel'
+ 'Annette Schavan' 'Ansgar Heveling' 'Antje Lezius' 'Anton Pfeifer'
+ 'Anton Schaaf' 'Armin Laschet' 'Armin Schuster (Weil am Rhein)'
+ 'Arne Börnsen (Ritterhude)' 'Arno Klare' 'Arnold Vaatz' 'Arnulf Kriedner'
+ 'Astrid Damerow' 'Astrid Grotelüschen' 'August Hanz' 'Axel Knoerig'
+ 'Axel Müller' 'Axel Schäfer (Bochum)' 'Bartholomäus Kalb'
+ 'Benno Erhard (Bad Schwalbach)' 'Benno Zierer' 'Bernd Schmidbauer'
+ 'Bernhard Brinkmann (Hildesheim)' 'Bernhard Loos'
+ 'Bernhard Schulte-Drüggelte' 'Berthold Wittich' 'Bettina Kudla'
+ 'Bettina Margarethe Wiesmann' 'Björn Engholm' 'Björn Simon'
+ 'Brigitte Baumeister' 'Brigitte Schulte (Hameln)'
+ 'Brigitte Wimmer (Karlsruhe)' 'Brigitte Zypries' 'Bruno Wiefel'
+ 'Bärbel Bas' 'Bärbel Sothmann' 'Canan Bayram' 'Carl Ewen'
+ 'Carl-Dieter Spranger' 'Carola Stauche' 'Carsten Körber'
+ 'Christa Reichard (Dresden)' 'Christel Humme' 'Christian Carstensen'
+ 'Christian Haase' 'Christian Kleiminger' 'Christian Schmidt (Fürth)'
+ 'Christian Stetten' 'Christina Kampmann' 'Christine Lehder'
+ 'Christoph Bernstiel' 'Christoph Moosbauer' 'Christoph Poland'
+ 'Claudia Moll' 'Claus-Peter Grotz' 'Clemens Binninger'
+ 'Constantin Heereman von Zuydtwyck' 'Cornelia Yzer' 'Dennis Rohde'
+ 'Detlef Dzembritzki' 'Detlef Seif' 'Dieter Dzewas' 'Dieter Grasedieck'
+ 'Dieter Jasper' 'Dieter Maaß (Herne)' 'Dieter Schanz' 'Dieter Schloten'
+ 'Dieter Stier' 'Dietmar Schlee' 'Dietmar Schütz (Oldenburg)'
+ 'Dietmar Thieser' 'Dietrich Monstadt' 'Dirk Becker' 'Dirk Heidenblut'
+ 'Dirk Manzewski' 'Dirk Vöpel' 'Dr. Adolf Herkenrath'
+ 'Dr. Adolf Müller-Emmert' 'Dr. Adolf Spies von Büllesheim'
+ 'Dr. Albert Probst' 'Dr. Alexander Warrikoff'
+ 'Dr. Alois Mertes (Gerolstein)' 'Dr. Andreas Lenz' 'Dr. Andreas Nick'
+ 'Dr. Andreas Schockenhoff' 'Dr. André Berghegger' 'Dr. Angela Merkel'
+ 'Dr. Anja Weisgerber' 'Dr. Anton Stark (Nürtingen)' 'Dr. Astrid Mannes'
+ 'Dr. Axel Berg' 'Dr. Bernd Klaußner' 'Dr. Bernd Protzner'
+ 'Dr. Bertold Reinartz' 'Dr. Bertram Wieczorek (Auerbach)'
+ 'Dr. Burkhard Ritz' 'Dr. Carsten Brodesser' 'Dr. Carsten Linnemann'
+ 'Dr. Carsten Sieling' 'Dr. Christa Luft' 'Dr. Christian Ruck'
+ 'Dr. Christine Lucyga' 'Dr. Christoph Ploß' 'Dr. Claudia Schmidtke'
+ 'Dr. Conrad Schroeder (Freiburg)' 'Dr. Dieter Schulte (Schwäbisch Gmünd)'
+ 'Dr. Dieter Wiefelspütz' 'Dr. Dietlind Tiemann' 'Dr. Dionys Jobst'
+ 'Dr. Ditmar Staffelt' 'Dr. Edgar Franke' 'Dr. Edith Niehuis'
+ 'Dr. Eicke Götz' 'Dr. Emil Schnell' 'Dr. Frank-Walter Steinmeier'
+ 'Dr. Franz Möller' 'Dr. Franz-Hermann Kappes'
+ 'Dr. Franz-Josef Mertens (Bottrop)' 'Dr. Frauke Petry'
+ 'Dr. Friedrich Zimmermann (München)' 'Dr. Friedrich-Adolf Jahn (Münster)'
+ 'Dr. Fritz Felgentreu' 'Dr. Georg Kippels' 'Dr. Georg Nüßlein'
+ 'Dr. Gerd Müller' 'Dr. Gerhard Botz' 'Dr. Gerhard Friedrich (Erlangen)'
+ 'Dr. Gerhard Päselt' 'Dr. Gerhard Stoltenberg' 'Dr. Gesine Lötzsch'
+ 'Dr. Gottfried Arnold' 'Dr. Gregor Gysi' 'Dr. Günter Krings'
+ 'Dr. Günther Krause (Börgerende)' 'Dr. Haimo George' 'Dr. Hans Bardens'
+ 'Dr. Hans Daniels (Bonn)' 'Dr. Hans Geisler (Radeberg)'
+ 'Dr. Hans Georg Schachtschabel' 'Dr. Hans Hubrig' 'Dr. Hans Stercken'
+ 'Dr. Hans-Hinrich Knaape' 'Dr. Hans-Joachim Sopart'
+ 'Dr. Hans-Peter Bartels' 'Dr. Hans-Peter Uhl' 'Dr. Hansjörg Häfele'
+ 'Dr. Hansjörg Schäfer' 'Dr. Harald Schreiber' 'Dr. Heiner Geißler'
+ 'Dr. Heinrich Pohlmeier' 'Dr. Heinz Günther Hüsch'
+ 'Dr. Hendrik Hoppenstedt' 'Dr. Herbert Ehrenberg' 'Dr. Heribert Hirte'
+ 'Dr. Hermann Josef Unland' 'Dr. Hermann Kues' 'Dr. Hermann Pohler'
+ 'Dr. Hermann-Josef Tebroke' 'Dr. Horst Schröder (Lüneburg)'
+ 'Dr. Horst Waffenschmidt' 'Dr. Immo Lieberoth' 'Dr. Jan-Marco Luczak'
+ 'Dr. Joachim Grünewald' 'Dr. Joachim Pfeiffer' 'Dr. Jochen Aerssen'
+ 'Dr. Johann David Wadephul' 'Dr. Jürgen Schmude' 'Dr. Karl H. Fell'
+ 'Dr. Karl Lauterbach' 'Dr. Karl Miltner' 'Dr. Katja Leikert'
+ 'Dr. Klaus Dieter Uelhoff' 'Dr. Klaus Mildner' 'Dr. Klaus-Peter Schulze'
+ 'Dr. Konrad Elmer' 'Dr. Kurt Faltlhauser' 'Dr. Lale Akgün'
+ 'Dr. Lutz G. Stavenhagen' 'Dr. Manfred Abelein'
+ 'Dr. Manfred Achim Geßner' 'Dr. Manfred Langner' 'Dr. Manfred Wörner'
+ 'Dr. Manja Schüle' 'Dr. Margrit Spielmann'
+ 'Dr. Martin Mayer (Siegertsbrunn)' 'Dr. Mathias Middelberg'
+ 'Dr. Mathias Schubert' 'Dr. Matthias Bartke' 'Dr. Matthias Heider'
+ 'Dr. Matthias Miersch' 'Dr. Matthias Zimmer' 'Dr. Max Lehmer'
+ 'Dr. Michael Abercron' 'Dr. Michael Fuchs' 'Dr. Michael Luther'
+ 'Dr. Michael Paul' 'Dr. Norbert Röttgen' 'Dr. Patrick Sensburg'
+ 'Dr. Peter Danckert' 'Dr. Peter Gauweiler' 'Dr. Peter Jahr'
+ 'Dr. Peter Paziorek' 'Dr. Peter Ramsauer' 'Dr. Peter Tauber'
+ 'Dr. Philipp Jenninger' 'Dr. Philipp Murmann' 'Dr. Rainer Tabillion'
+ 'Dr. Rainer Wend' 'Dr. Reinhard Brandl' 'Dr. Reinhold Hemker'
+ 'Dr. Renate Hellwig' 'Dr. Rolf Koschorrek' 'Dr. Rolf Mützenich'
+ 'Dr. Rolf Niese' 'Dr. Rose Götte' 'Dr. Rudolf Karl Krause (Bonese)'
+ 'Dr. Rudolf Seiters' 'Dr. Sabine Sütterlin-Waack' 'Dr. Stefan Kaufmann'
+ 'Dr. Stephan Harbarth' 'Dr. Thomas Feist' 'Dr. Thomas Gebhart'
+ 'Dr. Thomas Maizière' 'Dr. Ulrich Böhme (Unna)' 'Dr. Ulrich Steger'
+ 'Dr. Volker Ullrich' 'Dr. Walter Althammer' 'Dr. Wiebke Esdar'
+ 'Dr. Wilhelm Priesmeier' 'Dr. Willfried Penner' 'Dr. Wolf Bauer'
+ 'Dr. Wolfgang Bötsch' 'Dr. Wolfgang Schäuble' 'Dr. Wolfgang Stefinger'
+ 'Dr. Wolfgang Stetten' 'Dr. h.c. Albert Weiler'
+ 'Dr. h.c. Edelgard Bulmahn' 'Dr. h.c. Gerd Andres'
+ 'Dr.-Ing. Joachim Schmidt (Halsbrücke)' 'Dr.-Ing. Rainer Jork'
+ 'Eberhard Gienger' 'Eckhard Gnodtke' 'Eckhard Ohl' 'Eckhard Pols'
+ 'Eckhardt Barthel (Berlin)' 'Eckhart Lewering' 'Eduard Oswald'
+ 'Eike Ebert' 'Elisabeth Grochtmann' 'Elisabeth Winkelmeier-Becker'
+ 'Elke Wülfing' 'Elmar Müller (Kirchheim)' 'Emmi Zeulner'
+ 'Engelbert Wistuba' 'Erhard Mahne' 'Erich Irlstorfer'
+ 'Erich Meinike (Oberhausen)' 'Erich Wolfram (Recklinghausen)'
+ 'Erika Lotz' 'Ernst Bahr (Neuruppin)' 'Ernst Kranz' 'Ernst Küchler'
+ 'Ernst Waltemathe' 'Ernst-Reinhard Beck (Reutlingen)' 'Erwin Rüddel'
+ 'Esther Dilcher' 'Eugen Wiesche' 'Falko Mohrs' 'Felix Schreiner'
+ 'Ferdinand Tillmann' 'Florian Gerster (Worms)' 'Florian Hahn'
+ 'Florian Oßner' 'Frank Heinrich (Chemnitz)' 'Frank Hempel'
+ 'Frank Schwabe' 'Frank Steffel' 'Franz Handlos' 'Franz Heinrich Krey'
+ 'Franz Ludwig Schenk Stauffenberg' 'Franz Obermeier'
+ 'Franz-Josef Holzenkamp' 'Franz-Peter Basten'
+ 'Frederick Schulze (Sangerhausen)' 'Freimut Duve' 'Friedel Schirmer'
+ 'Friedhelm Ost' 'Friedrich Merz' 'Gabriele Frechen' 'Gabriele Iwersen'
+ 'Gabriele Wiechatzek' 'Garrelt Duin' 'Georg Brunnhuber' 'Georg Girisch'
+ 'Georg Janovsky' 'Georg Schirmbeck' 'Gerd Bollmann' 'Gerd Höfer'
+ 'Gerhard Rübenkönig' 'Gerhard Scheu' 'Gerhard Wächter'
+ 'Gernot Fischer (Osthofen)' 'Gesine Multhaupt' 'Gitta Connemann'
+ 'Gottfried Haschke (Großhennersdorf)' 'Gottfried Köster'
+ 'Gottfried Tröger' 'Gregor Amann' 'Gunther Krichbaum' 'Gustav Herzog'
+ 'Götz-Peter Lohmann' 'Günter Baumann' 'Günter Herterich' 'Günter Lach'
+ 'Günter Marten' 'Günter Oesinghaus' 'Günter Rixe' 'Günter Schluckebier'
+ 'Günter Topmann' 'Günther Leonhart' 'Günther Schartz (Trier)'
+ 'Hans Georg Wagner' 'Hans Jochen Henke' 'Hans Koschnick' 'Hans Raidel'
+ 'Hans-Dirk Bierling' 'Hans-Gerd Strube' 'Hans-Günter Bruckmann'
+ 'Hans-Günther Toetemeyer' 'Hans-Joachim Fuchtel'
+ 'Hans-Joachim Hoffmann (Saarbrücken)' 'Hans-Joachim Welt'
+ 'Hans-Jürgen Irmer' 'Hans-Jürgen Thies' 'Hans-Jürgen Uhl'
+ 'Hans-Otto Schmiedeberg' 'Hans-Peter Repnik' 'Hans-Ulrich Klose'
+ 'Hans-Ulrich Köhler (Hainspitz)' 'Hans-Werner Bertl' 'Hans-Wilhelm Pesch'
+ 'Hansgeorg Hauser (Rednitzhembach)' 'Hansjörg Durz' 'Harald Koch'
+ 'Hartmut Schauerte' 'Heike Brehmer' 'Heinrich Seesing' 'Heinz Menzel'
+ 'Heinz Pensky' 'Heinz Rother' 'Heinz Schreiber (Solingen)'
+ 'Heinz Schwarz' 'Heinz Seiffert' 'Heinz Westphal'
+ 'Heinz-Günter Bargfrede' 'Heinz-Jürgen Kronberg' 'Heinz-Werner Meyer'
+ 'Helga Lopez' 'Helge Lindh' 'Helmut Rode (Wietzen)'
+ 'Helmut Wieczorek (Duisburg)' 'Henry Nitzsche' 'Herbert Baack'
+ 'Herbert Frankenhauser' 'Herbert Helmrich' 'Herbert Meißner'
+ 'Herbert Wehner' 'Herbert Werner (Ulm)' 'Hermann Fellner'
+ 'Hermann Färber' 'Hermann Kroll-Schlüter' 'Hermann Rappe (Hildesheim)'
+ 'Holger Haibach' 'Horst Eylmann' 'Horst Gobrecht' 'Horst Grunenberg'
+ 'Horst Niggemeier' 'Horst Peter (Kassel)' 'Horst Seehofer'
+ 'Horst Sielaff' 'Hubert Deittert' 'Hubert Doppmeier'
+ 'Hubertus Heil (Peine)' 'Hugo Brandt (Grolsheim)' 'Ilse Aigner'
+ 'Ilse Janz' 'Ingbert Liebing' 'Ingeborg Hoffmann (Soltau)' 'Ingmar Jung'
+ 'Ingo Gädechens' 'Ingrid Becker-Inglau' 'Iris Hoffmann (Wismar)'
+ 'Jan Metzler' 'Jana Schimke' 'Jann-Peter Janssen' 'Jens Lehmann'
+ 'Jens Petermann' 'Jens Spahn' 'Joachim Gres' 'Joachim Poß'
+ 'Joachim Schönburg-Glauchau' 'Joachim Stünker' 'Joachim Tappe'
+ 'Johann Saathoff' 'Johann-Henrich Krummacher' 'Johannes Kahrs'
+ 'Johannes Nitsch' 'Johannes Pflug' 'Johannes Röring' 'Johannes Schraps'
+ 'Johannes Selle' 'Johannes Singer' 'Josef Göppel' 'Josef Linsmeier'
+ 'Josef Oster' 'Josef Rief' 'Josephine Ortleb' 'Julius Louven'
+ 'Jutta Müller (Völklingen)' 'Jörg Hellmuth' 'Jörg Vogelsänger'
+ 'Jörg-Otto Spiller' 'Jürgen Augustinowitz' 'Jürgen Hardt'
+ 'Jürgen Herrmann' 'Jürgen Kucharczyk' 'Jürgen Wieczorek (Böhlen)'
+ 'Kai Whittaker' 'Karin Evers-Meyer' 'Karin Maag' 'Karin Strenz'
+ 'Karl Deres' 'Karl Heinz Schröter' 'Karl Hermann Haack (Extertal)'
+ 'Karl Holmeier' 'Karl Liedtke' 'Karl Schiewerling' 'Karl-Georg Wellmann'
+ 'Karl-Heinz Scherhag' 'Karl-Theodor Guttenberg' 'Karsten Hilse'
+ 'Karsten Schönfeld' 'Katharina Landgraf' 'Katrin Staffler' 'Kees Vries'
+ 'Kersten Wetzel' 'Kerstin Tack' 'Kerstin Vieregge' 'Klaas Hübner'
+ 'Klaus Brähmig' 'Klaus Bühler (Bruchsal)'
+ 'Klaus Dieter Reichardt (Mannheim)' 'Klaus Hagemann' 'Klaus Harries'
+ 'Klaus Hartmann' 'Klaus Hasenfratz' 'Klaus Hofbauer' 'Klaus Lennartz'
+ 'Klaus Lohmann (Witten)' 'Klaus Reichenbach' 'Klaus Werner Jonas'
+ 'Klaus-Dieter Gröhler' 'Klaus-Peter Flosbach' 'Klaus-Peter Willsch'
+ 'Konrad Gilges' 'Konrad Kunick' 'Kurt J. Rossmanith'
+ 'Kurt Neumann (Berlin)' 'Kurt Segner' 'Leo Dautzenberg' 'Leyla Onur'
+ 'Lilo Friedrich (Mettmann)' 'Lisa Seuster' 'Lorenz Niegel'
+ 'Lothar Fischer (Homburg)' 'Lothar Ibrügger' 'Lothar Mark'
+ 'Lothar Riebsamen' 'Lothar Wrede' 'Lucia Puttrich'
+ 'Mahmut Özdemir (Duisburg)' 'Maik Reichel' 'Manfred Behrens (Börde)'
+ 'Manfred Carstens (Emstek)' 'Manfred Coppik' 'Manfred Grund'
+ 'Manfred Kolbe' 'Manfred Müller (Berlin)' 'Manfred Schulte (Unna)'
+ 'Manfred Zöllmer' 'Marc Biadacz' 'Marc Henrichmann' 'Marco Bülow'
+ 'Marco Wanderwitz' 'Margit Conrad' 'Margitta Terborg' 'Marian Wendt'
+ 'Mark Hauptmann' 'Mark Helfrich' 'Marko Mühlstein' 'Markus Grübel'
+ 'Markus Koob' 'Markus Meckel' 'Markus Töns' 'Marlene Mortler'
+ 'Martin Dörmann' 'Martin Göttsching' 'Martin Patzelt' 'Matern Marschall'
+ 'Mathias Stein' 'Matthias Engelsberger' 'Matthias Hauer' 'Matthias Lietz'
+ 'Matthias Wissmann' 'Max Straubinger' 'Mechthild Heil' 'Meinolf Michels'
+ 'Meinrad Belle' 'Melanie Bernstein' 'Metin Hakverdi'
+ 'Michael Brand (Fulda)' 'Michael Donth' 'Michael Frieser'
+ 'Michael Gerdes' 'Michael Glos' 'Michael Groschek' 'Michael Groß'
+ 'Michael Hennrich' 'Michael Jung (Limburg)' 'Michael Kießling'
+ 'Michael Kretschmer' 'Michael Kuffer' 'Michael Roth (Heringen)'
+ 'Michael Thews' 'Michelle Müntefering' 'Monika Griefahn' 'Nadine Schön'
+ 'Niels Annen' 'Nikolas Löbel' 'Nina Hauer' 'Norbert Barthle'
+ 'Norbert Brackmann' 'Norbert Formanski' 'Norbert Gansel' 'Norbert Geis'
+ 'Norbert Hauser (Bonn)' 'Norbert Maria Altenkamp' 'Norbert Schindler'
+ 'Olaf Scholz' 'Olav Gutting' 'Oliver Grundmann' 'Oliver Kaczmarek'
+ 'Ortwin Lowack' 'Ortwin Runde' 'Oswin Veith' 'Otto Hauser (Esslingen)'
+ 'Otto Regenspurger' 'Otto Reschke' 'Patrick Schnieder'
+ 'Paul Gerlach (Obernau)' 'Paul Lehrieder' 'Paul Röhner' 'Peter Albach'
+ 'Peter Aumer' 'Peter Beyer' 'Peter Bleser' 'Peter Enders'
+ 'Peter Friedrich (Altenburg)' 'Peter Götz' 'Peter Milz' 'Peter Paterna'
+ 'Peter Petersen' 'Peter Rauen' 'Peter Stein (Rostock)'
+ 'Peter W. Reuschenbach' 'Peter Weiß (Emmendingen)' 'Peter Wichtel'
+ 'Peter Zumkley' 'Petra Bierwirth' 'Petra Heß' 'Petra Merkel (Berlin)'
+ 'Petra Nicolaisen' 'Petra Pau' 'Petra Weis' 'Philipp Amthor'
+ 'Philipp Lerchenfeld' 'Prof. Dr. Bernhard Friedmann'
+ 'Prof. Dr. Bodo Teichmann' 'Prof. Dr. Max Kunz (Weiden)'
+ 'Prof. Dr. Norbert Rieder' 'Prof. Dr. Paul Laufs' 'Prof. Dr. Uwe Jens'
+ 'Rainer Fornahl' 'Rainer Haungs' 'Ralf Göbel' 'Ralf Kapschack'
+ 'Ralph Brinkhaus' 'Reiner Krziskewitz' 'Reinhard Schorlemer'
+ 'Reinhard Ueberhorst' 'Reinhold Hiller (Lübeck)' 'Reinhold Sendker'
+ 'René Röspel' 'Richard Stücklen' 'Rita Streb-Hesse' 'Robert Hochbaum'
+ 'Roderich Kiesewetter' 'Roland Richter' 'Roland Richwien'
+ 'Roland Sauer (Stuttgart)' 'Rolf Hempelmann' 'Rolf Koltzsch'
+ 'Rolf Kramer' 'Rolf Rau' 'Rolf Stöckel' 'Rosemarie Priebus'
+ 'Rudi Walther (Zierenberg)' 'Rudolf Braun (Auerbach)' 'Rudolf Dreßler'
+ 'Rudolf Henke' 'Rudolf Kraus' 'Rudolf Meinl' 'Rudolf Meyer (Winsen)'
+ 'Sabine Poschmann' 'Sabine Stüber' 'Sabine Weiss (Wesel I)'
+ 'Sebastian Brehm' 'Sebastian Edathy' 'Sebastian Steineke' 'Sepp Müller'
+ 'Siegfried Kauder (Villingen-Schw.)' 'Siegfried Scheffler'
+ 'Siegmund Ehrmann' 'Siemtje Möller' 'Sigmar Gabriel' 'Silvia Breher'
+ 'Stefan Heym' 'Stefan Höpfinger' 'Stefan Liebich'
+ 'Stefan Müller (Erlangen)' 'Stefan Rouenhoff' 'Stefan Sauer'
+ 'Stefan Schwartze' 'Stefanie Vogelsang' 'Steffen Bilger'
+ 'Steffen Bockhahn' 'Steffen Reiche (Cottbus)' 'Stephan Mayer (Altötting)'
+ 'Stephan Pilsinger' 'Stephan Stracke' 'Sybille Benning' 'Sylvia Pantel'
+ 'Sören Bartol' 'Sören Pellmann' 'Tanja Gönner' 'Tankred Schipanski'
+ 'Theo Magin' 'Thomas Bareiß' 'Thomas Dörflinger' 'Thomas Erndl'
+ 'Thomas Heilmann' 'Thomas Jarzombek' 'Thomas Molnar' 'Thomas Oppermann'
+ 'Thomas Sauer' 'Thomas Schröer (Mülheim)' 'Thomas Silberhorn'
+ 'Thomas Strobl (Heilbronn)' 'Thomas Viesehon' 'Thorsten Frei'
+ 'Timon Gremmels' 'Tino Chrupalla' 'Tino Sorge' 'Tobias Marhold'
+ 'Torbjörn Kartes' 'Torsten Schweiger' 'Udo Ehrbar' 'Udo Haschke (Jena)'
+ 'Ulla Burchardt' 'Ullrich Meßmer' 'Ulrich Adam' 'Ulrich Kasparick'
+ 'Ulrich Klinkert' 'Ulrich Lange' 'Ulrich Schmalz' 'Ulrike Gottschalck'
+ 'Ulrike Mascher' 'Ursula Groden-Kranich' 'Ute Bertram' 'Uwe Beckmeyer'
+ 'Uwe Feiler' 'Uwe Schmidt' 'Uwe Schummer' 'Veronika Bellmann'
+ 'Volker Blumentritt' 'Volker Jung (Düsseldorf)' 'Volker Kauder'
+ 'Volker Kröning' 'Volkmar Klein' 'Volkmar Schultz (Köln)'
+ 'Walter Hoffmann (Darmstadt)' 'Walter Polkehn' 'Walter Rempe'
+ 'Waltraud Lehn' 'Werner Dörflinger' 'Werner Labsch' 'Werner Lensing'
+ 'Werner Nagel' 'Werner Zeitler' 'Wilfried Oellers' 'Wilfried Schreck'
+ 'Wilhelm Josef Sebastian' 'Wilhelm Jung (Lörrach)' 'Wilhelm Rawe'
+ 'Wilhelm Schmidt (Salzgitter)' 'Willi Weiskirch (Olpe)'
+ 'Willy Wimmer (Neuss)' 'Winfried Mante' 'Wolfgang Bosbach'
+ 'Wolfgang Dehnel' 'Wolfgang Ehlers' 'Wolfgang Engelmann'
+ 'Wolfgang Feinendegen' 'Wolfgang Grotthaus' 'Wolfgang Gröbl'
+ 'Wolfgang Ilte' 'Wolfgang Krause (Dessau)' 'Wolfgang Rayer'
+ 'Wolfgang Spanier' 'Wolfgang Weiermann' 'Wolfgang Zeitlmann'
+ 'Wolfgang Zöller' 'Yasmin Fahimi']
+Number of mps with direct mandate only
+764

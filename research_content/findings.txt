@@ -1,0 +1,25 @@
+Untersucht Bundestag_speeches_pp9
+
+Findings:
+Spanneberg party affiliation is shown as "afd" even if at this point this party wasn't even founded
+	It seems like the party affiliation is determined by the last known date (also for 'wav' Hans-Gerd-Fröhlich)
+
+Found a dead speaker Heinz Renner for the KPD spoke 1981, even when died in 1968
+	Only one line (7430). Looking at the context it seems like this line belongs to the Bundestag vicepresident
+	Dr. Annemarie Renger who gave Ernst Waltemathe an call to order
+
+"Klima" very often used in the meaning of "general mood"
+
+Parteizugehörigkeit is nan für Staatssekretäre und sonstige Regierungsbeamte oder reine Interjenction-lines
+
+
+Untersucht Bundestag_speeches_pp19
+
+Beachten: Die 19. Periode ist noch nicht beendet!
+
+Hier wird Klima auf den ersten Blick viel häufiger mit dem natürlichen Klima verwendet
+Reden, die das Wort Klima enthalten sind circa zwölfmal Mal häufiger erwähnt
+Auch das Wort Kohle wird in doppelt so viele Reden erwähnt
+	Das könnte ein erster Hinweis sein, dass das Thema Klima und Kohle im Bundestag präsenter geworden ist
+
+Für weitere Ergebnisse siehe out.txt
