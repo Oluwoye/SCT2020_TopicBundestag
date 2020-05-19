@@ -71,6 +71,8 @@ def explore_mandate_data(since_parlperiod=1, until_parperiod=19):
 def explore_19th_bundestag():
     ninth_bundestag = pd.read_csv('data/bundestag_speeches_pp14-19/bundestag_speeches_pp19.csv')
     print(ninth_bundestag.columns)
+    print("Number of lines total")
+    print(ninth_bundestag.shape[0])
     parties = ninth_bundestag['Speaker party'].unique()
     print("Parties in the 19th Bundestag:")
     print(parties)
