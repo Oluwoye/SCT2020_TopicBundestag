@@ -1,0 +1,18 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pylint = "*"
+autopep8 = "*"
+rope = "*"
+
+[packages]
+nltk = ">=3.4.5"
+gensim = ">=3.8.1"
+pandas = "*"
+numpy = "*"
+
+[requires]
+python_version = "3.8.3"

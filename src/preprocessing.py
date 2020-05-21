@@ -2,8 +2,6 @@ import re
 import os
 import pandas as pd
 
-# import nltk
-# nltk.download('all') Comment this in the first time you run the script
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem.cistem import Cistem
@@ -52,7 +50,7 @@ def preprocess_col(col):
 
 
 def main():
-    path = 'data/bundestag_speeches_pp09-14'
+    path = 'data/input/bundestag_speeches_pp09-14'
     for filename in os.listdir(path):
         if "preprocessed" in filename:
             continue
