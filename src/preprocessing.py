@@ -4,7 +4,7 @@ import pandas as pd
 
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
-from nltk.stem.cistem import Cistem
+from nltk.stem import WordNetLemmatizer
 
 
 def replace_special_characters(col):
@@ -13,23 +13,33 @@ def replace_special_characters(col):
         if str_el is None or (not isinstance(str_el, str)):
             new_col.append('')
         else:
-            new_col.append(str_el.replace('.', '').replace(';', '').replace(',', '').replace('?', '').replace('!', '')
-                           .replace('[', '').replace(']', '').replace('(', '').replace(')', '').replace('{', '')
-                           .replace('}', '').replace('&', '').replace('%', '').replace('/', '').replace('\\', '')
-                           .replace('\'', ' ').replace('´', ' ').replace('`', ' ').replace('ß', 's').replace('ä', 'ae')
-                           .replace('ö', 'oe').replace('ü', 'üe').replace('Ä', 'Ae').replace('Ö', 'Oe')
-                           .replace('Ü', 'Ue').replace(':', ''))
+            str_el = str_el.replace('.', '').replace(';', '').replace(',', '').replace('?', '').replace('!', '')\
+                .replace('[', '').replace(']', '').replace('(', '').replace(')', '').replace('{', '')\
+                .replace('}', '').replace('&', '').replace('%', '').replace('/', '').replace('\\', '')\
+                .replace('\'', ' ').replace('´', ' ').replace('`', ' ').replace(':', '').replace('"', '')\
+                .replace('-', ' ').replace('--', ' ').replace('_', ' ').replace('*', '').replace('–', '')
+            new_col.append(str_el.lower())
+
+    return new_col
+
+
+def replace_umlauts(col):
+    new_col = []
+    for i, str_el in enumerate(col):
+        str_el = str_el.replace('ß', 's').replace('ä', 'ae').replace('ö', 'oe').replace('ü', 'üe')\
+            .replace('Ä', 'Ae').replace('Ö', 'Oe').replace('Ü', 'Ue')
+        new_col.append(str_el)
     return new_col
 
 
 def prepare_words(col):
     new_col = []
-    stemmer = Cistem()
+    lemmatizer = WordNetLemmatizer()
     for i, str_el in enumerate(col):
-        word_list = word_tokenize(str_el)
+        word_set = set(word_tokenize(str_el))
         stop_words = set(stopwords.words('german'))
-        new_col.append([stemmer.stem(word) for word in word_list if word not in stop_words and
-                        not (re.search('\d+', word))])
+        new_col.append([lemmatizer.lemmatize(word) for word in word_set if lemmatizer.lemmatize(word) not in stop_words
+                        and not (re.search('\d+', word))])
     return new_col
 
 
@@ -46,7 +56,10 @@ def concatenate_to_document(col):
 def preprocess_col(col):
     col = replace_special_characters(col)
     col = prepare_words(col)
+
     return concatenate_to_document(col)
+    # col = concatenate_to_document(col)
+    # return replace_umlauts(col)
 
 
 def main():
