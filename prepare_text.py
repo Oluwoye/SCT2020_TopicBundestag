@@ -13,10 +13,13 @@ def replace_special_characters(col):
         if str_el is None or (not isinstance(str_el, str)):
             new_col.append('')
         else:
-            new_col.append(str_el.replace('.', '').replace(';', '').replace(',', '').replace('?', '').replace('!', '')
-                           .replace('[', '').replace(']', '').replace('(', '').replace(')', '').replace('{', '')
-                           .replace('}', '').replace('&', '').replace('%', '').replace('/', '').replace('\\', '')
-                           .replace('\'', ' ').replace('´', ' ').replace('`', ' ').replace(':', ''))
+            str_el = str_el.replace('.', '').replace(';', '').replace(',', '').replace('?', '').replace('!', '')\
+                .replace('[', '').replace(']', '').replace('(', '').replace(')', '').replace('{', '')\
+                .replace('}', '').replace('&', '').replace('%', '').replace('/', '').replace('\\', '')\
+                .replace('\'', ' ').replace('´', ' ').replace('`', ' ').replace(':', '').replace('"', '')\
+                .replace('-', ' ').replace('--', ' ').replace('_', ' ')
+            new_col.append(str_el.lower())
+
     return new_col
 
 
@@ -32,10 +35,10 @@ def prepare_words(col):
     new_col = []
     lemmatizer = WordNetLemmatizer()
     for i, str_el in enumerate(col):
-        word_list = word_tokenize(str_el)
+        word_set = set(word_tokenize(str_el))
         stop_words = set(stopwords.words('german'))
-        new_col.append([lemmatizer.lemmatize(word) for word in word_list if word not in stop_words and
-                        not (re.search('\d+', word))])
+        new_col.append([lemmatizer.lemmatize(word) for word in word_set if lemmatizer.lemmatize(word) not in stop_words
+                        and not (re.search('\d+', word))])
     return new_col
 
 
@@ -52,12 +55,12 @@ def concatenate_to_document(col):
 def preprocess_col(col):
     col = replace_special_characters(col)
     col = prepare_words(col)
-    col = replace_umlauts(col)
-    return concatenate_to_document(col)
+    col = concatenate_to_document(col)
+    return replace_umlauts(col)
 
 
 def main():
-    path = 'data/input/bundestag_speeches_pp09-14'
+    path = 'data/bundestag_speeches_pp09-14'
     for filename in os.listdir(path):
         if "preprocessed" in filename:
             continue
