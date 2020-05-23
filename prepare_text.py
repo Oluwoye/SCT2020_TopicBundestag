@@ -2,11 +2,9 @@ import re
 import os
 import pandas as pd
 
-# import nltk
-# nltk.download('all') Comment this in the first time you run the script
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
-from nltk.stem.cistem import Cistem
+from nltk.stem import WordNetLemmatizer
 
 
 def replace_special_characters(col):
@@ -18,19 +16,25 @@ def replace_special_characters(col):
             new_col.append(str_el.replace('.', '').replace(';', '').replace(',', '').replace('?', '').replace('!', '')
                            .replace('[', '').replace(']', '').replace('(', '').replace(')', '').replace('{', '')
                            .replace('}', '').replace('&', '').replace('%', '').replace('/', '').replace('\\', '')
-                           .replace('\'', ' ').replace('´', ' ').replace('`', ' ').replace('ß', 's').replace('ä', 'ae')
-                           .replace('ö', 'oe').replace('ü', 'üe').replace('Ä', 'Ae').replace('Ö', 'Oe')
-                           .replace('Ü', 'Ue').replace(':', ''))
+                           .replace('\'', ' ').replace('´', ' ').replace('`', ' ').replace(':', ''))
     return new_col
+
+
+def replace_umlauts(col):
+    new_col = []
+    for i, str_el in enumerate(col):
+        new_col.append(str_el.replace('ß', 's').replace('ä', 'ae').replace('ö', 'oe').replace('ü', 'üe')
+                       .replace('Ä', 'Ae').replace('Ö', 'Oe').replace('Ü', 'Ue'))
+    return col
 
 
 def prepare_words(col):
     new_col = []
-    stemmer = Cistem()
+    lemmatizer = WordNetLemmatizer()
     for i, str_el in enumerate(col):
         word_list = word_tokenize(str_el)
         stop_words = set(stopwords.words('german'))
-        new_col.append([stemmer.stem(word) for word in word_list if word not in stop_words and
+        new_col.append([lemmatizer.lemmatize(word) for word in word_list if word not in stop_words and
                         not (re.search('\d+', word))])
     return new_col
 
@@ -48,11 +52,12 @@ def concatenate_to_document(col):
 def preprocess_col(col):
     col = replace_special_characters(col)
     col = prepare_words(col)
+    col = replace_umlauts(col)
     return concatenate_to_document(col)
 
 
 def main():
-    path = 'data/bundestag_speeches_pp09-14'
+    path = 'data/input/bundestag_speeches_pp09-14'
     for filename in os.listdir(path):
         if "preprocessed" in filename:
             continue
