@@ -17,7 +17,7 @@ def replace_special_characters(col):
                 .replace('[', '').replace(']', '').replace('(', '').replace(')', '').replace('{', '')\
                 .replace('}', '').replace('&', '').replace('%', '').replace('/', '').replace('\\', '')\
                 .replace('\'', ' ').replace('´', ' ').replace('`', ' ').replace(':', '').replace('"', '')\
-                .replace('-', ' ').replace('--', ' ').replace('_', ' ')
+                .replace('-', ' ').replace('--', ' ').replace('_', ' ').replace('*', '').replace('–', ' ')
             new_col.append(str_el.lower())
 
     return new_col
