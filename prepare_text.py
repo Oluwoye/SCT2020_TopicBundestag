@@ -17,7 +17,7 @@ def replace_special_characters(col):
                 .replace('[', '').replace(']', '').replace('(', '').replace(')', '').replace('{', '')\
                 .replace('}', '').replace('&', '').replace('%', '').replace('/', '').replace('\\', '')\
                 .replace('\'', ' ').replace('´', ' ').replace('`', ' ').replace(':', '').replace('"', '')\
-                .replace('-', ' ').replace('--', ' ').replace('_', ' ').replace('*', '').replace('–', ' ')
+                .replace('-', ' ').replace('--', ' ').replace('_', ' ').replace('*', '').replace('–', '')
             new_col.append(str_el.lower())
 
     return new_col
@@ -26,9 +26,10 @@ def replace_special_characters(col):
 def replace_umlauts(col):
     new_col = []
     for i, str_el in enumerate(col):
-        new_col.append(str_el.replace('ß', 's').replace('ä', 'ae').replace('ö', 'oe').replace('ü', 'üe')
-                       .replace('Ä', 'Ae').replace('Ö', 'Oe').replace('Ü', 'Ue'))
-    return col
+        str_el = str_el.replace('ß', 's').replace('ä', 'ae').replace('ö', 'oe').replace('ü', 'üe')\
+            .replace('Ä', 'Ae').replace('Ö', 'Oe').replace('Ü', 'Ue')
+        new_col.append(str_el)
+    return new_col
 
 
 def prepare_words(col):
@@ -55,8 +56,10 @@ def concatenate_to_document(col):
 def preprocess_col(col):
     col = replace_special_characters(col)
     col = prepare_words(col)
-    col = concatenate_to_document(col)
-    return replace_umlauts(col)
+
+    return concatenate_to_document(col)
+    # col = concatenate_to_document(col)
+    # return replace_umlauts(col)
 
 
 def main():
