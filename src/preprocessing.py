@@ -7,6 +7,9 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
 
+
+CUSTOM_STOPWORDS = ['ja', 'au', 'wa', 'nein', 'iii', 'sche', 'dy', 'ing', 'al', 'oh']
+
 def replace_special_characters(col):
     new_col = []
     for i, str_el in enumerate(col):
@@ -17,7 +20,7 @@ def replace_special_characters(col):
                 .replace('[', '').replace(']', '').replace('(', '').replace(')', '').replace('{', '')\
                 .replace('}', '').replace('&', '').replace('%', '').replace('/', '').replace('\\', '')\
                 .replace('\'', ' ').replace('´', ' ').replace('`', ' ').replace(':', '').replace('"', '')\
-                .replace('-', ' ').replace('--', ' ').replace('_', ' ').replace('*', '').replace('–', '')
+                .replace('-', ' ').replace('--', ' ').replace('_', ' ').replace('*', '').replace('–', '').replace('„', '')
             new_col.append(str_el.lower())
 
     return new_col
@@ -37,9 +40,9 @@ def prepare_words(col):
     lemmatizer = WordNetLemmatizer()
     for i, str_el in enumerate(col):
         word_set = set(word_tokenize(str_el))
-        stop_words = set(stopwords.words('german'))
+        stop_words = set(stopwords.words('german') + CUSTOM_STOPWORDS)
         new_col.append([lemmatizer.lemmatize(word) for word in word_set if lemmatizer.lemmatize(word) not in stop_words
-                        and not (re.search('\d+', word))])
+                        and not (re.search('\d+', word)) and len(lemmatizer.lemmatize(word)) > 1])
     return new_col
 
 
@@ -63,18 +66,16 @@ def preprocess_col(col):
 
 
 def main():
-    path = 'data/bundestag_speeches_pp09-14'
+    path = 'data/input/bundestag_speeches_pp09-14'
+    output_path = 'data/preprocessed/'
     for filename in os.listdir(path):
-        if "preprocessed" in filename:
-            continue
         file = os.path.join(path, filename)
         bundestag = pd.read_csv(file)
         bundestag = bundestag.apply(
             lambda col: preprocess_col(col) if col.name == "Speech text" or col.name == "Interjection content"
             else col)
-        file.replace('.csv', '')
-        file += '_preprocessed.csv'
-        bundestag.to_csv(file)
+        output_file = os.path.join(output_path + filename)
+        bundestag.to_csv(output_file)
         print("Finished processing of: " + filename)
 
 

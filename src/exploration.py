@@ -14,10 +14,10 @@ def main():
 
 
 def explore_mandate_data(since_parlperiod=1, until_parperiod=19):
-    constituencies = pd.read_csv("data/constituencies.csv")
-    lists = pd.read_csv('data/lists.csv')
-    people = pd.read_csv('data/people.csv')
-    seats = pd.read_csv('data/seats.csv')
+    constituencies = pd.read_csv("data/input/constituencies.csv")
+    lists = pd.read_csv('data/input/lists.csv')
+    people = pd.read_csv('data/input/people.csv')
+    seats = pd.read_csv('data/input/seats.csv')
 
     print("MPs characteristic since " + str(since_parlperiod) + "period till " + str(until_parperiod) + " period.")
 
@@ -69,7 +69,7 @@ def explore_mandate_data(since_parlperiod=1, until_parperiod=19):
 
 
 def explore_19th_bundestag():
-    ninth_bundestag = pd.read_csv('data/bundestag_speeches_pp14-19/bundestag_speeches_pp19.csv')
+    ninth_bundestag = pd.read_csv('data/input/bundestag_speeches_pp14-19/bundestag_speeches_pp19.csv')
     print(ninth_bundestag.columns)
     print("Number of lines total")
     print(ninth_bundestag.shape[0])
@@ -79,18 +79,18 @@ def explore_19th_bundestag():
 
     coal_lines = ninth_bundestag.loc[ninth_bundestag['Speech text'].str.contains('Kohle')]
     coal_lines = coal_lines[['Speech text']]
-    coal_lines.to_csv('research_content/coal_mention_pp19.csv', header=True)
+    coal_lines.to_csv('data/exploration_output/coal_mention_pp19.csv', header=True)
     print("Number of speeches mentioning coal in the 19th Bundestag")
     print(coal_lines.shape[0])
     climate_lines = ninth_bundestag.loc[ninth_bundestag['Speech text'].str.contains('Klima')]
     climate_lines = climate_lines[['Speech text']]
     print("Number of speeches mentioning climate in the 19th Bundestag")
     print(climate_lines.shape[0])
-    # climate_lines.to_csv('research_content/climate_mention_pp19.csv', header=True)
+    climate_lines.to_csv('data/exploration_output/climate_mention_pp19.csv', header=True)
 
 
 def explore_ninth_bundestag():
-    ninth_bundestag = pd.read_csv('data/bundestag_speeches_pp09-14/bundestag_speeches_pp9.csv')
+    ninth_bundestag = pd.read_csv('data/input/bundestag_speeches_pp09-14/bundestag_speeches_pp9.csv')
     print(ninth_bundestag.columns)
     print("Number of lines total")
     print(ninth_bundestag.shape[0])
@@ -115,12 +115,12 @@ def explore_ninth_bundestag():
     coal_lines = coal_lines[['Speech text']]
     print("Number of speeches mentioning coal in the 9th Bundestag")
     print(coal_lines.shape[0])
-    # coal_lines.to_csv('research_content/coal_mention_pp9.csv', header=True)
+    coal_lines.to_csv('data/exploration_output/coal_mention_pp9.csv', header=True)
     climate_lines = ninth_bundestag.loc[ninth_bundestag['Speech text'].str.contains('Klima')]
     climate_lines = climate_lines[['Speech text']]
     print("Number of speeches mentioning climate in the 9th Bundestag")
     print(climate_lines.shape[0])
-    # climate_lines.to_csv('research_content/climate_mention_pp9.csv', header=True)
+    climate_lines.to_csv('data/exploration_output/climate_mention_pp9.csv', header=True)
 
 
 if __name__ == '__main__':
