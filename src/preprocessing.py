@@ -67,7 +67,7 @@ def preprocess_col(col):
 
 def main():
     path = 'data/input/bundestag_speeches_pp09-14'
-    output_path = 'data/preprocessed'
+    output_path = 'data/preprocessed/'
     for filename in os.listdir(path):
         file = os.path.join(path, filename)
         bundestag = pd.read_csv(file)
