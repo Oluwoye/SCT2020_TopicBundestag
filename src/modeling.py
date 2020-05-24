@@ -96,9 +96,9 @@ def main():
             LDA(value['texts'], key + '_speeches_unfiltered')
         
         #LDA on complete and party-wise keyword filtered data
-        LDA(filtered_data['full']['texts'], 'all_speeches_unfiltered')
+        LDA(filtered_data['full']['texts'], 'all_speeches_filtered')
         for key, value in filtered_data['parties'].items():
-            LDA(value['texts'], key + '_speeches_unfiltered')
+            LDA(value['texts'], key + '_speeches_filtered')
 
 if __name__ == '__main__':
     main()
