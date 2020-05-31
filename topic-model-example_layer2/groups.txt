@@ -1,0 +1,55 @@
+Group num: 0, TC(X;Y_j): 2.415
+abbauen, 0.550, 1.000, 0.550
+abbaustätten, 0.375, 1.000, 0.375
+abbaus, 0.374, 1.000, 0.374
+abenteuerlichen, 0.314, 1.000, 0.314
+abchecken, 0.306, 1.000, 0.306
+abdrehen, 0.297, 1.000, 0.297
+aberglaube, 0.286, 1.000, 0.286
+aberglauben, 0.280, 1.000, 0.280
+abendzeitung, 0.262, 1.000, 0.262
+abfallbehandlung, 0.259, 1.000, 0.259
+abblitzen, 0.244, 1.000, 0.244
+abdeckung, 0.228, 1.000, 0.228
+abenteuerliche, 0.225, 1.000, 0.225
+abfedern, 0.213, 1.000, 0.213
+abfangen, 0.133, 1.000, 0.133
+abfederung, 0.065, 1.000, 0.065
+Group num: 1, TC(X;Y_j): 1.298
+ab, 0.822, 1.000, 0.822
+abbringen, 0.381, 1.000, 0.381
+abbestellt, 0.295, 1.000, 0.295
+abe, 0.265, 1.000, 0.265
+abelein, 0.261, 1.000, 0.261
+abendblatt, 0.237, 1.000, 0.237
+abfalls, 0.211, 1.000, 0.211
+abfassung, 0.143, 1.000, 0.143
+abenteuerlich, 0.139, 1.000, 0.139
+Group num: 2, TC(X;Y_j): 0.943
+abdecken, 0.380, 1.000, 0.380
+abend, 0.317, 1.000, 0.317
+abbauvorschlag, 0.274, 1.000, 0.274
+abfedernd, 0.235, 1.000, 0.235
+abdeckt, 0.214, 1.000, 0.214
+abbruch, 0.187, 1.000, 0.187
+abbaupolitik, 0.171, 1.000, 0.171
+abenteuer, 0.169, 1.000, 0.169
+abermals, 0.154, 1.000, 0.154
+abfalleimer, 0.134, 1.000, 0.134
+Group num: 3, TC(X;Y_j): 0.757
+abbaut, 0.505, 1.000, 0.505
+abbrennen, 0.357, 1.000, 0.357
+abends, 0.207, 1.000, 0.207
+abfall, 0.197, 1.000, 0.197
+abermilliarden, 0.188, 1.000, 0.188
+abfallbeseitigung, 0.137, 1.000, 0.137
+abbaukatalog, 0.104, 1.000, 0.104
+abenteurer, 0.095, 1.000, 0.095
+aachen, 0.066, 1.000, 0.066
+aachener, 0.063, 1.000, 0.063
+Group num: 4, TC(X;Y_j): 0.313
+abdingbar, 0.302, 1.000, 0.302
+abbau, 0.248, 1.000, 0.248
+abermalige, 0.233, 1.000, 0.233
+abdankung, 0.147, 1.000, 0.147
+abbauvorschläge, 0.128, 1.000, 0.128

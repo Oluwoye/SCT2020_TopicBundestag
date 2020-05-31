@@ -1,4 +1,3 @@
-data/input/*
-data/preprocessed/*
+data*
 .idea/*
 *speeches*.*
