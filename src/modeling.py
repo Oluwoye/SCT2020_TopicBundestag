@@ -29,7 +29,7 @@ def compute_coherence_values(texts, corpus, dictionary, k, a, model_label):
     
     return coherence_model_lda.get_coherence()
 
-def LDA(texts, model_label, number_of_topics=40):
+def LDA(texts, model_label, a, number_of_topics=40):
 
     corpus_dictionary = gensim.corpora.Dictionary(texts)
     # corpus_dictionary.filter_extremes(no_below=5, no_above=0.5)
@@ -41,7 +41,9 @@ def LDA(texts, model_label, number_of_topics=40):
         id2word=corpus_dictionary,
         num_topics=number_of_topics,
         optimize_interval=10,
-        prefix=model_label
+        prefix=model_label,
+        random_seed=1,
+        alpha=a
     )
     
     lda_model.save(model_label + '.p')
@@ -101,11 +103,9 @@ def test_hyperparameters(texts, model_label):
     min_topics = 5
     max_topics = 30
     step_size = 1
-    topics_range = [50, 55, 60, 70, 80]
+    topics_range = [40, 60, 100]
     # Alpha parameter
-    alpha = list(np.arange(0.01, 1, 0.3))
-    alpha.append('symmetric')
-    alpha.append('asymmetric')
+    alpha = [0.01, 0.25, 0.5, 0.75, 0.99]
     # Beta parameter, can't set beta parameters through the gensim mallet wrapper
     # beta = list(np.arange(0.01, 1, 0.3))
     # beta.append('symmetric')
@@ -148,7 +148,6 @@ def test_hyperparameters(texts, model_label):
 
 def main():
     path = 'data/preprocessed/'
-    list_of_filters = ['kohle', 'umwelt', 'klima']
 
     for file_name in os.listdir(path):
         #only do analysis for Bundestag 9 for now
@@ -159,8 +158,7 @@ def main():
         #read data
         df = pd.read_csv(file)
 
-        #build filtered data (or condition on list_of_filters)
-        filtered_df = df[df['Speech text'].str.contains('|'.join(list_of_filters), na = False)]
+        filtered_df = df[df['Speech text'].str.contains('kohle', na=False)]
 
         #build input texts for LDA
         complete_data = build_texts(df)
@@ -175,7 +173,8 @@ def main():
         #LDA(filtered_data['full']['texts'], 'all_speeches_filtered')
         # for key, value in filtered_data['parties'].items():
         #     LDA(value['texts'], key + '_speeches_filtered')
-        test_hyperparameters(filtered_data['full']['texts'], 'all_speeches_filtered')
+        #test_hyperparameters(filtered_data['full']['texts'], 'all_speeches_filtered')
+        LDA(filtered_data['full']['texts'], 'all_speeches_filtered_50', 0.01, number_of_topics=50)
 
 if __name__ == '__main__':
     main()
