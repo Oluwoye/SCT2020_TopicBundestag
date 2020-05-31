@@ -101,7 +101,7 @@ def test_hyperparameters(texts, model_label):
     min_topics = 5
     max_topics = 30
     step_size = 1
-    topics_range = [36, 38, 39, 40, 41, 42, 44, 50]
+    topics_range = [50, 55, 60, 70, 80]
     # Alpha parameter
     alpha = list(np.arange(0.01, 1, 0.3))
     alpha.append('symmetric')
@@ -141,7 +141,6 @@ def test_hyperparameters(texts, model_label):
                 model_results['Alpha'].append(a)
                 # model_results['Beta'].append(b)
                 model_results['Coherence'].append(cv)
-                count += 1
                 pbar.update(1)
     pd.DataFrame(model_results).to_csv('lda_tuning_results.csv', index=False)
     pbar.close()
