@@ -1,5 +1,5 @@
-0:abbauen,abbaustätten,abbaus,abenteuerlichen,abchecken,abdrehen,aberglaube,aberglauben,abendzeitung,abfallbehandlung
-1:ab,abbringen,abbestellt,abe,abelein,abendblatt,abfalls,abfassung,abenteuerlich
-2:abdecken,abend,abbauvorschlag,abfedernd,abdeckt,abbruch,abbaupolitik,abenteuer,abermals,abfalleimer
-3:abbaut,abbrennen,abends,abfall,abermilliarden,abfallbeseitigung,abbaukatalog,abenteurer,aachen,aachener
-4:abdingbar,abbau,abermalige,abdankung,abbauvorschläge
+0:1,6,9,23,27,10,7,19,36,41
+1:12,8,15,21,24,30,37,42,25,48
+2:14,28,4,40,46,34,5,38,35,22
+3:18,20,26,45,39
+4:16,32,17,49,43,11

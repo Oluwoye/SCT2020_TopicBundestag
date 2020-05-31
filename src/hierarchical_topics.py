@@ -57,14 +57,14 @@ def main():
 
     print("Second layer topics")
     print_all_topics(tm_layer2, filename="OutLevel2.txt")
-    vt.vis_rep(tm_layer2, column_label=vocabs, prefix='topic-model-example_layer2')
+    vt.vis_rep(tm_layer2, column_label=list(map(str, range(50))), prefix='topic-model-example_layer2')
 
     tm_layer3 = ct.Corex(n_hidden=1)
     tm_layer3.fit(tm_layer2.labels)
 
     print("Third layer topics")
     print_all_topics(tm_layer2, filename="OutLevel3.txt")
-    vt.vis_rep(tm_layer3, column_label=vocabs, prefix='topic-model-example_layer3')
+    vt.vis_rep(tm_layer3, column_label=list(map(str, range(5))), prefix='topic-model-example_layer3')
 
     vt.vis_hierarchy([topic_model, tm_layer2, tm_layer3], column_label=vocabs, max_edges=200)
 
