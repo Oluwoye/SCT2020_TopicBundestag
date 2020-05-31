@@ -6,9 +6,30 @@ import gensim
 import nltk
 import os
 import pandas as pd
+from gensim.models import CoherenceModel
+import tqdm
+import numpy as np
+import json
+
+mallet_path = "C:\\mallet\\bin\\mallet"
+
+def compute_coherence_values(texts, corpus, dictionary, k, a, model_label):
+
+    lda_model = gensim.models.wrappers.ldamallet.LdaMallet(
+        mallet_path,
+        corpus=corpus,
+        id2word=dictionary,
+        num_topics=k,
+        optimize_interval=10,
+        prefix=model_label,
+        random_seed=1,
+        alpha=a,
+    )
+    coherence_model_lda = CoherenceModel(model=lda_model, texts=texts, dictionary=dictionary, coherence='c_v')
+    
+    return coherence_model_lda.get_coherence()
 
 def LDA(texts, model_label, number_of_topics=40):
-    mallet_path = "C:\\mallet\\bin\\mallet"
 
     corpus_dictionary = gensim.corpora.Dictionary(texts)
     # corpus_dictionary.filter_extremes(no_below=5, no_above=0.5)
@@ -22,7 +43,7 @@ def LDA(texts, model_label, number_of_topics=40):
         optimize_interval=10,
         prefix=model_label
     )
-
+    
     lda_model.save(model_label + '.p')
 
     topics = lda_model.show_topics(num_topics=number_of_topics, num_words=10)
@@ -70,6 +91,62 @@ def build_texts(data):
     print('filtered_speeches_count: ', filter_count)
     return result
 
+def test_hyperparameters(texts, model_label):
+    grid = {}
+    grid['Validation_Set'] = {}
+
+    dictionary = gensim.corpora.Dictionary(texts)
+    corpus = [dictionary.doc2bow(text) for text in texts]
+    # Topics range
+    min_topics = 5
+    max_topics = 30
+    step_size = 1
+    topics_range = [36, 38, 39, 40, 41, 42, 44, 50]
+    # Alpha parameter
+    alpha = list(np.arange(0.01, 1, 0.3))
+    alpha.append('symmetric')
+    alpha.append('asymmetric')
+    # Beta parameter, can't set beta parameters through the gensim mallet wrapper
+    # beta = list(np.arange(0.01, 1, 0.3))
+    # beta.append('symmetric')
+    # Validation sets
+    num_of_docs = len(corpus)
+    # add different corpus sets here for comparisons
+    corpus_sets = [corpus]
+    corpus_title = ['100% Corpus']
+    model_results = {'Validation_Set': [],
+                    'Topics': [],
+                    'Alpha': [],
+                    #'Beta': [],
+                    'Coherence': []
+                    }
+    total = len(corpus_sets) * len(topics_range) * len(alpha) #* len(beta)
+    # Can take a long time to run
+    pbar = tqdm.tqdm(total=total)
+    
+    # iterate through validation corpuses
+    for i in range(len(corpus_sets)):
+        # iterate through number of topics
+        for k in topics_range:
+            # iterate through alpha values
+            for a in alpha:
+                # iterare through beta values
+                # for b in beta:
+                # get the coherence score for the given parameters
+                cv = compute_coherence_values(texts=texts, corpus=corpus_sets[i], dictionary=dictionary, 
+                                            k=k, a=a, model_label=model_label)
+                # Save the model results
+                model_results['Validation_Set'].append(corpus_title[i])
+                model_results['Topics'].append(k)
+                model_results['Alpha'].append(a)
+                # model_results['Beta'].append(b)
+                model_results['Coherence'].append(cv)
+                count += 1
+                pbar.update(1)
+    pd.DataFrame(model_results).to_csv('lda_tuning_results.csv', index=False)
+    pbar.close()
+
+
 def main():
     path = 'data/preprocessed/'
     list_of_filters = ['kohle', 'umwelt', 'klima']
@@ -91,14 +168,15 @@ def main():
         filtered_data = build_texts(filtered_df)
         
         #LDA on complete and party-wise unfiltered data
-        LDA(complete_data['full']['texts'], 'all_speeches_unfiltered')
-        for key, value in complete_data['parties'].items():
-            LDA(value['texts'], key + '_speeches_unfiltered')
+        # LDA(complete_data['full']['texts'], 'all_speeches_unfiltered')
+        # for key, value in complete_data['parties'].items():
+        #     LDA(value['texts'], key + '_speeches_unfiltered')
         
         #LDA on complete and party-wise keyword filtered data
-        LDA(filtered_data['full']['texts'], 'all_speeches_filtered')
-        for key, value in filtered_data['parties'].items():
-            LDA(value['texts'], key + '_speeches_filtered')
+        #LDA(filtered_data['full']['texts'], 'all_speeches_filtered')
+        # for key, value in filtered_data['parties'].items():
+        #     LDA(value['texts'], key + '_speeches_filtered')
+        test_hyperparameters(filtered_data['full']['texts'], 'all_speeches_filtered')
 
 if __name__ == '__main__':
     main()
