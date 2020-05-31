@@ -8,7 +8,7 @@ from nltk.stem import WordNetLemmatizer
 
 
 
-CUSTOM_STOPWORDS = ['ja', 'au', 'wa', 'nein', 'iii', 'sche', 'dy', 'ing', 'al', 'oh']
+CUSTOM_STOPWORDS = ['ja', 'au', 'wa', 'nein', 'iii', 'sche', 'dy', 'ing', 'al', 'oh', 'frau', 'herr', 'kollege', 'ta', 'kollegin', 'herrn', 'ab', 'wort', 'wyhl', 'je']
 
 def replace_special_characters(col):
     new_col = []
@@ -55,11 +55,19 @@ def concatenate_to_document(col):
         new_col.append(document)
     return new_col
 
-
+# def filter_by_keyword_window(col, filter_keywords, window_radius):
+    # keywords_by_idx = [i for i, word in col if word in filter_keywords]
+    # neighbors = []
+#     for idx in keywords_by_idx:
+        # neighbors.append(col[idx-window_radius:idx+window_radius+1])
+        
 def preprocess_col(col):
     col = replace_special_characters(col)
     col = prepare_words(col)
-
+    #naive filter by only allowing text from window around keywords -> duplicates words when keywords overlap
+    # window_radius = 30
+    # filter_keywords = ['kohle', 'kernkraft', 'kernenergie', 'öl', 'umweltpolitik']
+    # col = filter_by_keyword_window(col, filter_keywords, window_radius)
     return concatenate_to_document(col)
     # col = concatenate_to_document(col)
     # return replace_umlauts(col)
@@ -72,7 +80,7 @@ def main():
         file = os.path.join(path, filename)
         bundestag = pd.read_csv(file)
         bundestag = bundestag.apply(
-            lambda col: preprocess_col(col) if col.name == "Speech text" or col.name == "Interjection content"
+            lambda col: preprocess_col(col) if col.name == "Speech text" #or col.name == "Interjection content"
             else col)
         output_file = os.path.join(output_path + filename)
         bundestag.to_csv(output_file)
