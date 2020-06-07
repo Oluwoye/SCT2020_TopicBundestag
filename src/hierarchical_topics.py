@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from corextopic import corextopic as ct
 from corextopic import vis_topic as vt
-
+import scipy.sparse as ss
 
 def print_all_topics(topic_model, filename):
     with open(filename, "w+") as file:
@@ -27,7 +27,7 @@ def predict_for_party(layers, corpus, vocabulary):
 
 
 def main():
-    ninth_bundestag = pd.read_csv("data/bundestag_speeches_pp09-14/bundestag_speeches_pp9.csv_preprocessed.csv")
+    ninth_bundestag = pd.read_csv("data/preprocessed/bundestag_speeches_pp9.csv")
     speeches = ninth_bundestag["Speech text"]
     speeches = speeches.fillna("")
     speeches = speeches.tolist()
@@ -41,25 +41,27 @@ def main():
 
     vectorizer = CountVectorizer()
     document_term_matrix = vectorizer.fit_transform(coal_speeches).toarray()
+    #convert matrix into sparse matrix, otherwise CorEx fails when used with anchors for some reason
+    document_term_matrix = ss.csr_matrix(document_term_matrix)
     vocabs = vectorizer.get_feature_names()
 
     print("Begin topic extraction")
-
-    topic_model = ct.Corex(n_hidden=50)
-    topic_model.fit(document_term_matrix, words=vocabs)
+    anchor_words = ['kernkraft', 'kernenergie', 'atomkraft']
+    topic_model = ct.Corex(n_hidden=50, seed=2)
+    topic_model.fit(document_term_matrix, words=vocabs, anchors=anchor_words, anchor_strength=6)
 
     print("First layer topics")
     print_all_topics(topic_model, filename="OutLevel1.txt")
     vt.vis_rep(topic_model, column_label=vocabs, prefix='topic-model-example')
 
-    tm_layer2 = ct.Corex(n_hidden=5)
+    tm_layer2 = ct.Corex(n_hidden=5, seed=2)
     tm_layer2.fit(topic_model.labels)
 
     print("Second layer topics")
     print_all_topics(tm_layer2, filename="OutLevel2.txt")
     vt.vis_rep(tm_layer2, column_label=list(map(str, range(50))), prefix='topic-model-example_layer2')
 
-    tm_layer3 = ct.Corex(n_hidden=1)
+    tm_layer3 = ct.Corex(n_hidden=1, seed=2)
     tm_layer3.fit(tm_layer2.labels)
 
     print("Third layer topics")
