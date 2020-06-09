@@ -1,0 +1,20 @@
+With anchor strength 1 with the anchorword Klima 0: weniger,außen,sollen,umgekehrt,gegenteil,fdp,ab,wachstum,tendenz,könnten
+With anchor strength 1 with the anchorword Klima 1: klima,jedenfalls,notwendige,entwicklungen,alten,gelöst,eingehen,ging,interpretation,zueinander
+With anchor strength 1 with the anchorword Klima 2: schon,immer,eigentlich,dabei,viele,sagen,lage,liegt,politischen,heißt
+With anchor strength 1 with the anchorword 3: anfragen,befindlichen,debattiert,halbe,verläßliche,errichten,einsetzung,dirigistischen,benannt,tätigen
+With anchor strength 1 with the anchorword 4: muß,mehr,müssen,dy,damen,unserer,weiß,heute,letzten,un
+With anchor strength 2 with the anchorword Klima 0: welt,politik,sozialen,zeit,all,wirtschaft,arbeitslosigkeit,bi,jahr,wort
+With anchor strength 2 with the anchorword Klima 1: heute,müssen,immer,unserer,jahren,dafür,darauf,muß,diesis,gegenüber
+With anchor strength 2 with the anchorword Klima 2: klima,entscheidung,politisch,wenige,dank,umweltschutz,höchste,innere,selber,auftrag
+With anchor strength 2 with the anchorword 3: entscheiden,bundes,eingebracht,schneller,genehmigungsverfahren,weiterer,enquete,kernenergie,beratungen,empfehlungen
+With anchor strength 2 with the anchorword 4: arbeitsplätze,anpassung,neuer,grundsätzlichen,hart,angriff,genügend,bewußt,drittens,bericht
+With anchor strength 3 with the anchorword Klima 0: klima,macht,gesellschaft,hinaus,vertrauen,einsparungen,dienst,freiheit,genscher,wenigstens
+With anchor strength 3 with the anchorword Klima 1: klima,diejenigen,selber,schmidt,platz,satz,sozialliberalen,helmut,finde,überleben
+With anchor strength 3 with the anchorword Klima 2: klima,gleichen,wahlkampf,zusammen,einzelnen,wahl,leben,beitragen,seiten,amerikanischen
+With anchor strength 3 with the anchorword 3: rahmenbedingungen,kohl,grundlagen,staatssekretär,ausführungen,ehrlich,formulieren,zurückgegangen,unerträglich,einschätzung
+With anchor strength 3 with the anchorword 4: muß,heute,müssen,immer,mehr,darauf,schon,gerade,unserer,un
+With anchor strength 4 with the anchorword Klima 0: fragen,heute,müssen,immer,mehr,unserer,klima,darauf,welt,muß
+With anchor strength 4 with the anchorword Klima 1: klima,lassen,entwicklung,all,sei,gewerkschaften,leben,großen,natürlich,regierung
+With anchor strength 4 with the anchorword Klima 2: klima,bundeskanzler,internationalen,geworden,soziale,gleichen,bemühen,eben,bürger,wirtschaftliche
+With anchor strength 4 with the anchorword 3: auffassung,tatsächlich,vielmehr,geschieht,einzelne,einfluß,worten,teilerrichtungsgenehmigung,schutz,programm
+With anchor strength 4 with the anchorword 4: schritte,ändern,ebene,relativ,kritisch,geringen,management,hamburg,gang,idee

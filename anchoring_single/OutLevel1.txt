@@ -1,0 +1,20 @@
+With anchor strength 1 for topic 0 with the anchorword Kohle 0: sage,bundeskanzler,muß,ländern,dy,sehen,teil,dafür,zwei,wohl
+With anchor strength 1 for topic 0 with the anchorword 1: deutlich,kommt,wochen,diskussion,erlauben,zuerst,gehabt,kollegen,ab,gewerkschaften
+With anchor strength 1 for topic 0 with the anchorword 2: wa,möglichkeiten,unterstützen,wirtschaftliche,sollten,bereitschaft,entspricht,entwicklung,unternehmen,frau
+With anchor strength 1 for topic 0 with the anchorword 3: mark,umwelt,partner,ausgleich,mühe,weder,beratung,arbeitnehmern,gesellschaftliche,konzentrieren
+With anchor strength 1 for topic 0 with the anchorword 4: vielleicht,staat,menschen,denen,aufgabe,mehr,lande,niemand,drei,neuen
+With anchor strength 1 for topic 0 with the anchorword Kohle 0: sage,sehen,muß,bundeskanzler,ländern,dy,immer,teil,politik,natürlich
+With anchor strength 2 for topic 0 with the anchorword 1: besonderen,zehn,preis,heimischen,finanzieren,eingesetzt,prioritäten,konsequent,beitritt,vorzulegen
+With anchor strength 2 for topic 0 with the anchorword 2: gegensatz,neben,konflikte,deutlichkeit,berücksichtigt,grundsatz,kam,weiterer,forderungen,regelung
+With anchor strength 2 for topic 0 with the anchorword 3: geht,demokratie,offen,erster,recht,wer,hätten,wochen,her,erreicht
+With anchor strength 2 for topic 0 with the anchorword 4: vergleich,bringen,gemacht,gefunden,heraus,satz,vielfältigen,zusammenhänge,leistungen,betroffenen
+With anchor strength 2 for topic 0 with the anchorword Kohle 0: kohle,bundeskanzler,zwei,leistungsbilanz,steht,übrigen,trägt,allein,energie,beteiligen
+With anchor strength 3 for topic 0 with the anchorword 1: entsprechenden,letzte,parteien,chance,geld,real,abgesehen,höre,gestiegen,chancen
+With anchor strength 3 for topic 0 with the anchorword 2: ergebnis,möglich,fest,erfolg,bundestag,investitionsbereitschaft,vordergrund,ereignisse,industrieländer,nötig
+With anchor strength 3 for topic 0 with the anchorword 3: müssen,wäre,immer,natürlich,eigenen,ländern,hätte,darauf,politik,muß
+With anchor strength 3 for topic 0 with the anchorword 4: stellen,politischen,sinne,geht,darf,erlebt,schmidt,dienst,erreichen,wahl
+With anchor strength 3 for topic 0 with the anchorword Kohle 0: kohle,bundeskanzler,dy,leistungsbilanz,stellen,sage,au,übrigen,politik,darauf
+With anchor strength 4 for topic 0 with the anchorword 1: zusätzliche,wille,angeht,hängt,vollbeschäftigung,großer,gesetzlichen,entwicklungen,preis,finanziert
+With anchor strength 4 for topic 0 with the anchorword 2: staat,davon,jahren,wirklich,menschen,letzten,gar,ganz,grund,wer
+With anchor strength 4 for topic 0 with the anchorword 3: ja,jahres,heute,wa,al,lassen,deutschen,un,falschen,darf
+With anchor strength 4 for topic 0 with the anchorword 4: muß,sprechen,welt,verlangt,immer,beiden,ziel,müssen,sozialen,dafür
