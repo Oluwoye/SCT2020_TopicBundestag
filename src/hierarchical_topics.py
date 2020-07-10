@@ -8,6 +8,7 @@ from corextopic import corextopic as ct
 from corextopic import vis_topic as vt
 from sklearn.manifold import TSNE
 import scipy.sparse as ss
+import os
 
 def print_all_topics(topic_model, filename, anchor_strength=0):
     with open(filename, "a+") as file:
@@ -77,58 +78,73 @@ def visualize_topics(topic_model, speeches, vocabulary):
 
 
 def main():
-    ninth_bundestag = pd.read_csv("data/preprocessed/bundestag_speeches_pp9.csv")
+    # path = 'data/merged/final/'
+    # bundestag = pd.DataFrame()
+    # for filename in os.listdir(path):
+    #     file = os.path.join(path, filename)
+    #     if bundestag.empty:
+    #         bundestag = pd.read_csv(file)
+    #     else:
+    #         bundestag = pd.concat([bundestag, pd.read_csv(file)], ignore_index=True)
+    ninth_bundestag = pd.read_csv("data/merged/final_single/newbundestag_speeches_pp18.csv")
+    #ninth_bundestag = bundestag
     speeches = ninth_bundestag["Speech text"]
     speeches = speeches.fillna("")
     speeches = speeches.tolist()
-    coal_speeches = [speech for speech in speeches if "kohle" in speech]
+    # coal_speeches = [speech for speech in speeches if "kohle" in speech]
 
-    fdp_coal = ninth_bundestag.loc[ninth_bundestag["Speaker party"] == "fdp"]
-    fdp_coal = fdp_coal["Speech text"]
-    fdp_coal = fdp_coal.fillna("")
-    fdp_coal = fdp_coal.tolist()
-    fdp_coal = [speech for speech in fdp_coal if "kohle" in speech]
+    # fdp_coal = ninth_bundestag.loc[ninth_bundestag["Speaker party"] == "fdp"]
+    # fdp_coal = fdp_coal["Speech text"]
+    # fdp_coal = fdp_coal.fillna("")
+    # fdp_coal = fdp_coal.tolist()
+    # fdp_coal = [speech for speech in fdp_coal if "kohle" in speech]
 
     vectorizer = CountVectorizer()
-    document_term_matrix = vectorizer.fit_transform(coal_speeches).toarray()
+    document_term_matrix = vectorizer.fit_transform(speeches).toarray()
     #convert matrix into sparse matrix, otherwise CorEx fails when used with anchors for some reason
     document_term_matrix = ss.csr_matrix(document_term_matrix)
     vocabs = vectorizer.get_feature_names()
 
     print("Begin topic extraction")
 
-    for i in range(1, 5):
+#    for i in range(1, 5):
 
-        topic_model = ct.Corex(n_hidden=5)
-        topic_model.fit(document_term_matrix, words=vocabs, anchors=[["kohle"]], anchor_strength=i)
-
-        print("First layer topics")
-        visualize_topics(topic_model, coal_speeches, vocabs)
-        print_all_topics(topic_model, filename="OutLevel1.txt", anchor_strength=i)
-        vt.vis_rep(topic_model, column_label=vocabs, prefix='topic-model-example')
-    anchor_words = ['kernkraft', 'kernenergie', 'atomkraft']
+#        topic_model = ct.Corex(n_hidden=5)
+#       topic_model.fit(document_term_matrix, words=vocabs, anchors=[["kohle"]], anchor_strength=i)
+#
+#       print("First layer topics")
+#        visualize_topics(topic_model, coal_speeches, vocabs)
+#        print_all_topics(topic_model, filename="OutLevel1.txt", anchor_strength=i)
+#        vt.vis_rep(topic_model, column_label=vocabs, prefix='topic-model-example')
+    anchor_words = [['kohle', 'bergbau'], ['kernenergie', 'atomkraft'], ['solarenergie', 'wasserkraft']]
     topic_model = ct.Corex(n_hidden=50, seed=2)
-    topic_model.fit(document_term_matrix, words=vocabs, anchors=anchor_words, anchor_strength=6)
+    topic_model.fit(document_term_matrix, words=vocabs)
+    print('tc', topic_model.tc)
+    for idx, val in enumerate(topic_model.tcs):
+        print('topic ', idx, ' tc: ', val)
+    print_all_topics(topic_model, filename="level1.txt")
+    vt.vis_rep(topic_model, column_label=vocabs, prefix='tm-example_layer1')
 
-    return
 
     tm_layer2 = ct.Corex(n_hidden=5, seed=2)
     tm_layer2.fit(topic_model.labels)
-
+    print('tc 2nd', tm_layer2.tc)
+    for idx, val in enumerate(tm_layer2.tcs):
+        print('topic ', idx, ' tc: ', val)
     print("Second layer topics")
-    print_all_topics(tm_layer2, filename="OutLevel2.txt")
-    vt.vis_rep(tm_layer2, column_label=list(map(str, range(80))), prefix='topic-model-example_layer2')
+    print_all_topics(tm_layer2, filename="Level2.txt")
+    vt.vis_rep(tm_layer2, column_label=list(map(str, range(50))), prefix='tm-example_layer2')
 
     tm_layer3 = ct.Corex(n_hidden=1, seed=2)
     tm_layer3.fit(tm_layer2.labels)
 
     print("Third layer topics")
-    print_all_topics(tm_layer2, filename="OutLevel3.txt")
-    vt.vis_rep(tm_layer3, column_label=list(map(str, range(8))), prefix='topic-model-example_layer3')
+    print_all_topics(tm_layer2, filename="Level3.txt")
+    vt.vis_rep(tm_layer3, column_label=list(map(str, range(5))), prefix='tm-example_layer3')
 
     vt.vis_hierarchy([topic_model, tm_layer2, tm_layer3], column_label=vocabs, max_edges=200)
 
-    predict_for_party([topic_model, tm_layer2, tm_layer3], fdp_coal, vocabs)
+    #predict_for_party([topic_model, tm_layer2, tm_layer3], fdp_coal, vocabs)
 
 
 if __name__ == "__main__":
