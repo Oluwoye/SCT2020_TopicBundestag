@@ -23,7 +23,27 @@ def main():
     speeches = ninth_bundestag["Speech text"].to_list()
     speakers = ninth_bundestag["Speaker"].to_list()
     # From: https://de.wikipedia.org/wiki/Pr%C3%A4sident_des_Deutschen_Bundestages
-    praes = ["Richard Stücklen", "Heinrich Windelen", "Annemarie Renger", "Georg Leber", "Richard Wurbs"]
+    praes = {
+        '1': ['Dr. Erich Köhler', 'Dr. Hermann Ehlers', 'Dr. Carlo Schmid (Frankfurt)', 'Dr. Hermann Schäfer'],
+        '': ['Dr. Hermann Ehlers', 'Dr. Eugen Gerstenmaier', 'Dr. Richard Jaeger', 'Dr. Carlo Schmid (Frankfurt)', 'Dr. Ludwig Schneider', 'Dr. Max Becker (Hersfeld)'],
+        '3': ['Dr. Eugen Gerstenmaier', 'Dr. Richard Jaeger', 'Dr. Carlo Schmid (Frankfurt)', 'Dr. Max Becker (Hersfeld)', 'Dr. Thomas Dehler', 'Dr. Victor-Emanuel Preusker'],
+        '4': ['Dr. Eugen Gerstenmaier', 'Dr. Richard Jaeger', 'Dr. Carlo Schmid (Frankfurt)', 'Erwin Schoettle', 'Dr. Thomas Dehler'],
+        '5': ['Dr. Eugen Gerstenmaier', 'Kai-Uwe Hassel', 'Dr. Richard Jaeger', 'Dr. Maria Probst', 'Dr. Carlo Schmid (Frankfurt)', 'Dr. Karl Mommer', 'Erwin Schoettle', 'Dr. Thomas Dehler', 'Walter Scheel'],
+        '6': ['Kai-Uwe Hassel', 'Dr. Richard Jaeger', 'Dr. Carlo Schmid (Frankfurt)', 'Dr. Hermann Schmitt-Vockenhausen', 'Liselotte Funcke'],
+        '7': ['Dr. Annemarie Renger', 'Kai-Uwe Hassel', 'Dr. Richard Jaeger', 'Dr. Hermann Schmitt-Vockenhausen', 'Liselotte Funcke'],
+        '8': ['Dr. Karl Carstens (Fehmarn)', 'Richard Stücklen', 'Dr. Richard von Weizsäcker', 'Dr. Annemarie Renger', 'Dr. Hermann Schmitt-Vockenhausen', 'Georg Leber', 'Liselotte Funck', 'Richard Wurbs'],
+        '9': ['Richard Stücklen', 'Dr. Richard von Weizsäcker', 'Heinrich Windelen', 'Dr. Annemarie Renger', 'Georg Leber', 'Richard Wurbs'],
+        '10': ['Dr. Rainer Barzel', 'Dr. Philipp Jenninger', 'Richard Stücklen', 'Dr. Annemarie Renger', 'Heinz Westphal', 'Richard Wurbs', 'Dieter-Julius Cronenberg (Arnsberg)'],
+        '11': ['Dr. Philipp Jenninger', 'Dr. Rita Süssmuth', 'Richard Stücklen', 'Dr. Annemarie Renger', 'Heinz Westphal', 'Dieter-Julius Cronenberg (Arnsberg)'],
+        '12': ['Dr. Rita Süssmuth', 'Hans Klein (München)', 'Helmuth Becker (NienBerge)', 'Renate Schmidt (Nürnberg)', 'Dieter-Julius Cronenberg (Arnsberg)'],
+        '13': ['Dr. Rita Süssmuth', 'Hans Klein (München)', 'Michaela Geiger', 'Hans-Ulrich Klose', 'Dr. Antje Vollmer', 'Dr. Burkhard Hirsch'],
+        '14': ['Dr. h.c. Wolfgang Thierse', 'Dr. Rudolf Seiters', 'Anke Fuchs (Köln)', 'Petra Bläss', 'Dr. Antje Vollmer', 'Dr. Hermann Otto Solms'],
+        '15': ['Dr. h.c. Wolfgang Thierse', 'Dr. Norbert Lammert', 'Dr. h.c. Susanne Kastner', 'Dr. Antje Vollmer', 'Dr. Hermann Otto Solms'],
+        '16': ['Dr. Norbert Lammert', 'Gerda Hasselfeldt', 'Dr. h.c. Susanne Kastner', 'Dr. h.c. Wolfgang Thierse', 'Petra Pau', 'Katrin Göring-Eckhardt', 'Dr. Hermann Otto Solms'],
+        '17': ['Dr. Norbert Lammert', 'Gerda Hasselfeldt', 'Eduard Oswald', 'Dr. h.c. Wolfgang Thierse', 'Petra Pau', 'Katrin Göring-Eckhardt', 'Dr. Hermann Otto Solms'],
+        '18': ['Dr. Norbert Lammert', 'Peter Hintze', 'Michaela Noll', 'Johannes Singhammer', 'Dr. h.c. Edelgard Bulmahn', 'Ulla Schmidt (Aachen)', 'Petra Pau', 'Claudia Roth (Augsburg)'],
+        '19': ['Dr. Wolfgang Schäuble', 'Dr. Hans-Peter Friedrich (Hof)', 'Thomas Oppermann', 'Petra Pau', 'Claudia Roth (Augsburg)', 'Wolfgang Kubicki']
+    }
     # for i, speech in enumerate(speeches):
     #     print(i)
     all_praes_speeches = [i for i, speech in enumerate(speeches) if type(speech) == str and speakers[i] in praes]
