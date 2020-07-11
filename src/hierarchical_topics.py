@@ -27,7 +27,7 @@ def predict_for_party(layers, corpus, vocabulary):
 
         for i, layer in enumerate(layers):
             out.write("Prediction of layer " + str(i) + ":\n\n\n")
-            prediction_1 = layer.predict(document_term_matrix)
+            prediction_1 = layer.predict_proba(document_term_matrix)
             out.write(str(prediction_1))
             out.write("\n\n")
             document_term_matrix = prediction_1
@@ -36,7 +36,7 @@ def predict_for_party(layers, corpus, vocabulary):
 def visualize_topics(topic_model, speeches, vocabulary):
     vectorizer = CountVectorizer(vocabulary=vocabulary)
     document_term_matrix = vectorizer.fit_transform(speeches)
-    topics = topic_model.predict(document_term_matrix)
+    topics = np.array(topic_model.predict_proba(document_term_matrix))
 
     labels = []
     for topic in topics:
@@ -77,11 +77,13 @@ def visualize_topics(topic_model, speeches, vocabulary):
 
 
 def main():
-    ninth_bundestag = pd.read_csv("data/preprocessed/bundestag_speeches_pp9.csv")
+    ninth_bundestag = pd.read_csv("data/bundestag_speeches_pp09-14/bundestag_speeches_pp9.csv_preprocessed.csv")
     speeches = ninth_bundestag["Speech text"]
     speeches = speeches.fillna("")
     speeches = speeches.tolist()
     coal_speeches = [speech for speech in speeches if "kohle" in speech]
+    coal_speeches_train = coal_speeches[:100]
+    test_speeches = coal_speeches[100:200]
 
     fdp_coal = ninth_bundestag.loc[ninth_bundestag["Speaker party"] == "fdp"]
     fdp_coal = fdp_coal["Speech text"]
@@ -90,7 +92,7 @@ def main():
     fdp_coal = [speech for speech in fdp_coal if "kohle" in speech]
 
     vectorizer = CountVectorizer()
-    document_term_matrix = vectorizer.fit_transform(coal_speeches).toarray()
+    document_term_matrix = vectorizer.fit_transform(coal_speeches_train).toarray()
     #convert matrix into sparse matrix, otherwise CorEx fails when used with anchors for some reason
     document_term_matrix = ss.csr_matrix(document_term_matrix)
     vocabs = vectorizer.get_feature_names()
@@ -103,15 +105,14 @@ def main():
         topic_model.fit(document_term_matrix, words=vocabs, anchors=[["kohle"]], anchor_strength=i)
 
         print("First layer topics")
-        visualize_topics(topic_model, coal_speeches, vocabs)
+        visualize_topics(topic_model, test_speeches, vocabs)
         print_all_topics(topic_model, filename="OutLevel1.txt", anchor_strength=i)
         vt.vis_rep(topic_model, column_label=vocabs, prefix='topic-model-example')
     anchor_words = ['kernkraft', 'kernenergie', 'atomkraft']
-    topic_model = ct.Corex(n_hidden=50, seed=2)
+    topic_model = ct.Corex(n_hidden=5, seed=2)
     topic_model.fit(document_term_matrix, words=vocabs, anchors=anchor_words, anchor_strength=6)
 
-    return
-
+    predict_for_party([topic_model], fdp_coal, vocabs)
     tm_layer2 = ct.Corex(n_hidden=5, seed=2)
     tm_layer2.fit(topic_model.labels)
 
