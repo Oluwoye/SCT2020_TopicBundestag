@@ -1,0 +1,2 @@
+Group num., NTC
+0, 0.183

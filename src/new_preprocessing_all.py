@@ -70,7 +70,8 @@ print(len(mdb_names))
 #     with open ('outfile', 'rb') as fp:
 #         return pickle.load(fp)
 
-def  get_wordnet_pos(word):
+
+def get_wordnet_pos(word):
     """Map POS tag to first character lemmatize() accepts"""
     tag = word[0].upper()
     tag_dict = {"J": wordnet.ADJ,
@@ -79,6 +80,7 @@ def  get_wordnet_pos(word):
                 "R": wordnet.ADV}
 
     return tag_dict.get(tag, wordnet.NOUN)
+
 
 def replace_special_characters(col):
     new_col = []
@@ -104,7 +106,8 @@ def prepare_words(col):
                         and not (re.search('\d+', tagged[0])) and len(lemmatizer.lemmatize(tagged[0], get_wordnet_pos(tagged[1]))) > 3])
         print('lemmatized ', idx + 1, '/', len(col), ' speeches')
     return new_col
-        
+
+
 def preprocess(col):
     print('init')
     col = filter_by_pos(col)
@@ -114,6 +117,7 @@ def preprocess(col):
     col = concatenate_to_document(col)
     print('done preprocessing speech')
     return col
+
 
 def filter_by_pos(col):
     new_col = []
@@ -128,6 +132,7 @@ def filter_by_pos(col):
         print('filtered pos : ', idx + 1, '/', len(col))
     return new_col
 
+
 def concatenate_to_document(col):
     new_col = []
     for word_list in col:
@@ -136,6 +141,7 @@ def concatenate_to_document(col):
             document += ' ' + word
         new_col.append(document)
     return new_col
+
 
 def merge_speeches(df, filename):
     init_speeches = df.to_dict('records')
@@ -178,6 +184,7 @@ def merge_speeches(df, filename):
     print('processing complete for: ', df.iloc[0]['Date'])
     return result
 
+
 def filter_columns(df):
     init_speeches = df.to_dict('records')
     result = []
@@ -190,6 +197,8 @@ def filter_columns(df):
                     'Speech text': speech['Speech text']
                 })
     return result
+
+
 def main():
     path = 'data/input/bundestag_speeches_from_10'
     output_path = 'data/merged/final/'
@@ -241,6 +250,8 @@ def main():
         print('done preprocessing')
 
     for contribution in final_speech_contribution:
+        if not os.path.isdir(output_path):
+            os.makedirs(output_path, exist_ok=True)
         output_file = os.path.join(output_path + contribution)
         final_speech_contribution[contribution].to_csv(output_file)
         print("Finished processing of: " + contribution)

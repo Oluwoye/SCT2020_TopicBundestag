@@ -10,6 +10,9 @@ from sklearn.manifold import TSNE
 import scipy.sparse as ss
 import os
 
+from tqdm import tqdm
+
+
 def print_all_topics(topic_model, filename, anchor_strength=0):
     with open(filename, "a+") as file:
         topics = topic_model.get_topics()
@@ -21,17 +24,53 @@ def print_all_topics(topic_model, filename, anchor_strength=0):
             file.write('{}: '.format(n) + ','.join(topic_words) + "\n")
 
 
-def predict_for_party(layers, corpus, vocabulary):
-    with open("fdp_prediction.txt", "w+") as out:
+def evaluate_document_topic_matrix(document_topic_matrix, print_matrices=True):
+    document_topic_matrix = np.array(document_topic_matrix)
+    res_string = ""
+
+    mean_per_topic = np.mean(document_topic_matrix, axis=0)
+    topic_occurences = np.count_nonzero(document_topic_matrix >= 0.7, axis=0)
+    total_amount = np.sum(topic_occurences)
+    average_topic_assignments = np.mean(np.count_nonzero(document_topic_matrix >= 0.7, axis=1))
+
+    if print_matrices:
+        res_string += "\nOriginal document-topic matrix: \n"
+        for row in document_topic_matrix:
+            res_string += str(row) + "\n"
+    res_string += "Shape of document-topic matrix: \n" + str(document_topic_matrix.shape) + "\n"
+    res_string += "Total number of elements: \n" + str(total_amount) + "\n"
+    res_string += "Mean confidence per topic: \n" + str(mean_per_topic) + "\n"
+    res_string += "Number of occurences per topic with confidence over 0.7: \n" + str(topic_occurences) + "\n"
+    res_string += "Ratios of occurences per topic with confidence over 0.7: \n" + str(topic_occurences/total_amount) + "\n"
+    res_string += "Average topic assignments per document with confidence over 0.7: \n" + str(average_topic_assignments) + "\n"
+
+    return res_string
+
+
+def predict_for_party(party_index_dict, vocabulary, layers, party, bundestag_dataframe):
+    party_indices = party_index_dict[party]
+    speeches = bundestag_dataframe['Speech text']
+    corpus = speeches[party_indices]
+    output_path = "data" + os.path.sep + "output" + os.path.sep + "parties" + os.path.sep
+    if not os.path.isdir(output_path):
+        os.makedirs(output_path, exist_ok=True)
+    output_file = output_path + party + "_prediction.txt"
+
+    evaluate_corpus(layers, output_file, vocabulary, corpus, print_matrices=False)
+
+
+def evaluate_corpus(layers, output_file, vocabulary, corpus, print_matrices=True):
+    with open(output_file, "w+") as out:
         vectorizer = CountVectorizer(vocabulary=vocabulary)
         document_term_matrix = vectorizer.fit_transform(corpus)
 
         for i, layer in enumerate(layers):
             out.write("Prediction of layer " + str(i) + ":\n\n\n")
-            prediction_1 = layer.predict_proba(document_term_matrix)
-            out.write(str(prediction_1))
+            prediction_1, ignored = layer.predict_proba(document_term_matrix)
+            evaluation = evaluate_document_topic_matrix(prediction_1, print_matrices=print_matrices)
+            out.write(evaluation)
             out.write("\n\n")
-            document_term_matrix = prediction_1
+            document_term_matrix = np.array(prediction_1)
 
 
 def visualize_topics(topic_model, speeches, vocabulary):
@@ -77,6 +116,54 @@ def visualize_topics(topic_model, speeches, vocabulary):
     print(topics)
 
 
+def split_indices_per_party(bundestag_frame):
+    party_index = dict()
+    parties = bundestag_frame["Speaker party"].unique()
+    for party in parties:
+        # We only consider lines with a clear party affiliation so we exclude nan values
+        if type(party) != str:
+            continue
+        mask = bundestag_frame["Speaker party"] == party
+        party_index[party] = [i for i, truth_value in enumerate(mask) if truth_value]
+
+    return party_index
+
+
+def split_indices_per_speaker(bundestag_frame):
+    speaker_index = dict()
+    speakers = bundestag_frame["Speaker"].unique()
+    for speaker in speakers:
+        # We only consider lines with a clear speaker so we exclude nan values
+        if type(speaker) != str:
+            continue
+        mask = bundestag_frame["Speaker"] == speaker
+        speaker_index[speaker] = [i for i, truth_value in enumerate(mask) if truth_value]
+
+    return speaker_index
+
+
+def predict_for_speaker(indices_per_speaker, vocabs, topic_layers, speaker, bundestag_frame):
+    speaker_indices = indices_per_speaker[speaker]
+    speeches = bundestag_frame['Speech text']
+    corpus = speeches[speaker_indices]
+    output_path = "data" + os.path.sep + "output" + os.path.sep + "speakers" + os.path.sep
+    if not os.path.isdir(output_path):
+        os.makedirs(output_path, exist_ok=True)
+    output_file = output_path + speaker + "_prediction.txt"
+
+    evaluate_corpus(topic_layers, output_file, vocabs, corpus, print_matrices=False)
+
+
+def predict_all(vocabs, topic_layers, bundestag_frame):
+    corpus = bundestag_frame['Speech text']
+    output_path = "data" + os.path.sep + "output" + os.path.sep
+    if not os.path.isdir(output_path):
+        os.makedirs(output_path, exist_ok=True)
+    output_file = output_path + "all" + "_prediction.txt"
+
+    evaluate_corpus(topic_layers, output_file, vocabs, corpus, print_matrices=False)
+
+
 def main():
     # path = 'data/merged/final/'
     # bundestag = pd.DataFrame()
@@ -86,14 +173,16 @@ def main():
     #         bundestag = pd.read_csv(file)
     #     else:
     #         bundestag = pd.concat([bundestag, pd.read_csv(file)], ignore_index=True)
-    ninth_bundestag = pd.read_csv("data/merged/final_single/newbundestag_speeches_pp18.csv")
-    #ninth_bundestag = bundestag
-    speeches = ninth_bundestag["Speech text"]
+    bundestag_frame = pd.read_csv("data/merged/final_single/newbundestag_speeches_pp17.csv")
+    indices_per_party = split_indices_per_party(bundestag_frame)
+    indices_per_speaker = split_indices_per_speaker(bundestag_frame)
+    # bundestag_frame = bundestag
+    speeches = bundestag_frame["Speech text"]
     speeches = speeches.fillna("")
     speeches = speeches.tolist()
     # coal_speeches = [speech for speech in speeches if "kohle" in speech]
 
-    # fdp_coal = ninth_bundestag.loc[ninth_bundestag["Speaker party"] == "fdp"]
+    # fdp_coal = bundestag_frame.loc[bundestag_frame["Speaker party"] == "fdp"]
     # fdp_coal = fdp_coal["Speech text"]
     # fdp_coal = fdp_coal.fillna("")
     # fdp_coal = fdp_coal.tolist()
@@ -144,7 +233,16 @@ def main():
 
     vt.vis_hierarchy([topic_model, tm_layer2, tm_layer3], column_label=vocabs, max_edges=200)
 
-    #predict_for_party([topic_model, tm_layer2, tm_layer3], fdp_coal, vocabs)
+    predict_all(vocabs, [topic_model, tm_layer2, tm_layer3], bundestag_frame)
+    parties = list(indices_per_party.keys())
+    for i in tqdm(range(0, len(parties))):
+        predict_for_party(indices_per_party, vocabs, [topic_model, tm_layer2, tm_layer3], parties[i], bundestag_frame)
+    speakers = list(indices_per_speaker.keys())
+    for i in tqdm(range(0, len(speakers))):
+        # This speaker has a question mark at the end of his name after preprocessing. Therefore we exclude him.
+        if "Wolfgang Ne" in speakers[i]:
+            continue
+        predict_for_speaker(indices_per_speaker, vocabs, [topic_model, tm_layer2, tm_layer3], speakers[i], bundestag_frame)
 
 
 if __name__ == "__main__":

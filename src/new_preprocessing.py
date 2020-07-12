@@ -179,10 +179,10 @@ def merge_speeches(df, filename):
     return result
 
 def main():
-    path = 'data/input/bundestag_speeches_pp09-14'
+    path = 'data/input/bundestag_speeches_pp14-19'
     output_path = 'data/merged/final_single/'
     for filename in os.listdir(path):
-        if filename != 'bundestag_speeches_pp9.csv':
+        if filename != 'bundestag_speeches_pp17.csv':
             continue
         file = os.path.join(path, filename)
         bundestag = pd.read_csv(file)
@@ -199,7 +199,9 @@ def main():
             lambda col: preprocess(col) if col.name == "Speech text"
             else col)
         print('done preprocessing')
-        output_file = os.path.join(output_path + 'new' + filename)
+        if not os.path.isdir(output_path):
+            os.makedirs(output_path, exist_ok=True)
+        output_file = os.path.join(output_path + 'new_' + filename)
         df.to_csv(output_file)
         print("Finished processing of: " + filename)
 
