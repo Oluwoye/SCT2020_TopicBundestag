@@ -24,7 +24,39 @@ def print_all_topics(topic_model, filename, anchor_strength=0):
             file.write('{}: '.format(n) + ','.join(topic_words) + "\n")
 
 
-def evaluate_document_topic_matrix(document_topic_matrix, print_matrices=True):
+def plot_topic_ratios(plottable_elements, comparison_entity, general_entity=None):
+    y_pos = np.arange(len(plottable_elements))
+    plt.bar(y_pos, plottable_elements, align='center', alpha=0.5)
+
+    if general_entity is not None:
+        y_pos = np.arange(len(general_entity))
+        plt.bar(y_pos, general_entity, align='center', alpha=0.5)
+
+    plt.ylabel('Ratio of topic assignments')
+    plt.title('Topic distribution for all documents vs. ' + comparison_entity + ' documents')
+    plt.legend([comparison_entity + " topic ratios", "overall topic ratios"])
+    plt.tight_layout()
+
+    output_path = "data" + os.path.sep + "plots" + os.path.sep
+    if not os.path.isdir(output_path):
+        os.makedirs(output_path)
+    plt.savefig(output_path + comparison_entity + "_barplot.png")
+    plt.close()
+
+    # Piechart seems not to fit the use-case
+    # labels = []
+    # for i in range(0, len(plottable_elements)):
+    #    labels.append("topic " + str(i))
+    # patches, texts = plt.pie(plottable_elements, shadow=True, startangle=90)
+    # plt.legend(patches, labels, loc="best")
+    # plt.axis('equal')
+    # plt.tight_layout()
+    # plt.savefig(output_path + comparison_entity + "_pieplot.png")
+    # plt.close()
+
+
+def evaluate_document_topic_matrix(document_topic_matrix, comparison_entity=None, general_entity=None, print_matrices=True,
+                                   return_ratios=False):
     document_topic_matrix = np.array(document_topic_matrix)
     res_string = ""
 
@@ -32,6 +64,9 @@ def evaluate_document_topic_matrix(document_topic_matrix, print_matrices=True):
     topic_occurences = np.count_nonzero(document_topic_matrix >= 0.7, axis=0)
     total_amount = np.sum(topic_occurences)
     average_topic_assignments = np.mean(np.count_nonzero(document_topic_matrix >= 0.7, axis=1))
+
+    if general_entity is not None and comparison_entity is not None:
+        plot_topic_ratios(topic_occurences / total_amount, comparison_entity, general_entity)
 
     if print_matrices:
         res_string += "\nOriginal document-topic matrix: \n"
@@ -41,13 +76,18 @@ def evaluate_document_topic_matrix(document_topic_matrix, print_matrices=True):
     res_string += "Total number of elements: \n" + str(total_amount) + "\n"
     res_string += "Mean confidence per topic: \n" + str(mean_per_topic) + "\n"
     res_string += "Number of occurences per topic with confidence over 0.7: \n" + str(topic_occurences) + "\n"
-    res_string += "Ratios of occurences per topic with confidence over 0.7: \n" + str(topic_occurences/total_amount) + "\n"
-    res_string += "Average topic assignments per document with confidence over 0.7: \n" + str(average_topic_assignments) + "\n"
+    res_string += "Ratios of occurences per topic with confidence over 0.7: \n" + str(
+        topic_occurences / total_amount) + "\n"
+    res_string += "Average topic assignments per document with confidence over 0.7: \n" + str(
+        average_topic_assignments) + "\n"
 
-    return res_string
+    if return_ratios:
+        return res_string, topic_occurences / total_amount
+    else:
+        return res_string
 
 
-def predict_for_party(party_index_dict, vocabulary, layers, party, bundestag_dataframe):
+def predict_for_party(party_index_dict, vocabulary, layers, party, bundestag_dataframe, general_entity=None):
     party_indices = party_index_dict[party]
     speeches = bundestag_dataframe['Speech text']
     corpus = speeches[party_indices]
@@ -56,21 +96,35 @@ def predict_for_party(party_index_dict, vocabulary, layers, party, bundestag_dat
         os.makedirs(output_path, exist_ok=True)
     output_file = output_path + party + "_prediction.txt"
 
-    evaluate_corpus(layers, output_file, vocabulary, corpus, print_matrices=False)
+    evaluate_corpus(layers, output_file, vocabulary, corpus, print_matrices=False, general_entity=general_entity,
+                    comparison_entity=party)
 
 
-def evaluate_corpus(layers, output_file, vocabulary, corpus, print_matrices=True):
+def evaluate_corpus(layers, output_file, vocabulary, corpus, print_matrices=True, return_ratios=False, general_entity=None,
+                    comparison_entity=None):
     with open(output_file, "w+") as out:
         vectorizer = CountVectorizer(vocabulary=vocabulary)
         document_term_matrix = vectorizer.fit_transform(corpus)
+        topic_ratios = []
 
         for i, layer in enumerate(layers):
             out.write("Prediction of layer " + str(i) + ":\n\n\n")
             prediction_1, ignored = layer.predict_proba(document_term_matrix)
-            evaluation = evaluate_document_topic_matrix(prediction_1, print_matrices=print_matrices)
+            evaluation = evaluate_document_topic_matrix(prediction_1, print_matrices=print_matrices,
+                                                        return_ratios=return_ratios, general_entity=general_entity,
+                                                        comparison_entity=comparison_entity)
+            if return_ratios and i == 0:
+                topic_ratios = evaluation[1]
+                evaluation = evaluation[0]
+            elif return_ratios:
+                evaluation = evaluation[0]
             out.write(evaluation)
             out.write("\n\n")
             document_term_matrix = np.array(prediction_1)
+            general_entity = None
+
+        if return_ratios:
+            return topic_ratios
 
 
 def visualize_topics(topic_model, speeches, vocabulary):
@@ -142,7 +196,7 @@ def split_indices_per_speaker(bundestag_frame):
     return speaker_index
 
 
-def predict_for_speaker(indices_per_speaker, vocabs, topic_layers, speaker, bundestag_frame):
+def predict_for_speaker(indices_per_speaker, vocabs, topic_layers, speaker, bundestag_frame, general_entity=None):
     speaker_indices = indices_per_speaker[speaker]
     speeches = bundestag_frame['Speech text']
     corpus = speeches[speaker_indices]
@@ -151,7 +205,8 @@ def predict_for_speaker(indices_per_speaker, vocabs, topic_layers, speaker, bund
         os.makedirs(output_path, exist_ok=True)
     output_file = output_path + speaker + "_prediction.txt"
 
-    evaluate_corpus(topic_layers, output_file, vocabs, corpus, print_matrices=False)
+    evaluate_corpus(topic_layers, output_file, vocabs, corpus, print_matrices=False, general_entity=general_entity,
+                    comparison_entity=speaker)
 
 
 def predict_all(vocabs, topic_layers, bundestag_frame):
@@ -161,7 +216,8 @@ def predict_all(vocabs, topic_layers, bundestag_frame):
         os.makedirs(output_path, exist_ok=True)
     output_file = output_path + "all" + "_prediction.txt"
 
-    evaluate_corpus(topic_layers, output_file, vocabs, corpus, print_matrices=False)
+    topic_ratios = evaluate_corpus(topic_layers, output_file, vocabs, corpus, print_matrices=False, return_ratios=True)
+    return topic_ratios
 
 
 def main():
@@ -190,21 +246,21 @@ def main():
 
     vectorizer = CountVectorizer()
     document_term_matrix = vectorizer.fit_transform(speeches).toarray()
-    #convert matrix into sparse matrix, otherwise CorEx fails when used with anchors for some reason
+    # convert matrix into sparse matrix, otherwise CorEx fails when used with anchors for some reason
     document_term_matrix = ss.csr_matrix(document_term_matrix)
     vocabs = vectorizer.get_feature_names()
 
     print("Begin topic extraction")
 
-#    for i in range(1, 5):
+    #    for i in range(1, 5):
 
-#        topic_model = ct.Corex(n_hidden=5)
-#       topic_model.fit(document_term_matrix, words=vocabs, anchors=[["kohle"]], anchor_strength=i)
-#
-#       print("First layer topics")
-#        visualize_topics(topic_model, coal_speeches, vocabs)
-#        print_all_topics(topic_model, filename="OutLevel1.txt", anchor_strength=i)
-#        vt.vis_rep(topic_model, column_label=vocabs, prefix='topic-model-example')
+    #        topic_model = ct.Corex(n_hidden=5)
+    #       topic_model.fit(document_term_matrix, words=vocabs, anchors=[["kohle"]], anchor_strength=i)
+    #
+    #       print("First layer topics")
+    #        visualize_topics(topic_model, coal_speeches, vocabs)
+    #        print_all_topics(topic_model, filename="OutLevel1.txt", anchor_strength=i)
+    #        vt.vis_rep(topic_model, column_label=vocabs, prefix='topic-model-example')
     anchor_words = [['kohle', 'bergbau'], ['kernenergie', 'atomkraft'], ['solarenergie', 'wasserkraft']]
     topic_model = ct.Corex(n_hidden=50, seed=2)
     topic_model.fit(document_term_matrix, words=vocabs)
@@ -213,7 +269,6 @@ def main():
         print('topic ', idx, ' tc: ', val)
     print_all_topics(topic_model, filename="level1.txt")
     vt.vis_rep(topic_model, column_label=vocabs, prefix='tm-example_layer1')
-
 
     tm_layer2 = ct.Corex(n_hidden=5, seed=2)
     tm_layer2.fit(topic_model.labels)
@@ -233,16 +288,18 @@ def main():
 
     vt.vis_hierarchy([topic_model, tm_layer2, tm_layer3], column_label=vocabs, max_edges=200)
 
-    predict_all(vocabs, [topic_model, tm_layer2, tm_layer3], bundestag_frame)
+    general_ratios = predict_all(vocabs, [topic_model, tm_layer2, tm_layer3], bundestag_frame)
     parties = list(indices_per_party.keys())
     for i in tqdm(range(0, len(parties))):
-        predict_for_party(indices_per_party, vocabs, [topic_model, tm_layer2, tm_layer3], parties[i], bundestag_frame)
+        predict_for_party(indices_per_party, vocabs, [topic_model, tm_layer2, tm_layer3], parties[i], bundestag_frame,
+                          general_entity=general_ratios)
     speakers = list(indices_per_speaker.keys())
     for i in tqdm(range(0, len(speakers))):
         # This speaker has a question mark at the end of his name after preprocessing. Therefore we exclude him.
         if "Wolfgang Ne" in speakers[i]:
             continue
-        predict_for_speaker(indices_per_speaker, vocabs, [topic_model, tm_layer2, tm_layer3], speakers[i], bundestag_frame)
+        predict_for_speaker(indices_per_speaker, vocabs, [topic_model, tm_layer2, tm_layer3], speakers[i],
+                            bundestag_frame, general_entity=general_ratios)
 
 
 if __name__ == "__main__":

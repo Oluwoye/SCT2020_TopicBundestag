@@ -7,8 +7,8 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
 
-
 CUSTOM_STOPWORDS = ['ja', 'au', 'wa', 'nein', 'iii', 'sche', 'dy', 'ing', 'al', 'oh', 'frau', 'herr', 'kollege', 'ta', 'kollegin', 'herrn', 'ab', 'wort', 'wyhl', 'je']
+
 
 def replace_special_characters(col):
     new_col = []
