@@ -90,6 +90,7 @@ def evaluate_document_topic_matrix(document_topic_matrix, comparison_entity=None
 def predict_for_party(party_index_dict, vocabulary, layers, party, bundestag_dataframe, general_entity=None):
     party_indices = party_index_dict[party]
     speeches = bundestag_dataframe['Speech text']
+    speeches = speeches.fillna("")
     corpus = speeches[party_indices]
     output_path = "data" + os.path.sep + "output" + os.path.sep + "parties" + os.path.sep
     if not os.path.isdir(output_path):
@@ -199,6 +200,7 @@ def split_indices_per_speaker(bundestag_frame):
 def predict_for_speaker(indices_per_speaker, vocabs, topic_layers, speaker, bundestag_frame, general_entity=None):
     speaker_indices = indices_per_speaker[speaker]
     speeches = bundestag_frame['Speech text']
+    speeches = speeches.fillna("")
     corpus = speeches[speaker_indices]
     output_path = "data" + os.path.sep + "output" + os.path.sep + "speakers" + os.path.sep
     if not os.path.isdir(output_path):
@@ -211,6 +213,7 @@ def predict_for_speaker(indices_per_speaker, vocabs, topic_layers, speaker, bund
 
 def predict_all(vocabs, topic_layers, bundestag_frame):
     corpus = bundestag_frame['Speech text']
+    corpus = corpus.fillna("")
     output_path = "data" + os.path.sep + "output" + os.path.sep
     if not os.path.isdir(output_path):
         os.makedirs(output_path, exist_ok=True)
@@ -222,13 +225,13 @@ def predict_all(vocabs, topic_layers, bundestag_frame):
 
 def main():
     # path = 'data/merged/final/'
-    # bundestag = pd.DataFrame()
+    # bundestag_frame = pd.DataFrame()
     # for filename in os.listdir(path):
     #     file = os.path.join(path, filename)
-    #     if bundestag.empty:
-    #         bundestag = pd.read_csv(file)
+    #     if bundestag_frame.empty:
+    #         bundestag_frame = pd.read_csv(file)
     #     else:
-    #         bundestag = pd.concat([bundestag, pd.read_csv(file)], ignore_index=True)
+    #         bundestag_frame = pd.concat([bundestag_frame, pd.read_csv(file)], ignore_index=True)
     bundestag_frame = pd.read_csv("data/merged/final_single/newbundestag_speeches_pp17.csv")
     indices_per_party = split_indices_per_party(bundestag_frame)
     indices_per_speaker = split_indices_per_speaker(bundestag_frame)
