@@ -178,6 +178,7 @@ def get_mdb_names():
                         if name[0] == 'l':
                             print(name)
     print(len(mdb_names))
+    return mdb_names
 
 
 def get_wordnet_pos(word):

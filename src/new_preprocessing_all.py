@@ -4,7 +4,7 @@ import pandas as pd
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
-from src.commons import get_chair, get_custom_stopwords, get_filter_indicators, get_tagesordnung_indicators, \
+from commons import get_chair, get_custom_stopwords, get_filter_indicators, get_tagesordnung_indicators, \
     replace_special_characters, get_frame_and_dates, filter_by_pos, get_mdb_names, get_wordnet_pos
 
 MINIMAL_TAGES_MATCHES = 1
