@@ -143,7 +143,7 @@ def filter_columns(df):
     init_speeches = df.to_dict('records')
     result = []
     for speech in init_speeches:
-        if 'CDU/CSU' in speech['Speaker']:
+        if isinstance(speech['Speaker'], str) and 'CDU/CSU' in speech['Speaker']:
             speech['Speaker'] = ''
         result.append( {
                     'Speech DB ID': speech['Speech DB ID'],
