@@ -96,6 +96,8 @@ def filter_columns(df):
     init_speeches = df.to_dict('records')
     result = []
     for speech in init_speeches:
+        if 'CDU/CSU' in speech['Speaker']:
+            speech['Speaker'] = ''
         result.append({
             'Speech DB ID': speech['Speech DB ID'],
             'Date': speech['Date'],
@@ -108,13 +110,11 @@ def filter_columns(df):
 
 def main():
     path = 'data/input/bundestag_speeches_from_10'
-    output_path = 'data/merged/final/'
+    output_path = 'data/preprocessed_up_sample/'
     speech_contribution = {}
     final_speech_contribution = {}
     max_speeches = 0
     for filename in os.listdir(path):
-        if filename != 'bundestag_speeches_pp17.csv':
-            continue
         bundestag, dates = get_frame_and_dates(filename, path)
         merged_speeches = []
         for date in dates:
@@ -128,8 +128,6 @@ def main():
             max_speeches = speech_count
     print('MAXIMUM OF SPEECHES FOUND: ', max_speeches)
     for filename in os.listdir(path):
-        if filename != 'bundestag_speeches_pp17.csv':
-            continue
         needed_speeches = max_speeches - len(speech_contribution[filename].index)
         if needed_speeches == 0:
             final_speech_contribution[filename] = speech_contribution[filename].apply(
