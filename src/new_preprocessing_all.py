@@ -55,7 +55,7 @@ def merge_speeches(df, filename):
     speeches = []
     filter_indicators = get_filter_indicators()
     for speech in init_speeches:
-        if speech['Speaker'] in get_chair()[filename] and \
+        if speech['Speaker'] in get_chair()[filename.split('.')[0].split('_')[1]] and \
                 any(substring in speech['Speech text'] for substring in get_tagesordnung_indicators()):
             write = False
             tages_key_match = 0
