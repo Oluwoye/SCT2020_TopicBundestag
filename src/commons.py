@@ -86,7 +86,23 @@ def get_custom_stopwords():
             'sogenannte', 'außerordentlich', 'wohin', 'gelöst', 'gewaltige', 'streichen', 'vorgestern', 'kennt',
             'weist', 'gestärkt', 'funktioniert', 'eigener', 'zitiert', 'sorgt', 'lachen', 'zurückgegangen', 'kritisch',
             'dergleichen', 'wesentliches', 'fünftens', 'besonderen', 'sechstens', 'weitergehen', 'bemühen', 'einziges',
-            'hingegen', 'angemessen', 'vornherein', 'unterschätzt', 'vermutlich']))
+            'hingegen', 'angemessen', 'vornherein', 'unterschätzt', 'vermutlich', 'lassen', 'gerade', 'deutlich',
+            'gesagt', 'wäre', 'sollten', 'tagesordnungspunkt', 'beispiel', 'beim', 'gehen', 'allein', 'hinaus',
+            'möchte', 'punkt', 'weise', 'erste', 'deren', 'jedoch', 'wesentlichen', 'erhebliche', 'hinzu',
+            'offensichtlich', 'auseinanderfallen', 'dümmer', 'müßte', 'müßten', 'bewußt', 'bißchen', 'mußte',
+            'aufgrund', 'lässt', 'bisschen', 'müssten', 'geehrte', 'außen', 'konnte', 'verantwortlich', 'länger',
+            'wahr', 'bald', 'angekündigt', 'gefragt', 'offenbar', 'anstatt', 'vorderster', 'dummen', 'unglaubliche',
+            'hineinkommen', 'probiert', 'leichtsinnig', 'herausheben', 'nachfolgenden', 'anfänglichen', 'anziehen',
+            'alltäglich', 'einsetzbar', 'gefährlichsten', 'überschätzt', 'scheiterte', 'mitarbeiterinnen',
+            'mitarbeitern', 'mitarbeiter', 'tiefgreifenden', 'beelzebub', 'elementare', 'abgehalten', 'unlauteren',
+            'gelitten', 'aufarbeiten', 'einzigartigen', 'einzigartige', 'gebührt', 'schwerwiegende', 'kürzerer',
+            'unerträgliche', 'verläßt', 'getragen', 'aufgenommen', 'geändert', 'befriedigende', 'höhlt', 'gebauten',
+            'leidvollen', 'halbherzige', 'bloßes', 'auferlegte', 'zurückbleibt', 'dreiste', 'inntal', 'aquila',
+            'gehtnichtmehr', 'ders', 'groden', 'kranich', 'fechter', 'waack', 'ühlingen', 'dierig', 'sütterlin',
+            'malecha', 'minden', 'fibich', 'stattgegeben', 'erklären', 'spricht', 'geblieben', 'niemals', 'wann',
+            'genossinnen', 'genossen', 'ropa', 'ungeheuerliche', 'denunzieren', 'geholfen', 'diktiert', 'kant',
+            'bekomme', 'davonlaufen', 'umgekehrt', 'schließt', 'berührt', 'dauerhaften', 'größeren', 'ausgelöst',
+            'sogenanntes', 'veranschlagt', 'zurückgeht', 'bewältigen', 'beklagen', 'hinterlassen', 'erkennbar']))
 
 
 def get_speech_start_indicators():
