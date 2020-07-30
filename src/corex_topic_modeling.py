@@ -398,10 +398,6 @@ def plot_politicians_results(scores, general_ratio, party_ratios, topic):
 
 
 def main():
-    # plot_topic_ratios([1.0] * 50, "test", general_entity=[0.5] * 50, party_values=[1.5] * 50)
-    # arts = plot_student_results({'test1': 0.222, 'test2':0.111}, 0.15, {'green': 0.1}, str(1))
-    # plt.savefig("testitest.png")
-    # plt.close()
     # path = 'data/merged/final/'
     # bundestag_frame = pd.DataFrame()
     # for filename in os.listdir(path):
@@ -413,7 +409,7 @@ def main():
     bundestag_frame = pd.read_csv("data/merged/final_single/newbundestag_speeches_pp17.csv")
     indices_per_party = split_indices_per_party(bundestag_frame)
     indices_per_speaker = split_indices_per_speaker(bundestag_frame)
-    # bundestag_frame = bundestag
+
     speeches = bundestag_frame["Speech text"]
     speeches = speeches.fillna("")
     speeches = speeches.tolist()
