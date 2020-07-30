@@ -4,7 +4,7 @@ import pandas as pd
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
-from src.commons import get_chair, get_custom_stopwords, get_filter_indicators, get_tagesordnung_indicators, \
+from commons import get_chair, get_custom_stopwords, get_filter_indicators, get_tagesordnung_indicators, \
     replace_special_characters, get_frame_and_dates, filter_by_pos, get_mdb_names, get_wordnet_pos
 
 MINIMAL_TAGES_MATCHES = 1
@@ -55,7 +55,7 @@ def merge_speeches(df, filename):
     speeches = []
     filter_indicators = get_filter_indicators()
     for speech in init_speeches:
-        if speech['Speaker'] in get_chair()[filename] and \
+        if speech['Speaker'] in get_chair()[filename.split('.')[0].split('_')[1]] and \
                 any(substring in speech['Speech text'] for substring in get_tagesordnung_indicators()):
             write = False
             tages_key_match = 0
@@ -96,6 +96,8 @@ def filter_columns(df):
     init_speeches = df.to_dict('records')
     result = []
     for speech in init_speeches:
+        if isinstance(speech['Speaker'], str) and 'CDU/CSU' in speech['Speaker']:
+            speech['Speaker'] = ''
         result.append({
             'Speech DB ID': speech['Speech DB ID'],
             'Date': speech['Date'],
@@ -108,13 +110,11 @@ def filter_columns(df):
 
 def main():
     path = 'data/input/bundestag_speeches_from_10'
-    output_path = 'data/merged/final/'
+    output_path = 'data/preprocessed_up_sample/'
     speech_contribution = {}
     final_speech_contribution = {}
     max_speeches = 0
     for filename in os.listdir(path):
-        if filename != 'bundestag_speeches_pp17.csv':
-            continue
         bundestag, dates = get_frame_and_dates(filename, path)
         merged_speeches = []
         for date in dates:
@@ -128,8 +128,6 @@ def main():
             max_speeches = speech_count
     print('MAXIMUM OF SPEECHES FOUND: ', max_speeches)
     for filename in os.listdir(path):
-        if filename != 'bundestag_speeches_pp17.csv':
-            continue
         needed_speeches = max_speeches - len(speech_contribution[filename].index)
         if needed_speeches == 0:
             final_speech_contribution[filename] = speech_contribution[filename].apply(

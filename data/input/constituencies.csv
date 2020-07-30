@@ -1,0 +1,1646 @@
+has_coal,id,name,number,parliament_id,region_id
+,30726,Bremen II - Bremerhaven,56,6,2944387
+,30764,Zollernalb - Sigmaringen,295,6,2953481
+,30923,Mecklenburgische Seenplatte II - Landkreis Rostock III,17,6,2872567
+,30745,Krefeld II - Wesel II,115,6,2861876
+,30857,Berlin-Spandau - Charlottenburg Nord,79,6,2950157
+,30517,Berlin-Friedrichshain - Lichtenberg,258,6,2950157
+,30325,Herzogtum Lauenburg - Stormarn-Süd,10,6,2838632
+,30769,Rotenburg I - Heidekreis,35,6,2862926
+,30770,Harburg,37,6,2862926
+,30537,Senftenberg - Calau - Spremberg,281,6,2945356
+,30953,Ostholstein - Stormarn-Nord,9,6,2838632
+,30771,Harburg,36,6,2862926
+,30457,Solingen - Remscheid - Wuppertal II,104,6,2861876
+,30970,Solingen - Remscheid - Wuppertal II,103,6,2861876
+,30430,Krefeld I - Neuss II,111,6,2861876
+,30772,Esslingen,262,6,2953481
+,30573,Kyffhäuserkreis - Sömmerda - Weimarer Land I,191,6,2822542
+,30272,Frankfurt am Main I - Main-Taunus,138,6,2905330
+,30995,Donau-Ries,254,6,2951839
+,31005,Märkisch-Oderland – Barnim II,59,6,2945356
+,31031,Lörrach – Müllheim,282,6,2953481
+,30279,Biberach,293,6,2953481
+,30773,Esslingen,261,6,2953481
+,31048,Ludwigslust-ParchimII-Nordwestmecklenburg II-Landkr RostockI,13,6,2872567
+,31074,Suhl – Schmalkalden-Meiningen – Hildburghausen – Sonneberg,196,6,2822542
+,30470,Nürnberg-Nord,230,6,2951839
+,30616,Dahme-Spreewald-Teltow-Fläming III - Oberspreewald-Lausitz I,62,6,2945356
+,30298,Offenburg,285,6,2953481
+,30348,Backnang - Schwäbisch Gmünd,173,6,2953481
+,30774,Kulmbach,241,6,2951839
+,31105,Dahme-Spreewald – Teltow-FlämingIII – Oberspreewald-Lausitz I,62,6,2945356
+,30603,Backnang - Schwäbisch Gmünd,270,6,2953481
+,30809,Görlitz,157,6,2842566
+,30316,Fürth,243,6,2951839
+,31141,Potsdam – Potsdam-Mittelmark II – Teltow-Fläming II,61,6,2945356
+,30793,Döbeln - Mittweida - Meißen II,163,6,2842566
+,30587,Frankfurt am Main II,183,6,2905330
+,30805,Wartburgkreis-Kreisfr.Stadt Eisenach-Unstrut-Hainich-Kreis I,191,6,2822542
+,30617,Dahme-Spreewald-Teltow-Fläming III-Oberspreewald-Lausitz I,63,6,2945356
+,30563,Wismar-Gadebusch-Grevesmühlen-Doberan-Bützow,262,6,2872567
+,30654,Sonneberg - Saalfeld-Rudolstadt - Saale-Orla-Kreis,198,6,2822542
+,30357,Ingolstadt,218,6,2951839
+,30503,Rostock-Land - Ribnitz-Damgarten - Teterow - Malchin,266,6,2872567
+,30491,Berlin-Mitte - Prenzlauer Berg,249,6,2950157
+,30817,Berlin-Lichtenberg - Hohenschönhausen,87,6,2950157
+,30679,Erfurt - Weimar - Weimarer Land II,194,6,2822542
+,30585,Frankfurt am Main III,140,6,2905330
+,30704,Rheingau-Taunus - Limburg,179,6,2905330
+,30373,Schwäbisch-Hall-Hohenlohe,172,6,2953481
+,30401,Sankt Wendel,247,6,2842635
+,30514,Elbe-Havel-Gebiet und Haldensleben - Wolmirstedt,284,6,2842565
+,30413,Dortmund II,114,6,2861876
+,30841,Goslar - Northeim - Osterode,52,6,2862926
+,30451,Hamburg-Wandsbek,16,6,2911297
+,30879,Greiz - Altenburger Land,196,6,2822542
+,30471,Bottrop - Recklinghausen IV,95,6,2861876
+,30708,Karlsruhe-Stadt,272,6,2953481
+,30766,Ansbach,241,6,2951839
+,30896,Kyffhäuserkreis - Sömmerda - Weimarer Land I,192,6,2822542
+,29922,Halle,73,6,2842565
+,30138,Prenzlau - Angermünde - Schwedt - Templin - Gransee,272,6,2945356
+,29933,,171,6,2953481
+,29918,,148,6,2847618
+,30003,Rheingau-Taunus - Limburg,135,6,2905330
+,29915,Schwerin - Ludwigslust,13,6,2872567
+,29913,Lippe I,136,6,2861876
+,30016,Minden-Lübbecke I,134,6,2861876
+,29956,Straubing,231,6,2951839
+,29912,Lippe I,105,6,2861876
+,29954,Straubing,217,6,2951839
+,29955,Straubing,232,6,2951839
+,29914,Schwerin-Hagenow,263,6,2872567
+,29934,,220,6,2951839
+,29919,,20,6,2905330
+,29916,,55,6,2862926
+,29921,Halle-Altstadt,291,6,2842565
+,29958,,48,6,2861876
+,29949,,2,6,2953481
+,29962,Montabaur,207,6,2847618
+,29978,,47,6,2862926
+,29963,Montabaur,206,6,2847618
+,29923,,57,6,2944387
+,30051,,312,6,2842566
+,29966,Altötting,199,6,2951839
+,29967,,44,6,2861876
+,29968,,24,6,2861876
+,29937,,80,6,2861876
+,29969,,41,6,2861876
+,29926,,316,6,2842566
+,29940,Celle-Uelzen,39,6,2862926
+,29970,,27,6,2951839
+,29952,Elbe-Elster - Oberspreewald-Lausitz II,65,6,2945356
+,29986,,119,6,2861876
+,29977,,89,6,2861876
+,29927,Bautzen - Löbau,316,6,2842566
+,29928,,302,6,2822542
+,30007,,158,6,2847618
+,29929,Bochum I,110,6,2861876
+,29985,Friesland - Wilhelmshaven,21,6,2862926
+,29930,Fürstenfeldbruck,201,6,2951839
+,29988,,2,6,2951839
+,29920,Halle-Neustadt - Saalkreis - Köthen,292,6,2842565
+,29989,,197,6,2951839
+,29990,,270,6,2872567
+,29931,Fürstenfeldbruck,217,6,2951839
+,29993,,315,6,2842566
+,29932,Fürstenfeldbruck,216,6,2951839
+,29924,,50,6,2944387
+,30049,,4,6,2953481
+,29936,Roth,232,6,2951839
+,29917,,124,6,2861876
+,29945,,67,6,2861876
+,29941,,297,6,2822542
+,29943,,28,6,2861876
+,29944,,11,6,2862926
+,29946,,14,6,2861876
+,29948,,25,6,2951839
+,29951,Bad Liebenwerda-Finsterwalde-Herzberg-Lübben-Lückau,282,6,2945356
+,29979,,77,6,2861876
+,30043,,11,6,2905330
+,30042,,221,6,2951839
+,30011,,32,6,2861876
+,29959,,96,6,2861876
+,29953,,217,6,2951839
+,30013,Deggendorf,213,6,2951839
+,29997,,219,6,2951839
+,30065,Dessau - Bitterfeld,289,6,2842565
+,30019,Nienburg - Schaumburg,34,6,2862926
+,29998,Schwandorf,220,6,2951839
+,30001,Mannheim I,179,6,2953481
+,30046,Gera-Stadt - Eisenberg - Gera-Land I,303,6,2822542
+,29925,,153,6,2847618
+,30189,,307,6,2822542
+,30062,,262,6,2872567
+,30082,Leipzig-Land,155,6,2842566
+,30039,Hamburg-Bergedorf - Harburg,24,6,2911297
+,30182,Gotha - Arnstadt,299,6,2822542
+,29983,Minden-Lübbecke II,104,6,2861876
+,30048,Kreuznach,204,6,2847618
+,30012,,91,6,2861876
+,30058,Bayreuth,237,6,2951839
+,29972,,131,6,2905330
+,30032,,251,6,2950157
+,29965,,224,6,2951839
+,30072,,241,6,2951839
+,30159,Bautzen I,156,6,2842566
+,30050,Ludwigshafen,157,6,2847618
+,29961,Montabaur,153,6,2847618
+,30110,,265,6,2872567
+,30090,,19,6,2953481
+,30054,Nordsachsen,152,6,2842566
+,30055,,16,6,2862926
+,30089,,19,6,2861876
+,30031,,6,6,2953481
+,30094,,6,6,2861876
+,30005,,279,6,2945356
+,29976,Odenwald - Tauber,181,6,2953481
+,30074,,9,6,2862926
+,29947,,32,6,2862926
+,29971,,133,6,2905330
+,30078,,34,6,2951839
+,30023,Rottweil-Tuttlingen,285,6,2953481
+,30015,Deggendorf,227,6,2951839
+,30006,,2,6,2847618
+,29994,Görlitz - Zittau - Niesky,315,6,2842566
+,29995,Bremerhaven - Bremen-Nord,52,6,2944387
+,29996,Wesel I,82,6,2861876
+,30008,,304,6,2822542
+,30000,Dresden-Land - Freital - Dippoldiswalde,320,6,2842566
+,30135,München-Land,223,6,2951839
+,30004,Düsseldorf II,75,6,2861876
+,30178,Gifhorn - Peine,40,6,2862926
+,30191,,12,6,2847618
+,30080,Plön - Neumünster,6,6,2838632
+,29950,Lübeck,11,6,2838632
+,30022,Rottweil - Tuttlingen,285,6,2953481
+,30014,Deggendorf,228,6,2951839
+,29981,,243,6,2842635
+,30079,,40,6,2951839
+,30024,Rottweil – Tuttlingen,285,6,2953481
+,30020,Rottweil - Tuttlingen,189,6,2953481
+,30021,Rottweil - Tuttlingen,286,6,2953481
+,30025,,5,6,2911297
+,30027,,24,6,2951839
+,30028,,7,6,2847618
+,30030,,242,6,2951839
+,30145,Chemnitz I,323,6,2842566
+,30041,Brandenburg - Rathenow - Belzig,275,6,2945356
+,30044,,19,6,2905330
+,30045,,303,6,2822542
+,30040,,275,6,2945356
+,29973,Gießen,131,6,2905330
+,30152,Vorpommern-Rügen - Vorpommern-Greifswald I,15,6,2872567
+,30036,,314,6,2842566
+,30037,Hoyerswerda - Kamenz - Weißwasser,314,6,2842566
+,30038,Hamburg-Harburg,18,6,2911297
+,29980,,17,6,2861876
+,30092,,240,6,2951839
+,30098,,274,6,2945356
+,30086,Diepholz,28,6,2862926
+,29974,,140,6,2905330
+,30047,Kreuznach,150,6,2847618
+,30153,Vorpommern-Rügen – Vorpommern-Greifswald I,15,6,2872567
+,30059,Oldenburg - Ammerland,28,6,2862926
+,30052,Döbeln - Grimma - Oschatz,312,6,2842566
+,30053,Delitzsch - Torgau-Oschatz - Riesa,152,6,2842566
+,30139,Uckermark - Barnim I,57,6,2945356
+,30195,Ostholstein,9,6,2838632
+,30056,Bayreuth,223,6,2951839
+,30057,Bayreuth,238,6,2951839
+,29938,Esslingen,165,6,2953481
+,29939,,196,6,2953481
+,30060,Amberg,218,6,2951839
+,30064,,289,6,2842565
+,30066,,306,6,2822542
+,30068,,301,6,2822542
+,30070,,269,6,2872567
+,30073,,290,6,2842565
+,30096,,59,6,2944387
+,30097,,16,6,2953481
+,30035,,150,6,2847618
+,30095,,65,6,2861876
+,30009,Altenburg - Schmölln - Greiz - Gera-Land II,304,6,2822542
+,30076,Magdeburg,286,6,2842565
+,30077,Magdeburg,69,6,2842565
+,30010,,20,6,2951839
+,30002,Mannheim,275,6,2953481
+,29960,Groß-Gerau,141,6,2905330
+,30087,Hannover-Land II,42,6,2862926
+,30083,Leipzig-Land,154,6,2842566
+,30084,Marburg,129,6,2905330
+,30085,,30,6,2861876
+,29999,,320,6,2842566
+,30170,,216,6,2951839
+,30088,Waiblingen,168,6,2953481
+,30174,Düsseldorf I,74,6,2861876
+,30061,Amberg,233,6,2951839
+,30091,,163,6,2847618
+,29984,Minden-Lübbecke I,135,6,2861876
+,30018,,36,6,2951839
+,30128,,6,6,2951839
+,30175,Düsseldorf I,107,6,2861876
+,30026,,19,6,2911297
+,29992,Neubrandenburg - Mecklenburg-Strelitz - Uecker-Randow,18,6,2872567
+,30101,Bad Kissingen,234,6,2951839
+,30102,Bad Kissingen,249,6,2951839
+,30113,,13,6,2847618
+,30115,,13,6,2861876
+,30109,Viersen,80,6,2861876
+,30116,,291,6,2842565
+,30111,Rostock,265,6,2872567
+,30122,Herne,112,6,2861876
+,30123,Herne-Bochum III,112,6,2861876
+,30124,,253,6,2950157
+,30125,,122,6,2861876
+,30126,,264,6,2872567
+,30105,,292,6,2842565
+,29957,,223,6,2951839
+,30104,Offenbach,186,6,2905330
+,30417,Recklinghausen I,91,6,2861876
+,30129,München-Mitte,203,6,2951839
+,29935,Emmendingen - Lahr,187,6,2953481
+,30204,Erfurt,300,6,2822542
+,29987,,197,6,2953481
+,29942,Eisenach - Mühlhausen,297,6,2822542
+,30063,,283,6,2842565
+,29982,Minden-Lübbecke,104,6,2861876
+,30017,,145,6,2905330
+,30163,,25,6,2861876
+,30268,München-Süd,206,6,2951839
+,30274,Main-Taunus,181,6,2905330
+,30263,Konstanz,191,6,2953481
+,30069,Weimar-Apolda-Erfurt-Land,301,6,2822542
+,30289,,15,6,2861876
+,30242,,7,6,2861876
+,30133,,5,6,2847618
+,30196,,59,6,2861876
+,30265,Essen I,88,6,2861876
+,30240,,38,6,2951839
+,30267,Karlsruhe-Stadt,175,6,2953481
+,30260,,324,6,2842566
+,30253,,311,6,2842566
+,30275,,21,6,2905330
+,30239,Freising,200,6,2951839
+,30106,Bochum II - Ennepe-Ruhr-Kreis II,111,6,2861876
+,30121,Zwickau,166,6,2842566
+,30220,Delitzsch-Eilenburg-Torgau-Wurzen,308,6,2842566
+,30147,,50,6,2861876
+,30221,,252,6,2950157
+,30119,Zwickau - Werdau,327,6,2842566
+,30120,Zwickauer Land - Zwickau,167,6,2842566
+,30229,Leipzig I,309,6,2842566
+,30142,,6,6,2847618
+,30136,,1,6,2951839
+,30137,,272,6,2945356
+,30114,,86,6,2861876
+,30134,München-Land,208,6,2951839
+,30144,,323,6,2842566
+,30146,,4,6,2911297
+,30099,Bonn,63,6,2861876
+,30256,Bitburg,205,6,2847618
+,30339,Saarlouis,297,6,2842635
+,30259,Coburg,224,6,2951839
+,30193,,42,6,2951839
+,30148,,12,6,2862926
+,30149,,267,6,2872567
+,30154,,10,6,2862926
+,30155,,52,6,2861876
+,30156,,1,6,2944387
+,30150,Stralsund-Rügen-Grimmen,267,6,2872567
+,30158,Bautzen I,157,6,2842566
+,30143,,114,6,2861876
+,30188,Dresden II,319,6,2842566
+,30157,Bautzen - Weißwasser,158,6,2842566
+,30190,,13,6,2862926
+,30160,Höxter - Lippe II,106,6,2861876
+,30164,,281,6,2945356
+,30226,Kleve,113,6,2861876
+,30228,,309,6,2842566
+,30301,Oberhausen,86,6,2861876
+,30168,,2,6,2861876
+,30171,,10,6,2905330
+,30173,,3,6,2861876
+,30176,,10,6,2847618
+,30177,,47,6,2861876
+,30172,Saarbrücken II,245,6,2842635
+,30179,,38,6,2861876
+,30180,,17,6,2953481
+,30181,,249,6,2950157
+,30183,,21,6,2951839
+,30186,,45,6,2861876
+,30108,,44,6,2951839
+,30112,Rostock,14,6,2872567
+,30185,Hamburg-Bergedorf,17,6,2911297
+,30118,,327,6,2842566
+,30075,,43,6,2862926
+,30194,,7,6,2862926
+,30222,Berlin-Zehlendorf - Steglitz,253,6,2950157
+,30192,Köln IV,62,6,2861876
+,30223,,12,6,2953481
+,30269,Göppingen,167,6,2953481
+,30203,,300,6,2822542
+,30205,,299,6,2822542
+,30198,Paderborn,107,6,2861876
+,30199,Ennepe-Ruhr-Kreis I,109,6,2861876
+,30200,Augsburg-Land,239,6,2951839
+,30201,Augsburg-Land,254,6,2951839
+,30206,,11,6,2951839
+,30209,,36,6,2861876
+,30213,,1,6,2862926
+,30214,,288,6,2842565
+,30216,Dessau - Wittenberg,71,6,2842565
+,30210,Wuppertal II,70,6,2861876
+,30212,,125,6,2905330
+,30217,Dessau - Wittenberg,70,6,2842565
+,30219,,308,6,2842566
+,30224,Mainz,154,6,2847618
+,30100,,53,6,2862926
+,30218,Reutlingen,193,6,2953481
+,30140,Rendsburg - Eckernförde,4,6,2838632
+,30231,Gelsenkirchen,124,6,2861876
+,30270,Göppingen,264,6,2953481
+,30331,Ravensburg,294,6,2953481
+,30232,Gelsenkirchen,123,6,2861876
+,30252,Hildesheim,43,6,2862926
+,30225,Kleve,81,6,2861876
+,30103,Offenbach,142,6,2905330
+,30320,Aachen,88,6,2861876
+,30281,Passau,230,6,2951839
+,30230,Gelsenkirchen I,93,6,2861876
+,30288,,1,6,2905330
+,30236,,13,6,2905330
+,30237,,17,6,2862926
+,30238,,271,6,2945356
+,30309,Duisburg II,85,6,2861876
+,30130,Jena-Rudolstadt-Stadtroda,302,6,2822542
+,30319,Aachen,53,6,2861876
+,30244,,6,6,2911297
+,30246,,37,6,2861876
+,30241,Kulmbach,226,6,2951839
+,30277,Wiesbaden,136,6,2905330
+,30131,Jena - Weimar - Weimarer Land,195,6,2822542
+,30132,,15,6,2862926
+,30247,Donau-Ries,240,6,2951839
+,30248,Donau-Ries,255,6,2951839
+,30249,Traunstein,211,6,2951839
+,30250,Traunstein,226,6,2951839
+,30257,Bitburg,204,6,2847618
+,30258,,296,6,2822542
+,30255,Bitburg,151,6,2847618
+,30335,Berlin-Tempelhof,256,6,2950157
+,30165,,52,6,2862926
+,30166,,21,6,2861876
+,30162,,286,6,2842565
+,30197,,15,6,2847618
+,30273,Main-Taunus,182,6,2905330
+,30233,,4,6,2862926
+,30202,Augsburg-Land,253,6,2951839
+,30167,,31,6,2951839
+,30290,,9,6,2905330
+,30291,,34,6,2861876
+,30107,,3,6,2944387
+,30187,,319,6,2842566
+,30081,Leipziger-Land - Muldentalkreis,155,6,2842566
+,30271,Göppingen,263,6,2953481
+,30141,Rendsburg-Eckernförde,4,6,2838632
+,30234,,6,6,2905330
+,30161,,113,6,2861876
+,30341,Sömmerda-Artern-Sondershausen-Langensalza,298,6,2822542
+,30303,,19,6,2951839
+,30392,,257,6,2950157
+,30294,Stuttgart I,162,6,2953481
+,30355,Wetterau,134,6,2905330
+,30402,Sankt Wendel,298,6,2842635
+,30278,Biberach,196,6,2953481
+,30366,Steinburg - Dithmarschen Süd,3,6,2838632
+,30367,,284,6,2842565
+,30369,,45,6,2951839
+,30363,Frankenthal,156,6,2847618
+,30421,Saalfeld - Pößneck - Schleiz - Lobenstein - Zeulenroda,305,6,2822542
+,30403,,15,6,2953481
+,30261,Neuss I,76,6,2861876
+,30343,,273,6,2945356
+,30235,,2,6,2905330
+,30342,Kyffhäuserkreis - Sömmerda - Unstrut-Hainich-Kreis II,192,6,2822542
+,30266,Hanau,137,6,2905330
+,30424,,328,6,2842566
+,30396,,13,6,2953481
+,30254,Leipzig-Land - Borna - Geithain,311,6,2842566
+,30409,,3,6,2847618
+,30292,,32,6,2951839
+,30280,Passau,215,6,2951839
+,30282,Ostallgäu,243,6,2951839
+,30283,Ostallgäu,258,6,2951839
+,30445,Rosenheim,224,6,2951839
+,30285,Augsburg-Stadt,238,6,2951839
+,30286,Augsburg-Stadt,253,6,2951839
+,30262,Stuttgart II,163,6,2953481
+,30419,Göttingen,53,6,2862926
+,30293,,162,6,2953481
+,30299,Offenburg,284,6,2953481
+,30264,Konstanz,288,6,2953481
+,30391,Chemnitz II - Chemnitz-Land,324,6,2842566
+,30297,Offenburg,188,6,2953481
+,30423,,250,6,2950157
+,30304,,260,6,2950157
+,30323,,9,6,2847618
+,30324,,23,6,2861876
+,30326,,8,6,2905330
+,30305,Berlin-Köpenick - Treptow,259,6,2950157
+,30296,,15,6,2951839
+,30307,Bamberg,222,6,2951839
+,30308,Mülheim,87,6,2861876
+,30322,Salzgitter - Wolfenbüttel,49,6,2862926
+,30306,Mettmann II,73,6,2861876
+,30312,Rhein-Neckar,182,6,2953481
+,30313,Rhein-Neckar,278,6,2953481
+,30314,Fürth,229,6,2951839
+,30315,Fürth,244,6,2951839
+,30435,Hersfeld,128,6,2905330
+,30318,Freiberg-Brand-Erbisdorf-Flöha-Marienberg,321,6,2842566
+,30321,Salzgitter - Wolfenbüttel,44,6,2862926
+,30295,,125,6,2861876
+,30327,,276,6,2945356
+,30360,,22,6,2861876
+,30361,,5,6,2951839
+,30436,Weiden,221,6,2951839
+,30328,Potsdam,276,6,2945356
+,30329,Ravensburg - Bodensee,197,6,2953481
+,30330,Ravensburg - Bodensee,294,6,2953481
+,30337,,294,6,2842565
+,30340,,18,6,2861876
+,30362,Märkischer Kreis II,123,6,2861876
+,30336,Osnabrück-Land,32,6,2862926
+,30364,Leverkusen-Rheinisch-Bergischer Kreis II,68,6,2861876
+,30338,Saarlouis,246,6,2842635
+,30365,,22,6,2951839
+,30345,,43,6,2951839
+,30347,Hameln-Pyrmont - Holzminden,46,6,2862926
+,30349,,310,6,2842566
+,30344,Oldenburg - Ammerland,22,6,2862926
+,30211,Mönchengladbach,78,6,2861876
+,30346,Hameln-Pyrmont - Holzminden,41,6,2862926
+,30461,Rheinisch-Bergischer Kreis,100,6,2861876
+,30408,,1,6,2861876
+,30310,,146,6,2847618
+,30311,,14,6,2953481
+,30317,,321,6,2842566
+,30287,Augsburg-Stadt,252,6,2951839
+,30356,Ingolstadt,202,6,2951839
+,30334,,255,6,2950157
+,30359,Unterems,20,6,2862926
+,30437,,7,6,2951839
+,30300,Frankfurt am Main I,183,6,2905330
+,30227,Kleve,112,6,2861876
+,30352,,293,6,2842565
+,30029,,243,6,2951839
+,30245,,22,6,2911297
+,30371,,46,6,2951839
+,30372,,8,6,2847618
+,30368,Hochtaunus,133,6,2905330
+,30374,,17,6,2905330
+,30370,Ansbach,227,6,2951839
+,30375,,6,6,2862926
+,30376,,12,6,2951839
+,30377,,29,6,2861876
+,30378,Berlin-Friedrichshain - Kreuzberg - Prenzlauer Berg Ost,84,6,2950157
+,30379,Berlin-Friedrichshain-Kreuzberg - Prenzlauer Berg Ost,83,6,2950157
+,30381,,282,6,2945356
+,30382,Elbe-Elster - Oberspreewald-Lausitz II,66,6,2945356
+,30383,Elbe-Elster – Oberspreewald-Lausitz II,65,6,2945356
+,30384,,35,6,2951839
+,30388,,2,6,2862926
+,30389,,43,6,2861876
+,30410,Mannheim II,180,6,2953481
+,30387,Werra-Meißner,126,6,2905330
+,30411,,8,6,2911297
+,30412,,21,6,2911297
+,30397,,9,6,2953481
+,30398,,13,6,2951839
+,30395,Dortmund I,113,6,2861876
+,30399,,20,6,2953481
+,30400,,11,6,2847618
+,30463,Gütersloh,132,6,2861876
+,30208,Warendorf,131,6,2861876
+,30333,,322,6,2842566
+,30284,,295,6,2842565
+,30404,Neu-Ulm,241,6,2951839
+,30405,,124,6,2905330
+,30358,Helmstedt - Wolfsburg,46,6,2862926
+,30332,,29,6,2951839
+,30350,Leipzig II,310,6,2842566
+,30351,,39,6,2861876
+,30414,Altmark,283,6,2842565
+,30422,Stade - Cuxhaven,31,6,2862926
+,30276,Bielefeld,102,6,2861876
+,30407,,17,6,2951839
+,30243,Krefeld,79,6,2861876
+,30425,Duisburg I,84,6,2861876
+,30426,Wiesbaden,180,6,2905330
+,30302,,7,6,2911297
+,30418,Recklinghausen I,122,6,2861876
+,30476,Eichsfeld - Nordhausen,190,6,2822542
+,30390,Delmenhorst-Wesermarsch-Oldenburg-Land,23,6,2862926
+,30522,Bergstraße,189,6,2905330
+,30406,Hof,225,6,2951839
+,30530,Coburg,238,6,2951839
+,30380,Celle - Uelzen,44,6,2862926
+,30519,,278,6,2945356
+,30540,Münster,130,6,2861876
+,30516,Lahn-Dill,174,6,2905330
+,30431,,42,6,2861876
+,30509,Heidelberg,274,6,2953481
+,30490,Essen II,120,6,2861876
+,30511,Recklinghausen II,123,6,2861876
+,30484,Worms,207,6,2847618
+,30394,Pirmasens,160,6,2847618
+,30450,,26,6,2951839
+,30508,Heidelberg,275,6,2953481
+,30443,Märkischer Kreis I,122,6,2861876
+,30525,Hamburg-Eimsbüttel,21,6,2911297
+,30449,Main-Spessart,249,6,2951839
+,30432,,16,6,2861876
+,30427,Hamm - Unna II,117,6,2861876
+,30438,,280,6,2945356
+,30429,Neuss II,77,6,2861876
+,30440,Borken II,127,6,2861876
+,30441,,1,6,2847618
+,30434,Ludwigsburg,169,6,2953481
+,30433,Ludwigsburg,266,6,2953481
+,30498,Rhein-Sieg-Kreis I,64,6,2861876
+,30439,Borken II,96,6,2861876
+,30502,Mittelems,32,6,2862926
+,30473,Neuss I,109,6,2861876
+,30477,Eichsfeld - Nordhausen - Unstrut-Hainich-Kreis I,190,6,2822542
+,30454,Ludwigshafen/Frankenthal,210,6,2847618
+,30444,Rosenheim,209,6,2951839
+,30446,Regensburg,219,6,2951839
+,30447,Main-Spessart,235,6,2951839
+,30448,Main-Spessart,250,6,2951839
+,30455,Ludwigshafen/Frankenthal,209,6,2847618
+,30460,Rheinisch-Bergischer Kreis,101,6,2861876
+,30453,Neuruppin - Kyritz - Wittstock - Pritzwalk - Perleberg,271,6,2945356
+,30535,Berlin-Kreuzberg - Schöneberg,255,6,2950157
+,30354,Reichenbach - Plauen - Auerbach - Oelsnitz,328,6,2842566
+,30420,,305,6,2822542
+,30456,Solingen - Remscheid,71,6,2861876
+,30458,Ludwigshafen/Frankenthal,208,6,2847618
+,30459,Rheinisch-Bergischer Kreis I,67,6,2861876
+,30428,Hamm - Unna II,146,6,2861876
+,30462,Gütersloh,101,6,2861876
+,30464,Wesel II,83,6,2861876
+,30465,Cuxhaven,24,6,2862926
+,30466,Cuxhaven - Osterholz,30,6,2862926
+,30478,Eichsfeld - Nordhausen - Unstrut-Hainich-Kreis I,189,6,2822542
+,30468,Märkischer Kreis II,150,6,2861876
+,30469,Erlangen,228,6,2951839
+,30567,Eisleben - Sangerhausen - Hettstedt,295,6,2842565
+,30474,Neuss I,108,6,2861876
+,30475,Nordhausen - Worbis - Heiligenstadt,296,6,2822542
+,30479,Eichsfeld-Nordhausen-Unstrut-Hainich-Kreis I,189,6,2822542
+,30480,Eichsfeld – Nordhausen – Kyffhäuserkreis,189,6,2822542
+,30482,Worms,209,6,2847618
+,30483,Worms,208,6,2847618
+,30452,Prignitz - Ostprignitz-Ruppin - Havelland I,56,6,2945356
+,30481,Worms,155,6,2847618
+,30500,Bremen I,54,6,2944387
+,30572,Ulm,292,6,2953481
+,30485,Waldeck,124,6,2905330
+,30486,Waldeck,169,6,2905330
+,30487,Steinfurt II,98,6,2861876
+,30489,Essen II,89,6,2861876
+,30554,Olpe - Märkischer Kreis I,150,6,2861876
+,30492,Schwalm-Eder,127,6,2905330
+,30493,Schwalm-Eder,172,6,2905330
+,30528,Harburg,35,6,2862926
+,30496,Aurich - Emden,19,6,2862926
+,30494,Chemnitz,164,6,2842566
+,30565,Berlin-Reinickendorf,251,6,2950157
+,30499,Bremen-Ost,50,6,2944387
+,30538,Düsseldorf II,108,6,2861876
+,30501,Mittelems,26,6,2862926
+,30386,Heilbronn,171,6,2953481
+,30504,Bremen-West,51,6,2944387
+,30505,Cottbus - Guben - Forst,280,6,2945356
+,30506,Saarbrücken I,244,6,2842635
+,30556,Hannover-Land II,47,6,2862926
+,30521,Bergstraße,145,6,2905330
+,30510,Recklinghausen II - Borken I,92,6,2861876
+,30578,Zeitz-Hohenmölsen-Naumburg-Nebra,294,6,2842565
+,30512,Coesfeld - Steinfurt I,97,6,2861876
+,30416,Leipzig II,154,6,2842566
+,30515,Lahn-Dill,130,6,2905330
+,30523,Bergstraße,188,6,2905330
+,30518,Frankfurt/Oder - Eisenhüttenstadt - Beeskow,279,6,2945356
+,30513,Coesfeld - Steinfurt II,128,6,2861876
+,30467,Märkischer Kreis II,151,6,2861876
+,30415,Altmark,66,6,2842565
+,30551,Kassel,170,6,2905330
+,30524,Hamburg-Eimsbüttel,14,6,2911297
+,30442,Segeberg - Stormarn-Nord,8,6,2838632
+,30526,Hochsauerlandkreis,119,6,2861876
+,30576,München-Nord,204,6,2951839
+,30529,Coburg,239,6,2951839
+,30541,Düren,56,6,2861876
+,30531,Berlin-Hohenschönhausen-Pankow-Weißensee,261,6,2950157
+,30532,Oberallgäu,242,6,2951839
+,30533,Oberallgäu,257,6,2951839
+,30548,Rhein-Sieg-Kreis II,99,6,2861876
+,30542,Düren,91,6,2861876
+,30536,Braunschweig,45,6,2862926
+,30393,Berlin-Pankow,77,6,2950157
+,30539,Münster,99,6,2861876
+,30385,Göttingen,49,6,2862926
+,30353,Merseburg-Querfurt-Weißenfels,293,6,2842565
+,30534,Oberallgäu,256,6,2951839
+,30549,Rhein-Sieg-Kreis II,98,6,2861876
+,30497,Aurich - Emden,25,6,2862926
+,30634,Gifhorn - Peine,45,6,2862926
+,30592,Eberswalde - Bernau - Bad Freienwalde,274,6,2945356
+,30527,Hochsauerlandkreis,148,6,2861876
+,30598,Nürnberg-Nord,244,6,2951839
+,30545,Dresden I,160,6,2842566
+,30581,Herford - Minden-Lübbecke II,134,6,2861876
+,30601,Starnberg,224,6,2951839
+,30657,Harz,68,6,2842565
+,30488,Steinfurt III,129,6,2861876
+,30602,Berlin-Tempelhof - Schöneberg,82,6,2950157
+,30520,Luckenwalde-Zossen-Jüterbog-Königs Wusterhausen,278,6,2945356
+,30642,Darmstadt,187,6,2905330
+,30622,Nienburg II - Schaumburg,40,6,2862926
+,30645,Ennepe-Ruhr-Kreis II,140,6,2861876
+,30683,Berlin-Neukölln,83,6,2950157
+,30543,Düren,90,6,2861876
+,30544,Dresden I,318,6,2842566
+,30656,Bad Doberan - Güstrow - Müritz,17,6,2872567
+,30560,Neustadt - Speyer,209,6,2847618
+,30547,Rhein-Sieg-Kreis II,65,6,2861876
+,30550,Kassel,125,6,2905330
+,30552,Kaiserslautern,159,6,2847618
+,30553,Olpe-Siegen-Wittgenstein II,121,6,2861876
+,30555,Koblenz,148,6,2847618
+,30557,Neustadt - Speyer,158,6,2847618
+,30561,Neustadt-Speyer,209,6,2847618
+,30569,Ahrweiler,201,6,2847618
+,30570,Ahrweiler,200,6,2847618
+,30574,Kyffhäuserkreis-Sömmerda-Weimarer Land I,191,6,2822542
+,30562,Zollernalb - Sigmaringen,198,6,2953481
+,30564,Fürstenwalde - Strausberg - Seelow,277,6,2945356
+,30566,Köln I,59,6,2861876
+,30568,Ahrweiler,147,6,2847618
+,30575,Jena – Sömmerda – Weimarer Land I,191,6,2822542
+,30579,Herford,103,6,2861876
+,30571,Ulm,195,6,2953481
+,30580,Herford-Minden-Lübbecke I,103,6,2861876
+,30546,Pforzheim,183,6,2953481
+,30577,München-Nord,218,6,2951839
+,30558,Neustadt - Speyer,211,6,2847618
+,30559,Neustadt - Speyer,210,6,2847618
+,30643,Wismar - Nordwestmecklenburg - Parchim,12,6,2872567
+,30582,Berlin-Tiergarten - Wedding - Nord-Charlottenburg,250,6,2950157
+,30661,Delmenhorst - Wesermarsch - Oldenburg-Land,29,6,2862926
+,30646,Hamburg-Mitte,19,6,2911297
+,30632,Oberhausen - Wesel III,118,6,2861876
+,30618,Heinsberg,90,6,2861876
+,30589,Rottal-Inn,216,6,2951839
+,30590,Rottal-Inn,231,6,2951839
+,30623,Nienburg II - Schaumburg,41,6,2862926
+,30630,Weiden,236,6,2951839
+,30635,Gifhorn - Peine,46,6,2862926
+,30650,Oberhavel - Havelland II,58,6,2945356
+,30597,Nürnberg-Nord,245,6,2951839
+,30594,"Segeberg,Stormarn-Nord",8,6,2838632
+,30660,Freising,215,6,2951839
+,30600,Starnberg,225,6,2951839
+,30684,Unna I,145,6,2861876
+,30606,Backnang – Schwäbisch Gmünd,269,6,2953481
+,30608,Erzgebirgskreis I,165,6,2842566
+,30620,Waldshut,288,6,2953481
+,30686,Heilbronn,267,6,2953481
+,30607,Annaberg - Aue-Schwarzenberg,166,6,2842566
+,30584,Odenwald,144,6,2905330
+,30610,München-Nord,219,6,2951839
+,30621,Berlin-Reinickendorf,78,6,2950157
+,30662,Berlin-Marzahn - Hellersdorf,86,6,2950157
+,30626,Leipzig I,153,6,2842566
+,30611,Märkisch-Oderland - Barnim II,59,6,2945356
+,30625,Karlsruhe-Land,272,6,2953481
+,30619,Waldshut,289,6,2953481
+,30651,Oberhavel - Havelland II,59,6,2945356
+,30596,Pinneberg,7,6,2838632
+,30629,Hof,239,6,2951839
+,30627,Mettmann I,105,6,2861876
+,30624,Karlsruhe-Land,273,6,2953481
+,30604,Backnang - Schwäbisch Gmünd,269,6,2953481
+,30605,Backnang-Schwäbisch Gmünd,269,6,2953481
+,30609,Erzgebirgskreis I,164,6,2842566
+,30628,Hof,240,6,2951839
+,30599,Rhein-Sieg-Kreis I,98,6,2861876
+,30636,Gifhorn – Peine,45,6,2862926
+,30631,Soltau-Fallingbostel - Winsen L.,36,6,2862926
+,30613,Hildesheim,48,6,2862926
+,30633,Wetterau,178,6,2905330
+,30638,Kaiserslautern,211,6,2847618
+,30637,Kaiserslautern,212,6,2847618
+,30640,Kaiserslautern,209,6,2847618
+,30588,Darmstadt,143,6,2905330
+,30591,Rottal-Inn,230,6,2951839
+,30639,Kaiserslautern,210,6,2847618
+,30507,Heidelberg,178,6,2953481
+,30641,Schwandorf,235,6,2951839
+,30649,Stade I - Rotenburg II,31,6,2862926
+,30666,Hagen - Ennepe-Ruhr-Kreis I,139,6,2861876
+,30495,Oranienburg - Nauen,273,6,2945356
+,30614,Hildesheim,49,6,2862926
+,30647,Hamburg-Mitte,18,6,2911297
+,30648,Börde,70,6,2842565
+,30615,Essen III,121,6,2861876
+,30655,Burgenland,74,6,2842565
+,30652,Leverkusen - Köln IV,102,6,2861876
+,30472,Bottrop - Recklinghausen III,126,6,2861876
+,30653,Stuttgart II,260,6,2953481
+,30658,Mannheim,276,6,2953481
+,30659,Freising,216,6,2951839
+,30667,Hagen - Ennepe-Ruhr-Kreis I,138,6,2861876
+,30663,Berlin-Marzahn-Hellersdorf,85,6,2950157
+,30668,Hagen – Ennepe-Ruhr-Kreis I,138,6,2861876
+,30671,Werra-Meißner - Hersfeld-Rotenburg,169,6,2905330
+,30672,Werra-Meißner – Hersfeld-Rotenburg,169,6,2905330
+,30586,Frankfurt am Main II,184,6,2905330
+,30583,Berlin-Mitte,76,6,2950157
+,30701,Bielefeld,133,6,2861876
+,30765,Ansbach,242,6,2951839
+,30777,Bruchsal - Schwetzingen,278,6,2953481
+,30673,Pirmasens,213,6,2847618
+,30778,Bruchsal-Schwetzingen,278,6,2953481
+,30779,Bruchsal – Schwetzingen,278,6,2953481
+,30776,Bruchsal - Schwetzingen,279,6,2953481
+,30698,Emmendingen-Lahr,283,6,2953481
+,30703,Tübingen,290,6,2953481
+,30695,Lüchow-Dannenberg - Lüneburg,37,6,2862926
+,30665,Potsdam - Potsdam-Mittelmark II - Teltow-Fläming II,61,6,2945356
+,30593,Hagen,108,6,2861876
+,30697,Emmendingen - Lahr,283,6,2953481
+,30669,Werra-Meißner - Hersfeld,171,6,2905330
+,30674,Pirmasens,212,6,2847618
+,30699,Emmendingen – Lahr,283,6,2953481
+,30705,Rheingau-Taunus - Limburg,178,6,2905330
+,30767,Mainz,206,6,2847618
+,30676,Pirmasens,210,6,2847618
+,30678,Erfurt,194,6,2822542
+,30675,Pirmasens,211,6,2847618
+,30680,Gera - Saale-Holzland-Kreis,196,6,2822542
+,30677,Mansfelder Land,75,6,2842565
+,30681,Hamburg-Altona,20,6,2911297
+,30692,Dresden II - Bautzen II,160,6,2842566
+,30693,Dresden II – Bautzen II,160,6,2842566
+,30682,Brandb.-a.d. Havel - Potsd.-Mittelm. I-Hav. III-Teltow-Flä.I,60,6,2945356
+,30685,Heilbronn,268,6,2953481
+,30687,Rotenburg - Verden,35,6,2862926
+,30688,München-West/Mitte,222,6,2951839
+,30691,Dresden II - Bautzen II,161,6,2842566
+,30689,München-West/Mitte,221,6,2951839
+,30595,Glauchau-Rochlitz-Hohenstein-Ernstthal-Hainichen,322,6,2842566
+,30690,Dresden II - Meißen I,161,6,2842566
+,30700,Stuttgart I,259,6,2953481
+,30694,Gießen,175,6,2905330
+,30768,Rotenburg I - Soltau-Fallingbostel,36,6,2862926
+,30696,Emmendingen - Lahr,284,6,2953481
+,30713,Mettmann II,106,6,2861876
+,30612,Siegen-Wittgenstein,149,6,2861876
+,30664,Duisburg II,117,6,2861876
+,30775,Kulmbach,240,6,2951839
+,30702,Tübingen,291,6,2953481
+,30706,Rheingau-Taunus -Limburg,178,6,2905330
+,30707,Rheingau-Taunus – Limburg,178,6,2905330
+,30804,Diepholz - Nienburg I,34,6,2862926
+,30712,Braunschweig,51,6,2862926
+,30714,Bonn,97,6,2861876
+,30709,Anhalt,71,6,2842565
+,30710,Elbe-Havel-Gebiet,67,6,2842565
+,30711,Braunschweig,50,6,2862926
+,30716,Hameln-Pyrmont - Holzminden,47,6,2862926
+,30718,Neuwied,200,6,2847618
+,30715,Bonn,96,6,2861876
+,30719,Neuwied,199,6,2847618
+,30721,Marburg,172,6,2905330
+,30724,Reutlingen,289,6,2953481
+,30720,Marburg,173,6,2905330
+,30725,Bremen II - Bremerhaven,55,6,2944387
+,30722,Marburg,171,6,2905330
+,30723,Reutlingen,290,6,2953481
+,30728,Mittelsachsen,162,6,2842566
+,30730,Berlin-Steglitz - Zehlendorf,80,6,2950157
+,30727,Freiberg - Mittlerer Erzgebirgskreis,162,6,2842566
+,30734,Herne - Bochum II,142,6,2861876
+,30729,Mittelsachsen,161,6,2842566
+,30735,Gießen,174,6,2905330
+,30732,Böblingen,261,6,2953481
+,30755,Koblenz,202,6,2847618
+,30737,Dortmund I,143,6,2861876
+,30739,Unterems,26,6,2862926
+,30736,Gießen,173,6,2905330
+,30742,Weilheim,226,6,2951839
+,30738,Dortmund I,142,6,2861876
+,30756,Koblenz,201,6,2847618
+,30743,Köln I,94,6,2861876
+,30740,Unterems,25,6,2862926
+,30741,Weilheim,227,6,2951839
+,30802,Homburg,299,6,2842635
+,30733,Böblingen,260,6,2953481
+,30747,Friesland - Wilhelmshaven,27,6,2862926
+,30748,Friesland - Wilhelmshaven - Wittmund,26,6,2862926
+,30749,Cuxhaven - Stade II,30,6,2862926
+,30750,Cuxhaven - Stade II,29,6,2862926
+,30753,Oberbergischer Kreis,99,6,2861876
+,30751,Cuxhaven – Stade II,29,6,2862926
+,30752,Oberbergischer Kreis,100,6,2861876
+,30803,Wiesbaden,179,6,2905330
+,30644,Fulda,176,6,2905330
+,30761,Neckar-Zaber,266,6,2953481
+,30762,Südpfalz,214,6,2847618
+,30670,Werra-Meißner - Hersfeld-Rotenburg,170,6,2905330
+,30757,Koblenz,200,6,2847618
+,30758,München-Süd,221,6,2951839
+,30759,München-Süd,220,6,2951839
+,30763,Südpfalz,213,6,2847618
+,30760,Neckar-Zaber,267,6,2953481
+,30801,Kreuznach,202,6,2847618
+,30754,Erftkreis I,92,6,2861876
+,30781,Hochtaunus,176,6,2905330
+,30782,Mainz,208,6,2847618
+,30780,Hochtaunus,177,6,2905330
+,30783,Mainz,207,6,2847618
+,30786,Nürtingen,262,6,2953481
+,30787,Höxter - Lippe II,137,6,2861876
+,30785,Nürtingen,263,6,2953481
+,30790,Vogtlandkreis,167,6,2842566
+,30794,Greiz - Altenburger Land,197,6,2822542
+,30744,Köln I,93,6,2861876
+,30788,Gotha - Ilm-Kreis,193,6,2822542
+,30789,Vogtland - Plauen,168,6,2842566
+,30792,Bernburg - Bitterfeld - Saalkreis,72,6,2842565
+,30746,Krefeld II - Wesel II,114,6,2861876
+,30894,Rotenburg I – Heidekreis,35,6,2862926
+,30903,Salzgitter - Wolfenbüttel,50,6,2862926
+,30859,Viersen,112,6,2861876
+,30791,Vogtlandkreis,166,6,2842566
+,30858,Berlin-Spandau – Charlottenburg Nord,78,6,2950157
+,30854,Cottbus - Spree-Neiße,64,6,2945356
+,30798,Schwarzwald-Baar,286,6,2953481
+,30799,Hamburg-Wandsbek,23,6,2911297
+,30907,Groß-Gerau,184,6,2905330
+,30795,Trier,205,6,2847618
+,30856,Soest,147,6,2861876
+,30796,Trier,204,6,2847618
+,30800,Kreuznach,203,6,2847618
+,30797,Schwarzwald-Baar,287,6,2953481
+,30806,Eisenach - Wartburgkreis - Unstrut-Hainich-Kreis II,191,6,2822542
+,30808,Görlitz,158,6,2842566
+,30811,Pforzheim,279,6,2953481
+,30807,Löbau-Zittau - Görlitz - Niesky,157,6,2842566
+,30812,Mönchengladbach,110,6,2861876
+,30810,Pforzheim,280,6,2953481
+,30816,Odenwald,187,6,2905330
+,30838,Waiblingen,264,6,2953481
+,30813,Mönchengladbach,109,6,2861876
+,30839,Lahn-Dill,173,6,2905330
+,30820,Bad Kissingen,248,6,2951839
+,30822,Hannover-Land I,44,6,2862926
+,30819,Berlin-Lichtenberg,86,6,2950157
+,30842,Goslar - Northeim - Osterode,53,6,2862926
+,30823,Altötting,215,6,2951839
+,30821,Hannover-Land I,43,6,2862926
+,30824,Altötting,214,6,2951839
+,30826,Altötting,212,6,2951839
+,30827,Berlin-Charlottenburg - Wilmersdorf,81,6,2950157
+,30825,Altötting,213,6,2951839
+,30829,Roth,246,6,2951839
+,30831,Erlangen,242,6,2951839
+,30828,Roth,247,6,2951839
+,30832,Köln III,96,6,2861876
+,30830,Erlangen,243,6,2951839
+,30836,Neu-Ulm,255,6,2951839
+,30815,Odenwald,188,6,2905330
+,30833,Köln III,95,6,2861876
+,30834,Kamenz - Hoyerswerda - Großenhain,156,6,2842566
+,30818,Berlin-Lichtenberg,87,6,2950157
+,30835,Neu-Ulm,256,6,2951839
+,30837,Waiblingen,265,6,2953481
+,30844,Rosenheim,222,6,2951839
+,30847,Weiden,235,6,2951839
+,30843,Rosenheim,223,6,2951839
+,30848,Mülheim - Essen I,119,6,2861876
+,30845,Hanau,181,6,2905330
+,30846,Groß-Gerau,185,6,2905330
+,30849,Bochum I,141,6,2861876
+,30851,Passau,229,6,2951839
+,30853,Osnabrück-Land,39,6,2862926
+,30850,Bochum I,140,6,2861876
+,30889,Duisburg I,116,6,2861876
+,30852,Osnabrück-Land,38,6,2862926
+,30878,Helmstedt - Wolfsburg,51,6,2862926
+,30900,Lippe I,135,6,2861876
+,30901,Fulda,175,6,2905330
+,30864,Bamberg,236,6,2951839
+,30884,Paderborn,138,6,2861876
+,30865,Steinfurt I - Borken I,125,6,2861876
+,30904,Salzgitter – Wolfenbüttel,49,6,2862926
+,30860,Viersen,111,6,2861876
+,30861,Stadt Osnabrück,39,6,2862926
+,30866,Steinfurt I - Borken I,124,6,2861876
+,30862,Odenwald - Tauber,277,6,2953481
+,30863,Bamberg,237,6,2951839
+,30867,Steinfurt I – Borken I,124,6,2861876
+,30869,Schwäbisch Hall - Hohenlohe,268,6,2953481
+,30870,Schwäbisch Hall-Hohenlohe,268,6,2953481
+,30868,Schwäbisch Hall - Hohenlohe,269,6,2953481
+,30871,Schwäbisch Hall – Hohenlohe,268,6,2953481
+,30872,Segeberg - Stormarn-Mitte,8,6,2838632
+,30873,Segeberg – Stormarn-Mitte,8,6,2838632
+,30875,Erfurt - Weimar - Weimarer Land II,193,6,2822542
+,30876,Erfurt-Weimar-Weimarer Land II,193,6,2822542
+,30874,Mettmann I,104,6,2861876
+,30877,Erfurt – Weimar – Weimarer Land II,193,6,2822542
+,30880,Greiz - Altenburger Land,195,6,2822542
+,30881,Greiz-Altenburger Land,195,6,2822542
+,30717,Köln II,95,6,2861876
+,30882,Gera – Greiz – Altenburger Land,194,6,2822542
+,30886,Chemnitzer Umland - Erzgebirgskreis II,164,6,2842566
+,30814,Wesel I,114,6,2861876
+,30887,Chemnitzer Umland - Erzgebirgskreis II,163,6,2842566
+,30885,Chemnitzer Land - Stollberg,165,6,2842566
+,30888,Chemnitzer Umland – Erzgebirgskreis II,163,6,2842566
+,30890,Karlsruhe-Stadt,271,6,2953481
+,30891,Potsdam - Potsdam-Mittelmark II - Teltow-Fläming II,62,6,2945356
+,30892,Wuppertal I,103,6,2861876
+,30895,Aachen II,88,6,2861876
+,30898,Zollernalb-Sigmaringen,295,6,2953481
+,30784,Mansfeld,74,6,2842565
+,30899,Zollernalb – Sigmaringen,295,6,2953481
+,30897,Hamburg-Eimsbüttel,20,6,2911297
+,30893,Wuppertal I,102,6,2861876
+,30905,Cloppenburg - Vechta,32,6,2862926
+,30883,Frankfurt (Oder) - Oder-Spree,63,6,2945356
+,30902,Fulda,174,6,2905330
+,30906,Konstanz,287,6,2953481
+,30908,Amberg,232,6,2951839
+,30909,Uckermark – Barnim I,57,6,2945356
+,30910,Anhalt,72,6,2842565
+,30911,Altmark,67,6,2842565
+,30913,Leverkusen - Köln IV,101,6,2861876
+,30912,Dresden I,159,6,2842566
+,30914,Leverkusen – Köln IV,101,6,2861876
+,30915,Erding - Ebersberg,215,6,2951839
+,30916,Erding - Ebersberg,214,6,2951839
+,30917,Würzburg,251,6,2951839
+,30731,Halle,72,6,2842565
+,30855,Soest,146,6,2861876
+,30994,Helmstedt - Wolfsburg,52,6,2862926
+,30919,Cottbus - Spree-Neiße,65,6,2945356
+,30920,Göttingen,54,6,2862926
+,30921,Celle - Uelzen,45,6,2862926
+,30922,Celle – Uelzen,44,6,2862926
+,30924,Mecklenburgische Seenplatte II – Landkreis Rostock III,17,6,2872567
+,30927,Coesfeld - Steinfurt II,127,6,2861876
+,30996,Gera - Jena - Saale-Holzland-Kreis,194,6,2822542
+,30929,Berlin-Spandau - Charlottenburg Nord,78,6,2950157
+,30925,Borken II,126,6,2861876
+,30965,Delmenhorst - Wesermarsch - Oldenburg-Land,28,6,2862926
+,30840,Lahn-Dill,172,6,2905330
+,30928,Recklinghausen I,121,6,2861876
+,30918,Hannover-Land II,48,6,2862926
+,30934,Eisenach-Wartburgkreis-Unstrut-Hainich-Kreis II,190,6,2822542
+,30931,Rhein-Sieg-Kreis I,97,6,2861876
+,30966,Delmenhorst – Wesermarsch – Oldenburg-Land,28,6,2862926
+,30950,Schwalm-Eder,171,6,2905330
+,30935,Eisenach – Wartburgkreis – Unstrut-Hainich-Kreis,190,6,2822542
+,30939,Börde - Jerichower Land,68,6,2842565
+,30940,Börde - Jerichower Land,67,6,2842565
+,30936,Berlin-Mitte,75,6,2950157
+,30952,Nürnberg-Süd,245,6,2951839
+,30938,Duisburg I,115,6,2861876
+,30941,Börde – Jerichower Land,67,6,2842565
+,30943,Ludwigsburg,265,6,2953481
+,30944,Herzogtum Lauenburg – Stormarn-Süd,10,6,2838632
+,30942,Mettmann II,105,6,2861876
+,30946,Ingolstadt,216,6,2951839
+,30947,Harz,69,6,2842565
+,30945,Ingolstadt,217,6,2951839
+,30993,Leipzig I,152,6,2842566
+,30948,Gütersloh I,131,6,2861876
+,30954,Ostholstein – Stormarn-Nord,9,6,2838632
+,30951,Schwalm-Eder,170,6,2905330
+,30956,Südpfalz,211,6,2847618
+,30957,Bottrop - Recklinghausen III,125,6,2861876
+,30955,Südpfalz,212,6,2847618
+,30958,Bottrop – Recklinghausen III,125,6,2861876
+,30959,Odenwald - Tauber,276,6,2953481
+,30960,Odenwald-Tauber,276,6,2953481
+,30961,Odenwald – Tauber,276,6,2953481
+,30962,Kassel,169,6,2905330
+,30930,Berlin-Steglitz-Zehlendorf,79,6,2950157
+,30933,Eisenach - Wartburgkreis - Unstrut-Hainich-Kreis II,190,6,2822542
+,30964,Recklinghausen II,122,6,2861876
+,30968,München-Land,221,6,2951839
+,30969,Rhein-Neckar,277,6,2953481
+,30967,München-Land,222,6,2951839
+,30971,Solingen – Remscheid – Wuppertal II,103,6,2861876
+,30972,Olpe - Märkischer Kreis I,149,6,2861876
+,30973,Olpe – Märkischer Kreis I,149,6,2861876
+,30975,Ahrweiler,198,6,2847618
+,30976,Magdeburg,70,6,2842565
+,30974,Ahrweiler,199,6,2847618
+,30977,Chemnitz,163,6,2842566
+,30980,Krefeld I - Neuss II,110,6,2861876
+,30981,Krefeld I – Neuss II,110,6,2861876
+,30978,Chemnitz,162,6,2842566
+,30979,Aachen I,87,6,2861876
+,30982,Schwandorf,234,6,2951839
+,30985,Stuttgart I,258,6,2953481
+,30986,Aalen - Heidenheim,270,6,2953481
+,30983,Düsseldorf I,106,6,2861876
+,30984,Unna I,144,6,2861876
+,30987,Aalen-Heidenheim,270,6,2953481
+,30988,Aalen – Heidenheim,270,6,2953481
+,30990,Diepholz - Nienburg I,33,6,2862926
+,30991,Diepholz – Nienburg I,33,6,2862926
+,30989,Siegen-Wittgenstein,148,6,2861876
+,30992,Mansfeld,75,6,2842565
+,30932,Darmstadt,186,6,2905330
+,30949,Leipzig II,153,6,2842566
+,30998,Mecklenburgische Seenplatte I - Vorpommern-Greifswald II,16,6,2872567
+,30999,Paderborn - Gütersloh III,137,6,2861876
+,30997,Berlin-Pankow,76,6,2950157
+,31000,Paderborn – Gütersloh III,137,6,2861876
+,31002,Stuttgart II,259,6,2953481
+,31004,Meißen,156,6,2842566
+,31001,Berlin-Tempelhof-Schöneberg,81,6,2950157
+,31006,Osterholz - Verden,35,6,2862926
+,31007,Osterholz - Verden,34,6,2862926
+,31003,Meißen,155,6,2842566
+,31008,Osterholz – Verden,34,6,2862926
+,31009,Waldeck,168,6,2905330
+,31010,Stadt Osnabrück,40,6,2862926
+,31011,Schwerin - Ludwigslust-Parchim I - Nordwestmecklenburg I,12,6,2872567
+,31012,Schwerin – Ludwigslust-Parchim I – Nordwestmecklenburg I,12,6,2872567
+,31013,St. Wendel,298,6,2842635
+,31014,Frankfurt (Oder) - Oder-Spree,64,6,2945356
+,31016,Suhl - Schmalkalden-Meiningen - Hildburghausen,197,6,2822542
+,31017,Lüchow-Dannenberg - Lüneburg,38,6,2862926
+,31015,Hamburg-Wandsbek,22,6,2911297
+,31018,Lüchow-Dannenberg – Lüneburg,37,6,2862926
+,31019,Wetterau,177,6,2905330
+,31020,Bodensee,293,6,2953481
+,31021,Biberach,292,6,2953481
+,31023,Neuwied,197,6,2847618
+,31024,Gotha - Ilm-Kreis,192,6,2822542
+,31022,Neuwied,198,6,2847618
+,31025,Gotha-Ilm-Kreis,192,6,2822542
+,31026,Gotha – Ilm-Kreis,192,6,2822542
+,31028,Bitburg,202,6,2847618
+,31029,Lörrach - Müllheim,282,6,2953481
+,31027,Bitburg,203,6,2847618
+,31030,Lörrach-Müllheim,282,6,2953481
+,31032,Herford - Minden-Lübbecke II,133,6,2861876
+,31033,Herford – Minden-Lübbecke II,133,6,2861876
+,31034,Euskirchen - Rhein-Erft-Kreis II,92,6,2861876
+,30926,Ulm,291,6,2953481
+,30963,Kassel,168,6,2905330
+,31038,Bremen I,55,6,2944387
+,31090,Worms,206,6,2847618
+,31039,Sonneberg - Saalfeld-Rudolstadt - Saale-Orla-Kreis,196,6,2822542
+,31036,Warendorf,130,6,2861876
+,31037,Hochsauerlandkreis,147,6,2861876
+,31091,Herne - Bochum II,141,6,2861876
+,31040,Sonneberg-Saalfeld-Rudolstadt-Saale-Orla-Kreis,196,6,2822542
+,31042,Brandenb Havel-Potsd-MittelmarkI-HavellandIII-Teltow-FlämiI,61,6,2945356
+,31043,Brandenb Havel-Potsd-MittelmarkI-HavellandIII-Teltow-FläminI,60,6,2945356
+,31041,Berlin-Reinickendorf,77,6,2950157
+,31044,Burgenland - Saalekreis,74,6,2842565
+,31045,Burgenland - Saalekreis,73,6,2842565
+,31046,Burgenland – Saalekreis,73,6,2842565
+,31047,Ostallgäu,257,6,2951839
+,31049,Ludwigslust-Parchim II–Nordwestmecklenbg II–Landkr. RostockI,13,6,2872567
+,31050,Uckermark - Barnim I,58,6,2945356
+,31051,Stadt Hannover I,42,6,2862926
+,31052,Hanau,180,6,2905330
+,31053,Main-Kinzig - Wetterau II - Schotten,175,6,2905330
+,31054,Main-Kinzig – Wetterau II – Schotten,175,6,2905330
+,31057,Prignitz - Ostprignitz-Ruppin - Havelland I,57,6,2945356
+,31058,Frankfurt am Main I,182,6,2905330
+,31055,Wesel I,113,6,2861876
+,31143,Trier,203,6,2847618
+,31060,Nienburg II – Schaumburg,40,6,2862926
+,31062,Oberhavel – Havelland II,58,6,2945356
+,31059,Hamburg-Altona,19,6,2911297
+,31064,Mainz,205,6,2847618
+,31061,Münster,129,6,2861876
+,31066,Stade I - Rotenburg II,30,6,2862926
+,31063,Berlin-Neukölln,82,6,2950157
+,31067,Stade I – Rotenburg II,30,6,2862926
+,31065,Berlin-Charlottenburg-Wilmersdorf,80,6,2950157
+,31068,Höxter - Lippe II,136,6,2861876
+,31069,Höxter – Lippe II,136,6,2861876
+,31070,Hamburg-Bergedorf - Harburg,23,6,2911297
+,31071,Hamburg-Bergedorf – Harburg,23,6,2911297
+,31073,Suhl-Schmalkalden-Meiningen-Hildburghausen,197,6,2822542
+,31076,Steinburg – Dithmarschen Süd,3,6,2838632
+,31072,Essen III,120,6,2861876
+,31078,Freising,214,6,2951839
+,31075,Essen II,119,6,2861876
+,31079,Bielefeld - Gütersloh II,132,6,2861876
+,31077,Köln II,94,6,2861876
+,31083,Mülheim - Essen I,118,6,2861876
+,31084,Mülheim – Essen I,118,6,2861876
+,31080,Ennepe-Ruhr-Kreis II,139,6,2861876
+,31086,Goslar – Northeim – Osterode,52,6,2862926
+,31081,Steinfurt III,128,6,2861876
+,31082,Rhein-Erft-Kreis I,91,6,2861876
+,31087,Erding-Ebersberg,214,6,2951839
+,31085,Zwickau,165,6,2842566
+,31088,Erding – Ebersberg,213,6,2951839
+,30937,Regensburg,233,6,2951839
+,31089,Kreuznach,201,6,2847618
+,31092,Herne – Bochum II,141,6,2861876
+,31093,Montabaur,204,6,2847618
+,31097,Frankfurt (Oder) – Oder-Spree,63,6,2945356
+,31099,Krefeld II – Wesel II,114,6,2861876
+,31094,Heinsberg,89,6,2861876
+,31095,Duisburg II,116,6,2861876
+,31100,Bad Tölz-Wolfratshausen – Miesbach,223,6,2951839
+,31096,Düsseldorf II,107,6,2861876
+,31098,Dortmund II,143,6,2861876
+,31101,Oldenburg - Ammerland,27,6,2862926
+,31102,Oldenburg – Ammerland,27,6,2862926
+,31103,Aurich - Emden,24,6,2862926
+,31104,Aurich – Emden,24,6,2862926
+,31106,Cottbus – Spree-Neiße,64,6,2945356
+,31107,München-Ost,218,6,2951839
+,31109,Rostock - Landkreis Rostock II,14,6,2872567
+,31110,Rostock – Landkreis Rostock II,14,6,2872567
+,31108,Mittelems,31,6,2862926
+,31111,Prignitz – Ostprignitz-Ruppin – Havelland I,56,6,2945356
+,31112,Neustadt – Speyer,208,6,2847618
+,31113,Hamm - Unna II,145,6,2861876
+,31114,Hamm – Unna II,145,6,2861876
+,31127,Bielefeld – Gütersloh II,132,6,2861876
+,31128,Coesfeld – Steinfurt II,127,6,2861876
+,31115,Wetterau I,177,6,2905330
+,31118,Oberhausen – Wesel III,117,6,2861876
+,31129,Ludwigshafen/Frankenthal,207,6,2847618
+,31119,Gera-Jena-Saale-Holzland-Kreis,194,6,2822542
+,31120,Saalfeld-Rudolstadt – Saale-Holzland-Kreis – Saale-Orla-Kreis,195,6,2822542
+,31122,Mecklenburgische Seenplatte I – Vorpommern-Greifswald II ,16,6,2872567
+,31123,Berlin-Friedrichshain-Kreuzberg – Prenzlauer Berg Ost,83,6,2950157
+,31121,Nordsachsen,151,6,2842566
+,31124,Plön – Neumünster,6,6,2838632
+,31125,Cloppenburg – Vechta,32,6,2862926
+,31126,Nordfriesland – Dithmarschen Nord,2,6,2838632
+,31116,Waldeck,167,6,2905330
+,31117,Oberhausen - Wesel III,117,6,2861876
+,31130,Starnberg – Landsberg am Lech,224,6,2951839
+,31131,München-Süd,219,6,2951839
+,31132,München-Nord,217,6,2951839
+,31133,Helmstedt – Wolfsburg,51,6,2862926
+,31134,Friesland – Wilhelmshaven – Wittmund,26,6,2862926
+,31135,Dessau – Wittenberg,70,6,2842565
+,31136,Flensburg – Schleswig,1,6,2838632
+,31137,Koblenz,199,6,2847618
+,31138,München-West/Mitte,220,6,2951839
+,31139,Bremen II – Bremerhaven,55,6,2944387
+,31140,Hameln-Pyrmont – Holzminden,46,6,2862926
+,31056,Offenbach,185,6,2905330
+,31142,Fürstenfeldbruck,215,6,2951839
+,31035,Euskirchen – Rhein-Erft-Kreis II,92,6,2861876
+,29536,,5,6,2905330
+,29573,Soltau-Fallingbostel - Rotenburg II,30,6,2862926
+,29503,Greifswald - Demmin - Ostvorpommern,16,6,2872567
+,29581,Euskirchen - Erftkreis II,93,6,2861876
+,29550,,3,6,2951839
+,29529,Stadt Hannover I,41,6,2862926
+,31144,BRB a.d.Havel– Potsdam-MittelmarkI –HVL III–Teltow-Fläming I,60,6,2945356
+,29556,,2,6,2944387
+,29558,,146,6,2905330
+,29560,,14,6,2862926
+,29539,,50,6,2862926
+,29579,,196,6,2951839
+,29580,Euskirchen-Erftkreis II,58,6,2861876
+,29582,,30,6,2951839
+,29588,Böblingen,164,6,2953481
+,29525,,238,6,2951839
+,29557,,58,6,2944387
+,29512,,81,6,2861876
+,29552,Steinburg-Dithmarschen-Süd,3,6,2838632
+,29510,,199,6,2953481
+,29554,,53,6,2861876
+,29574,,26,6,2862926
+,29578,,230,6,2951839
+,29520,,85,6,2861876
+,29511,,83,6,2861876
+,29577,,106,6,2861876
+,29562,,181,6,2953481
+,29543,,180,6,2953481
+,29546,,100,6,2861876
+,29549,Soest,118,6,2861876
+,29514,,42,6,2862926
+,29501,,268,6,2872567
+,29532,,111,6,2861876
+,29502,Greifswald-Wolgast-Demmin,268,6,2872567
+,29506,,10,6,2861876
+,29518,,9,6,2861876
+,29523,,14,6,2905330
+,29528,Stadt Hannover I,36,6,2862926
+,29533,,18,6,2951839
+,29534,,12,6,2905330
+,29505,,165,6,2953481
+,29589,,7,6,2953481
+,29522,,239,6,2951839
+,29601,Essen III,90,6,2861876
+,29669,Flensburg - Schleswig,1,6,2838632
+,29638,,14,6,2911297
+,29575,,10,6,2838632
+,29618,,108,6,2861876
+,29640,,72,6,2861876
+,29538,,28,6,2862926
+,29604,,28,6,2951839
+,29606,Schwarzwald-Baar,190,6,2953481
+,29559,,107,6,2861876
+,29623,,209,6,2951839
+,29628,,235,6,2951839
+,29612,,31,6,2861876
+,29614,,18,6,2905330
+,29617,,49,6,2861876
+,29641,Mettmann I,72,6,2861876
+,29665,Unna I,116,6,2861876
+,29666,,127,6,2905330
+,29668,Verden-Osterholz,29,6,2862926
+,29584,,5,6,2953481
+,29621,,9,6,2951839
+,29627,,186,6,2953481
+,29659,,35,6,2862926
+,29631,,313,6,2842566
+,29632,Meißen-Riesa-Großenhain,313,6,2842566
+,29633,"Meißen, Riesa-Großenhain",313,6,2842566
+,29635,,16,6,2905330
+,29637,,1,6,2911297
+,29644,Nürnberg-Süd,231,6,2951839
+,29626,,136,6,2905330
+,29642,Nürnberg-Süd,246,6,2951839
+,29645,,35,6,2861876
+,29648,,51,6,2861876
+,29603,,116,6,2861876
+,29653,Cochem,149,6,2847618
+,29654,Mosel/Rhein-Hunsrück,203,6,2847618
+,29655,Mosel/Rhein-Hunsrück,202,6,2847618
+,29656,Mosel/Rhein-Hunsrück,201,6,2847618
+,29657,Mosel/Rhein-Hunsrück,200,6,2847618
+,29661,,23,6,2951839
+,29663,,46,6,2861876
+,29611,,93,6,2861876
+,29613,,88,6,2861876
+,29630,,179,6,2953481
+,29643,,231,6,2951839
+,29608,,182,6,2953481
+,29624,Oberbergischer Kreis,66,6,2861876
+,29634,,103,6,2861876
+,29649,,110,6,2861876
+,29547,,112,6,2861876
+,29596,,14,6,2847618
+,29652,,149,6,2847618
+,29591,,204,6,2951839
+,29521,,237,6,2951839
+,29598,,162,6,2847618
+,29678,,73,6,2861876
+,29728,Cloppenburg - Vechta,33,6,2862926
+,29691,,38,6,2862926
+,29671,Würzburg,252,6,2951839
+,29695,,87,6,2861876
+,29740,,3,6,2862926
+,29730,Nordfriesland - Dithmarschen Nord,2,6,2838632
+,29715,Stadt Hannover II,42,6,2862926
+,29690,,147,6,2905330
+,29662,,142,6,2905330
+,29694,,15,6,2905330
+,29677,Sächsische Schweiz-Osterzgebirge,158,6,2842566
+,29696,,11,6,2953481
+,29698,,285,6,2842565
+,29679,,156,6,2847618
+,29700,,33,6,2861876
+,29544,,183,6,2953481
+,29724,Neckar-Zaber,170,6,2953481
+,29707,,176,6,2953481
+,29701,Aalen - Heidenheim,174,6,2953481
+,29729,Nordfriesland - Dithmarschen-Nord,2,6,2838632
+,29723,,187,6,2953481
+,29702,Aalen - Heidenheim,271,6,2953481
+,29703,,3,6,2911297
+,29647,,92,6,2861876
+,29687,,206,6,2951839
+,29670,Würzburg,237,6,2951839
+,29639,,66,6,2861876
+,29672,Sonneberg - Saalfeld-Rudolstadt - Saale-Orla-Kreis,197,6,2822542
+,29708,Karlsruhe-Land,176,6,2953481
+,29673,,317,6,2842566
+,29568,,144,6,2905330
+,29681,,18,6,2911297
+,29711,,287,6,2842565
+,29660,,9,6,2838632
+,29674,Pirna - Sebnitz - Bischofswerda,317,6,2842566
+,29714,Stadt Hannover II,37,6,2862926
+,29675,Sächsische Schweiz - Weißeritzkreis,159,6,2842566
+,29709,,84,6,2861876
+,29676,Sächsische Schweiz - Osterzgebirge,159,6,2842566
+,29713,,37,6,2862926
+,29731,Lörrach - Müllheim,186,6,2953481
+,29716,Stadt Hannover II,43,6,2862926
+,29609,,185,6,2953481
+,29717,Dortmund III,115,6,2861876
+,29519,,68,6,2861876
+,29692,,39,6,2862926
+,29712,Magdeburg - Schönebeck - Wanzleben - Staßfurt,287,6,2842565
+,29718,Dortmund II,144,6,2861876
+,29699,Harz und Vorharzgebiet,285,6,2842565
+,29720,,51,6,2862926
+,29600,,90,6,2861876
+,29726,Berlin-Neukölln,257,6,2950157
+,29682,,8,6,2861876
+,29725,,256,6,2950157
+,29693,Siegen-Wittgenstein I,120,6,2861876
+,29689,,22,6,2905330
+,29727,Cloppenburg - Vechta,27,6,2862926
+,29732,Lörrach - Müllheim,283,6,2953481
+,29733,,48,6,2862926
+,29684,Bernburg - Aschersleben - Quedlinburg,290,6,2842565
+,29710,,82,6,2861876
+,29587,,164,6,2953481
+,29754,,8,6,2838632
+,29747,,10,6,2951839
+,29782,,258,6,2950157
+,29748,,326,6,2842566
+,29749,Aue - Schwarzenberg - Klingenthal,326,6,2842566
+,29545,,101,6,2861876
+,29513,,152,6,2847618
+,29625,,115,6,2861876
+,29537,,130,6,2905330
+,29751,,147,6,2847618
+,29755,Trier,152,6,2847618
+,29507,,69,6,2861876
+,29777,Neuwied,146,6,2847618
+,29763,,229,6,2951839
+,29785,,325,6,2842566
+,29786,Annaberg - Stollberg - Zschopau,325,6,2842566
+,29595,,17,6,2911297
+,29762,Waldshut,192,6,2953481
+,29766,Fulda,132,6,2905330
+,29771,Hamburg-Mitte,12,6,2911297
+,29759,Hamburg-Altona,13,6,2911297
+,29753,,259,6,2950157
+,29756,Trier,206,6,2847618
+,29629,,27,6,2862926
+,29787,,54,6,2862926
+,29760,,1,6,2953481
+,29722,,191,6,2953481
+,29788,Märkisch-Oderland - Barnim II,60,6,2945356
+,29790,,277,6,2945356
+,29781,,13,6,2838632
+,29504,,58,6,2861876
+,29792,,8,6,2953481
+,29773,Goslar,47,6,2862926
+,29564,,245,6,2842635
+,29736,,244,6,2842635
+,29548,,118,6,2861876
+,29767,,12,6,2861876
+,29793,,170,6,2953481
+,29517,,166,6,2953481
+,29576,,104,6,2861876
+,29542,,62,6,2861876
+,29769,Wuppertal I,69,6,2861876
+,29526,,2,6,2838632
+,29776,,227,6,2951839
+,29774,,5,6,2862926
+,29704,,226,6,2951839
+,29592,,168,6,2953481
+,29775,,263,6,2872567
+,29780,,23,6,2862926
+,29772,,143,6,2905330
+,29667,,29,6,2862926
+,29758,,213,6,2951839
+,29752,,97,6,2861876
+,29737,,163,6,2953481
+,29750,,198,6,2951839
+,29742,,21,6,2862926
+,29746,,132,6,2905330
+,29784,,11,6,2838632
+,29572,,30,6,2862926
+,29778,Regensburg,234,6,2951839
+,29743,,49,6,2862926
+,29779,,4,6,2951839
+,29745,,8,6,2862926
+,29768,,71,6,2861876
+,29535,,137,6,2905330
+,29688,,211,6,2951839
+,29818,Hamburg-Nord,22,6,2911297
+,29802,,56,6,2861876
+,29796,Freiburg,281,6,2953481
+,29841,Calw,184,6,2953481
+,29828,München-Ost,219,6,2951839
+,29816,,16,6,2951839
+,29594,,79,6,2861876
+,29842,Calw,281,6,2953481
+,29593,,126,6,2905330
+,29650,,60,6,2861876
+,29541,,74,6,2861876
+,29813,Saarbrücken,296,6,2842635
+,29819,Hamburg-Nord,21,6,2911297
+,29530,,15,6,2911297
+,29850,Hannover-Land I,38,6,2862926
+,29843,Calw,280,6,2953481
+,29844,,14,6,2951839
+,29845,,47,6,2951839
+,29795,Freiburg,282,6,2953481
+,29847,,39,6,2951839
+,29697,,173,6,2953481
+,29808,Stade-Rotenburg I,25,6,2862926
+,29798,,27,6,2861876
+,29822,Homburg,248,6,2842635
+,29830,,41,6,2862926
+,29602,,117,6,2861876
+,29799,,11,6,2861876
+,29814,,109,6,2861876
+,29821,,248,6,2842635
+,29797,,102,6,2861876
+,29801,,4,6,2905330
+,29721,,46,6,2862926
+,29803,,5,6,2861876
+,29610,,95,6,2861876
+,29646,,94,6,2861876
+,29806,,19,6,2862926
+,29664,,128,6,2905330
+,29555,,129,6,2905330
+,29800,,70,6,2861876
+,29838,,138,6,2905330
+,29586,,198,6,2953481
+,29824,Gelsenkirchen II - Recklinghausen III,94,6,2861876
+,29527,,36,6,2862926
+,29823,,33,6,2951839
+,29599,,141,6,2905330
+,29846,Lüneburg - Lüchow-Dannenberg,31,6,2862926
+,29794,Freiburg,185,6,2953481
+,29812,Heinsberg,55,6,2861876
+,29817,Hamburg-Nord,15,6,2911297
+,29805,,20,6,2862926
+,29825,,18,6,2862926
+,29810,München-West,207,6,2951839
+,29571,,157,6,2847618
+,29826,München-Ost,205,6,2951839
+,29827,München-Ost,220,6,2951839
+,29719,,55,6,2861876
+,29569,,40,6,2862926
+,29658,,56,6,2862926
+,29500,,174,6,2953481
+,29848,,234,6,2951839
+,29834,,31,6,2862926
+,29811,,254,6,2950157
+,29831,,3,6,2905330
+,29809,,207,6,2951839
+,29832,,18,6,2953481
+,29553,,6,6,2838632
+,29833,,26,6,2861876
+,29840,,232,6,2951839
+,29706,,189,6,2953481
+,29783,,33,6,2862926
+,29741,,25,6,2862926
+,29566,,123,6,2861876
+,29849,,188,6,2953481
+,29807,,34,6,2862926
+,29651,Köln II,60,6,2861876
+,29839,,37,6,2951839
+,29757,,208,6,2951839
+,29764,,215,6,2951839
+,29567,,120,6,2861876
+,29685,,205,6,2951839
+,29804,,64,6,2861876
+,29863,,3,6,2953481
+,29860,Aschaffenburg,247,6,2951839
+,29891,Landshut,228,6,2951839
+,29881,Schweinfurt,250,6,2951839
+,29866,,10,6,2953481
+,29888,Rastatt,273,6,2953481
+,29852,Kiel,5,6,2838632
+,29734,,45,6,2862926
+,29683,,61,6,2861876
+,29616,,13,6,2911297
+,29896,,44,6,2862926
+,29883,,20,6,2861876
+,29516,,218,6,2951839
+,29878,,236,6,2951839
+,29893,,246,6,2842635
+,29836,,177,6,2953481
+,29738,,24,6,2862926
+,29837,,22,6,2862926
+,29884,,298,6,2822542
+,29869,,76,6,2861876
+,29868,,98,6,2861876
+,29509,,195,6,2953481
+,29872,,202,6,2951839
+,29686,,151,6,2847618
+,29540,,78,6,2861876
+,29871,,4,6,2847618
+,29765,,134,6,2905330
+,29870,,75,6,2861876
+,29597,,161,6,2847618
+,29563,,184,6,2953481
+,29886,Rastatt,177,6,2953481
+,29815,,169,6,2953481
+,29874,Suhl - Schmalkalden - Ilmenau - Neuhaus,307,6,2822542
+,29897,,20,6,2911297
+,29887,Rastatt,274,6,2953481
+,29854,,7,6,2905330
+,29570,,159,6,2847618
+,29867,,172,6,2953481
+,29889,Landshut,214,6,2951839
+,29590,,167,6,2953481
+,29856,Weilheim,212,6,2951839
+,29890,Landshut,229,6,2951839
+,29524,,139,6,2905330
+,29735,,247,6,2842635
+,29877,,199,6,2951839
+,29835,,193,6,2953481
+,29680,,154,6,2847618
+,29858,Aschaffenburg,233,6,2951839
+,29859,Aschaffenburg,248,6,2951839
+,29861,,318,6,2842566
+,29820,,155,6,2847618
+,29622,,203,6,2951839
+,29531,,99,6,2861876
+,29894,,8,6,2951839
+,29873,Köln III,61,6,2861876
+,29875,Suhl - Schmalkalden-Meiningen - Hildburghausen,199,6,2822542
+,29876,Suhl - Schmalkalden-Meiningen - Hildburghausen,198,6,2822542
+,29551,,3,6,2838632
+,29862,Südpfalz,161,6,2847618
+,29882,,4,6,2838632
+,29515,,214,6,2951839
+,29615,,16,6,2911297
+,29885,,201,6,2951839
+,29855,,212,6,2951839
+,29605,,190,6,2953481
+,29892,,12,6,2838632
+,29770,,12,6,2911297
+,29851,,5,6,2838632
+,29561,,1,6,2838632
+,29864,,40,6,2861876
+,29879,Schweinfurt,236,6,2951839
+,29880,Schweinfurt,251,6,2951839
+,29865,,7,6,2838632
+,29761,,192,6,2953481
+,29895,Frankfurt am Main II,139,6,2905330
+,29853,,57,6,2861876
+,29705,,160,6,2847618
+,29857,,233,6,2951839
+,29902,Kreis Aachen,54,6,2861876
+,30169,Nürtingen,166,6,2953481
+,29964,Montabaur,205,6,2847618
+,29744,Tübingen,194,6,2953481
+,29619,,105,6,2861876
+,30184,Northeim - Osterode,48,6,2862926
+,30207,Warendorf,100,6,2861876
+,29636,,14,6,2838632
+,29905,,4,6,2861876
+,29907,,261,6,2950157
+,30251,Traunstein,225,6,2951839
+,29908,Berlin-Hellersdorf-Marzahn,260,6,2950157
+,29910,Berlin-Treptow-Köpenick,84,6,2950157
+,29909,Berlin-Treptow - Köpenick,85,6,2950157
+,29906,,222,6,2951839
+,29620,,54,6,2861876
+,29975,Stadt Osnabrück,33,6,2862926
+,29898,,51,6,2944387
+,29607,,178,6,2953481
+,30067,Meiningen - Bad Salzungen - Hildburghausen - Sonneberg,306,6,2822542
+,29791,,135,6,2905330
+,30033,,41,6,2951839
+,29565,,200,6,2951839
+,29829,,210,6,2951839
+,29904,,52,6,2944387
+,30093,Erftkreis I,57,6,2861876
+,29585,,194,6,2953481
+,29583,,225,6,2951839
+,29789,,121,6,2861876
+,30034,Berlin-Charlottenburg-Wilmersdorf,254,6,2950157
+,29739,,175,6,2953481
+,29508,,63,6,2861876
+,30117,Berlin-Spandau,252,6,2950157
+,30127,Güstrow - Sternberg - Lübz - Parchim - Ludwigslust,264,6,2872567
+,29911,,228,6,2951839
+,29900,Starnberg,210,6,2951839
+,29991,Neustrelitz-Strasburg-Pasewalk-Ueckermünde-Anklam,270,6,2872567
+,30071,Neubrandenburg-Altentreptow-Waren-Röbel,269,6,2872567
+,30215,Wittenberg-Gräfenhainichen-Jessen-Roßlau-Zerbst,288,6,2842565
+,29903,Kreis Aachen,89,6,2861876
+,30151,Stralsund - Nordvorpommern - Rügen,15,6,2872567
+,29899,,266,6,2872567
+,29901,,2,6,2911297
