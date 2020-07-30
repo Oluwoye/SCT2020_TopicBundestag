@@ -138,7 +138,7 @@ def filter_by_pos(col):
         new_speech = []
         for word in tokens:
             tagged = nltk.pos_tag([word])
-            if tagged[0][1] in ['NN', 'NNS', 'CD']:
+            if tagged[0][1] in ['NN', 'NNS']:
                 new_speech.append(tagged[0])
         new_col.append(new_speech)
         print('filtered pos : ', idx + 1, '/', len(col))
