@@ -4,11 +4,11 @@ import pandas as pd
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
-from src.commons import get_chair, get_custom_stopwords, get_tagesordnung_indicators, get_filter_indicators, \
+from commons import get_chair, get_custom_stopwords, get_tagesordnung_indicators, get_filter_indicators, \
     filter_by_pos, replace_special_characters, get_mdb_names, get_wordnet_pos
 
-MINIMAL_TAGES_MATCHES = 1
-MINIMAL_MATCHES = 3
+MINIMAL_TAGES_MATCHES = 2
+MINIMAL_MATCHES = 5
 MIN_WORD_COUNT = 50
 
 lemmatizer = WordNetLemmatizer()
@@ -49,26 +49,23 @@ def concatenate_to_document(col):
     return new_col
 
 
-def merge_speeches(df):
+def merge_speeches(df, filename):
     init_speeches = df.to_dict('records')
     write = False
     speeches = []
     filter_indicators = get_filter_indicators()
     for speech in init_speeches:
-        if speech['Speaker'] in get_chair() and any(
+        if speech['Speaker'] in get_chair()[filename.split('.')[0].split('_')[1]] and any(
                 substring in speech['Speech text'] for substring in get_tagesordnung_indicators()):
             write = False
-            # if any(substring in speech['Speech text'] for substring in FILTER_INDICATORS):
             tages_key_match = 0
             for key in filter_indicators:
-                if key in speech['Speech text']:
-                    tages_key_match += 1
+                tages_key_match += speech['Speech text'].count(key)
             if tages_key_match >= MINIMAL_TAGES_MATCHES:
                 write = True
         individ_key_match = 0
         for key in filter_indicators:
-            if key in speech['Speech text']:
-                individ_key_match += 1
+            individ_key_match += speech['Speech text'].count(key)
         if individ_key_match < MINIMAL_MATCHES:
             continue
         if write:
@@ -96,10 +93,10 @@ def merge_speeches(df):
 
 
 def main():
-    path = 'data/input/bundestag_speeches_pp14-19'
+    path = 'data/input/bundestag_speeches_from_10'
     output_path = 'data/merged/final_single/'
     for filename in os.listdir(path):
-        if filename != 'bundestag_speeches_pp17.csv':
+        if filename != 'bundestag_19.csv':
             continue
         file = os.path.join(path, filename)
         bundestag = pd.read_csv(file)
@@ -109,7 +106,7 @@ def main():
             lambda col: replace_special_characters(col) if col.name == "Speech text"
             else col)
         for date in dates:
-            merged_speeches += merge_speeches(bundestag[bundestag['Date'] == date])
+            merged_speeches += merge_speeches(bundestag[bundestag['Date'] == date], filename)
         print('done merging')
         df = pd.DataFrame(merged_speeches)
         df = df.apply(
@@ -118,7 +115,7 @@ def main():
         print('done preprocessing')
         if not os.path.isdir(output_path):
             os.makedirs(output_path, exist_ok=True)
-        output_file = os.path.join(output_path + 'new_' + filename)
+        output_file = os.path.join(output_path + filename)
         df.to_csv(output_file)
         print("Finished processing of: " + filename)
 
