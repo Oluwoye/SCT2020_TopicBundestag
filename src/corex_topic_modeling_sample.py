@@ -480,7 +480,7 @@ def main():
         predict_for_speaker(indices_per_speaker, vocabs, [topic_model, tm_layer2, tm_layer3], speakers[i],
                             bundestag_frame, general_entity=general_ratios, party_dict=party_dict)
  
- speaker_collection = dict()
+    speaker_collection = dict()
     speaker_collection["cducsu"] = ["Dr. Angela Merkel"]
     speaker_collection["gruene"] = ["Renate Künast"]
     speaker_collection["fdp"] = ["Christian Lindner"]
