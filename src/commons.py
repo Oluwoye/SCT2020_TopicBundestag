@@ -118,17 +118,30 @@ def get_tagesordnung_indicators():
 
 
 def get_filter_indicators():
-    return ['kohle', 'kernkraft', 'energie', 'treibhaus', 'atom', 'umwelt', 'klimawandel', 'erderwärmung',
+    return list(set(['kohle', 'kernkraft', 'energie', 'umwelt', 'klimawandel', 'erderwärmung',
             'ökologisch', 'abgase', 'abholzung', 'artenschutz', 'erdatmosphäre', 'bergbau',
             'bevölkerungswachstum', 'biogas', 'umweltministerium', 'chemikalien', 'verseuchung', 'co2',
             'dürre', 'naturkatastrophe', 'flut', 'elektromobilität', 'emission', 'erdgas',
-            'erneuerbare energien', 'extremwetter', 'feinstaub', 'fischerei', 'fleischkonsum',
-            'fossile rohstoffe', 'geothermie', 'gletscher', 'hitzewelle', 'klimaschutz', 'klimaskeptiker',
+            'erneuerbar', 'extremwetter', 'feinstaub', 'fischerei', 'fleischkonsum',
+            'fossile', 'geothermie', 'gletscher', 'hitzewelle', 'klimaschutz', 'klimaskeptiker',
             'lichtverschmutzung', 'luftqualität', 'luftverschmutzung', 'mikroplastik', 'nachhaltigkeit',
             'nachwachsende rohstoffe', 'naturbewusstsein', 'naturschutz', 'ökobilanz', 'öl', 'ozon',
             'permafrost', 'photovoltaik', 'radioaktiv', 'recycling', 'regenwald', 'ressourcenschonung',
             'schadstoffe', 'smog', 'solar', 'strom', 'tschernobyl', 'überfischung', 'umweltpolitik',
-            'umweltverschmutzung', 'klimagipfel', 'versiegelung', 'dürre']
+            'umweltverschmutzung', 'klimagipfel', 'versiegelung', 'dürre', 'klimaforschung', 'natur',
+            'fckw', 'dekarbonisierung', 'klimakrise', 'aerosole', 'albedo', 'anthropogen', 'barrel',
+            'diesel', 'co2', 'emission', 'fracking', 'kernschmelze', 'kilowattstunde', 'klimafinanzierung',
+            'kohleimporte', 'kohlendioxid', 'kokskohle', 'kyotoprotokoll', 'luftverkehr', 'meeresspiegel',
+            'methan', 'montrealprotokoll', 'opec', 'permafrost', 'fotovoltaik', 'rspo', 'solarthermie',
+            'stromkonzerne', 'stromexport', 'treibhauseffekt', 'treibhausgase', 'versauerung', 'wälder',
+            'wärmepumpe', 'wärmestrahlung', 'weltklimarat', 'windenergie', 'cdm', 'ipcc', 'kohlenstoffsenke',
+            'mitigation', 'napa', 'redd', 'thg', 'unfcc', 'cop', 'desertifikation', 'energielobby', 'kerosin',
+            'klimatologie', 'stickstoffoxide', 'troposphäre', 'zivilisationskatastrophe', 'atomausstieg',
+            'atomkraft', 'atomenergie', 'atommüll', 'biodiesel', 'bioenergie', 'bioethanol', 'biogas',
+            'blockheizkraftwerke', 'brennstoffzelle', 'eigenerzeugung', 'einspeisevergütung', 'energieeffizienz',
+            'energiestandard', 'erdwärme', 'fernwärmevorranggebiet', 'heizwert', 'windpark', 'ökostrom', 'smog',
+            'wasserkraft', 'fußabdruck', 'klimapolitik', 'energiewende', 'atomausstieg', 'kohleausstieg',
+            'klimaflüchtlinge', 'klimaleugner', 'hambach', 'eeg']))
 
 
 def replace_special_characters(col):
