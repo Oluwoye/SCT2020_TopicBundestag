@@ -8,58 +8,8 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import wordnet
 from lxml import objectify
-
-CUSTOM_STOPWORDS = list(set(['ja', 'au', 'wa', 'nein', 'iii', 'sche', 'dy', 'ing', 'al', 'oh', 'frau', 'herr', 'kollege', 'ta',
-            'kollegin', 'herrn', 'ab', 'wort', 'wyhl', 'je', 'dame', 'herren', 'damen', 'abgeordnete',
-            'abgeordneter', 'abgeordneten', 'bundestagsabgeordneten', 'bundestagsabgeordnete',
-            'bundestagsabgeordneter', 'präsident', 'staatssekretär', 'müssen', 'mehr', 'schon', 'heute', 'sagen',
-            'diesis', 'geht', 'jahren', 'gibt', 'dafür', 'rufe', 'eröffne', 'bereits', 'neuen', 'allerdings',
-            'wurden', 'etwa', 'zusammenhang', 'gegenüber', 'folgen', 'daher', 'besteht', 'wichtige', 'sowie',
-            'kommen', 'einzelnen', 'übrigen', 'läßt', 'falsch', 'seien', 'versuchen', 'bereit', 'sollen', 'gute',
-            'braucht', 'tagen', 'woche', 'innerhalb', 'erkennen', 'hoffe', 'verstehen', 'wenigen', 'notwendige',
-            'zuletzt', 'großen', 'nächsten', 'setzen', 'hoch', 'spürbar', 'kolleginnen', 'kollegen', 'worden',
-            'zwei', 'denen', 'nehmen', 'herumkommen', 'inmitten', 'dritte', 'zweite', 'zweiter', 'bitte',
-            'hinsehen', 'stillen', 'genauerem', 'populär', 'ausgleichs', 'eindrucksvolle', 'prüf', 'auszufüllen',
-            'wachsender', 'breiteren', 'mitzuwirken', 'traf', 'addieren', 'nährt', 'aufdrängen', 'vertagt',
-            'auszutragen', 'vorzeitiger', 'besiegen', 'tagaus', 'tonner', 'rung', 'chen', 'däubler', 'gmelin',
-            'schen', 'lich', 'merk', 'casper', 'sachkundiger', 'loyal', 'siebenmal', 'flegt', 'meisten', 'wert',
-            'häufig', 'gelten', 'vieler', 'einzelne', 'besseren', 'zusammenbinden', 'modifizierte', 'inkompetent',
-            'reinigen', 'saulus', 'paulus', 'inferno', 'anfallender', 'verantwortungsloses', 'aufmerksamer',
-            'mußten', 'spüren', 'entschlossen', 'allmählich', 'bestätigen', 'zweitens', 'erstens', 'drittens',
-            'viertens', 'fünftens', 'sechstens', 'siebtens', 'achtens', 'neuntens', 'dreierlei', 'verhielten',
-            'eingemischt', 'kayser', 'timmermann', 'voßbeck', 'charles', 'wegen', 'erneut', 'schwach', 'haltet',
-            'benutze', 'gepflegten', 'mauz', 'widmann', 'damerau', 'ratjen', 'sierra', 'leone', 'unvergessen',
-            'anvisierten', 'einzuberufen', 'vertane', 'begonnen', 'füge', 'entstanden', 'beantwortet', 'duldet',
-            'auszu', 'größer', 'täglich', 'sichtbar', 'mehreren', 'neuer', 'begreifen', 'zurückführen', 'deshalb',
-            'dabei', 'brauchen', 'letzten', 'wurde', 'neue', 'unserer', 'schaffen', 'entschuldigen', 'vermuten',
-            'hielt', 'viele', 'kommt', 'stellt', 'teil', 'eben', 'wichtige', 'erreichen', 'führen', 'zeigt',
-            'gleichzeitig', 'worden', 'liegt', 'denen', 'abgesehen', 'ausweichen', 'stopfen', 'wahre', 'begangen',
-            'letzteres', 'davon', 'fast', 'bekommen', 'ständig', 'genug', 'handelte', 'dorthin', 'vermag',
-            'erschweren', 'insgesamt', 'hören', 'denken', 'betrieben', 'entsprechende', 'sogenannten', 'wenigen',
-            'weitgehend', 'weder', 'hinsichtlich', 'dennoch', 'künftig', 'gewinnen', 'beraten', 'bloße', 'höchstem',
-            'nebenbei', 'zugemutet', 'allemal', 'verzichtet', 'müsse', 'unterschiedlichen', 'entschieden', 'gezogen',
-            'ebenfalls', 'wenigstens', 'jemand', 'vernachlässigen', 'tiefer', 'begreift', 'verändert', 'bislang',
-            'schwierige','grundsätzlich', 'verstanden', 'solle', 'konkret', 'vollem', 'gedauert', 'selten',
-            'sogenannte', 'außerordentlich', 'wohin', 'gelöst', 'gewaltige', 'streichen', 'vorgestern', 'kennt',
-            'weist', 'gestärkt', 'funktioniert', 'eigener', 'zitiert', 'sorgt', 'lachen', 'zurückgegangen', 'kritisch',
-            'dergleichen', 'wesentliches', 'fünftens', 'besonderen', 'sechstens', 'weitergehen', 'bemühen', 'einziges',
-            'hingegen', 'angemessen', 'vornherein', 'unterschätzt', 'vermutlich', 'lassen', 'gerade', 'deutlich',
-            'gesagt', 'wäre', 'sollten', 'tagesordnungspunkt', 'beispiel', 'beim', 'gehen', 'allein', 'hinaus',
-            'möchte', 'punkt', 'weise', 'erste', 'deren', 'jedoch', 'wesentlichen', 'erhebliche', 'hinzu',
-            'offensichtlich', 'auseinanderfallen', 'dümmer', 'müßte', 'müßten', 'bewußt', 'bißchen', 'mußte',
-            'aufgrund', 'lässt', 'bisschen', 'müssten', 'geehrte', 'außen', 'konnte', 'verantwortlich', 'länger',
-            'wahr', 'bald', 'angekündigt', 'gefragt', 'offenbar', 'anstatt', 'vorderster', 'dummen', 'unglaubliche',
-            'hineinkommen', 'probiert', 'leichtsinnig', 'herausheben', 'nachfolgenden', 'anfänglichen', 'anziehen',
-            'alltäglich', 'einsetzbar', 'gefährlichsten', 'überschätzt', 'scheiterte', 'mitarbeiterinnen',
-            'mitarbeitern', 'mitarbeiter', 'tiefgreifenden', 'beelzebub', 'elementare', 'abgehalten', 'unlauteren',
-            'gelitten', 'aufarbeiten', 'einzigartigen', 'einzigartige', 'gebührt', 'schwerwiegende', 'kürzerer',
-            'unerträgliche', 'verläßt', 'getragen', 'aufgenommen', 'geändert', 'befriedigende', 'höhlt', 'gebauten',
-            'leidvollen', 'halbherzige', 'bloßes', 'auferlegte', 'zurückbleibt', 'dreiste', 'inntal', 'aquila',
-            'gehtnichtmehr', 'ders', 'groden', 'kranich', 'fechter', 'waack', 'ühlingen', 'dierig', 'sütterlin',
-            'malecha', 'minden', 'fibich', 'stattgegeben', 'erklären', 'spricht', 'geblieben', 'niemals', 'wann',
-            'genossinnen', 'genossen', 'ropa', 'ungeheuerliche', 'denunzieren', 'geholfen', 'diktiert', 'kant',
-            'bekomme', 'davonlaufen', 'umgekehrt', 'schließt', 'berührt', 'dauerhaften', 'größeren', 'ausgelöst',
-            'sogenanntes', 'veranschlagt', 'zurückgeht', 'bewältigen', 'beklagen', 'hinterlassen', 'erkennbar']))
+from commons import get_chair, get_custom_stopwords, get_filter_indicators, get_tagesordnung_indicators, \
+    replace_special_characters, get_frame_and_dates, filter_by_pos, get_mdb_names, get_wordnet_pos
 
 lemmatizer = WordNetLemmatizer()
 with open('src/MDB_STAMMDATEN.xml', 'rb') as fd:
@@ -113,7 +63,7 @@ def replace_special_characters(col):
 def prepare_words(col):
     new_col = []
     for idx, speech in enumerate(col):
-        stop_words = set(stopwords.words('german') + CUSTOM_STOPWORDS + list(mdb_names))
+        stop_words = set(stopwords.words('german') + get_custom_stopwords() + list(mdb_names))
         new_col.append([lemmatizer.lemmatize(tagged[0], get_wordnet_pos(tagged[1])) for tagged in speech if lemmatizer.lemmatize(tagged[0], get_wordnet_pos(tagged[1])) not in stop_words
                         and not (re.search('\d+', tagged[0])) and len(lemmatizer.lemmatize(tagged[0], get_wordnet_pos(tagged[1]))) > 3])
         print('lemmatized ', idx + 1, '/', len(col), ' speeches')
