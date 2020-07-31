@@ -1,6 +1,8 @@
 data/merged
 data/preprocessed/*
 data/input/*
+data/output/*
+data/plots/*
 .idea/*
 *speeches*.*
 topics/*
