@@ -55,8 +55,10 @@ def plot_topic_ratios(plottable_elements, comparison_entity, general_entity=None
 
     for i in range(50):
         ax.axvline(i, color='grey', alpha=0.1)
-
-    ax.set_ylabel('Ratio of topic assignments')
+    if suffix is not None:
+        ax.set_y_label('Total topic assignments')
+    else:
+        ax.set_ylabel('Ratio of topic assignments')
     ax.set_title('Topic distribution for all documents vs. ' + comparison_entity + ' documents')
     x_labels = get_top_words_of_topics()
     ax.set_xticks(y_pos)
@@ -228,6 +230,17 @@ def split_indices_per_party(bundestag_frame):
 
     return party_index
 
+def split_indices_per_legislation_party(bundestag_frame, dates, parties_per_legislation):
+    legislation_party_index = dict()
+    for key, value in dates.items():
+        for party in parties_per_legislation[key]:
+            if type(party) != str:
+                continue
+            name = key + '_' +  party
+            mask = (bundestag_frame["Date"] >= value['start']) & (bundestag_frame["Date"] <= value["end"]) & (bundestag_frame["Speaker party"] == party)
+            legislation_party_index[name] = [i for i, truth_value in enumerate(mask) if truth_value]
+        
+    return legislation_party_index
 
 def split_indices_per_speaker(bundestag_frame):
     speaker_index = dict()
@@ -400,16 +413,26 @@ def plot_politicians_results(scores, general_ratio, party_ratios, topic):
 def main():
     path = 'data/preprocessed_up_sample/'
     bundestag_frame = pd.DataFrame()
+    legislation_dates = {}
+    parties_per_legislation = {}
     for filename in os.listdir(path):
+        if filename == 'bundestag_19.csv':
+            print('19 filtered')
+            continue
         file = os.path.join(path, filename)
+        new_data = pd.read_csv(file)
+        legislation_dates[filename] = {}
+        legislation_dates[filename]['start'] = new_data['Date'].iloc[0]
+        legislation_dates[filename]['end'] = new_data['Date'].iloc[-1]
+        parties_per_legislation[filename] = new_data['Speaker party'].unique().tolist()
         if bundestag_frame.empty:
-            bundestag_frame = pd.read_csv(file)
+            bundestag_frame = new_data
         else:
-            bundestag_frame = pd.concat([bundestag_frame, pd.read_csv(file)], ignore_index=True)
+            bundestag_frame = pd.concat([bundestag_frame, new_data], ignore_index=True)
     # bundestag_frame = pd.read_csv("data/merged/final_single/newbundestag_speeches_pp17.csv")
     indices_per_party = split_indices_per_party(bundestag_frame)
     indices_per_speaker = split_indices_per_speaker(bundestag_frame)
-
+    indices_per_legislation_party = split_indices_per_legislation_party(bundestag_frame, legislation_dates, parties_per_legislation)
     speeches = bundestag_frame["Speech text"]
     speeches = speeches.fillna("")
     speeches = speeches.tolist()
@@ -472,6 +495,10 @@ def main():
         party_dict = predict_for_party(indices_per_party, vocabs, [topic_model, tm_layer2, tm_layer3], parties[i],
                                        bundestag_frame,
                                        general_entity=general_ratios, party_dict=party_dict)
+    legislation_party_dict = dict()
+    for key in indices_per_legislation_party:
+        legislation_party_dict = predict_for_party(indices_per_legislation_party, vocabs, [topic_model, tm_layer2, tm_layer3],
+                                                    key, bundestag_frame, general_entity=general_ratios, party_dict=legislation_party_dict)
     speakers = list(indices_per_speaker.keys())
     for i in tqdm(range(0, len(speakers))):
         # This speaker has a question mark at the end of his name after preprocessing. Therefore we exclude him.
