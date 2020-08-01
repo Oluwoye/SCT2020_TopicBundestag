@@ -133,7 +133,6 @@ def query_corpus_for_speaker(bundestag_frame, indices_per_speaker, party_dict, s
     return corpus, party_values
 
 
->>>>>>> 600a0a00288a849a691fa991dc437c404289964d
 def predict_all(vocabs, topic_layers, bundestag_frame):
     corpus = bundestag_frame['Speech text']
     corpus = corpus.fillna("")
