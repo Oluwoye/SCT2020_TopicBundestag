@@ -436,7 +436,8 @@ def main():
     indices_per_speaker = split_indices_per_speaker(bundestag_frame)
     indices_per_legislation_party = split_indices_per_legislation_party(bundestag_frame, legislation_dates, parties_per_legislation)
     print('INDIZES')
-    print(indices_per_legislation_party)
+    for key, val in indices_per_legislation_party.items():
+        print(key, len(val))
     speeches = bundestag_frame["Speech text"]
     speeches = speeches.fillna("")
     speeches = speeches.tolist()
