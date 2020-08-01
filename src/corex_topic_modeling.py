@@ -481,6 +481,7 @@ def main():
     people_frame.rename(columns={"id": "occupant__id"}, inplace=True)
     merged_frame = people_frame.merge(seats_frame, on=["occupant__id"])
     indices_per_speaker = split_indices_per_speaker(bundestag_frame)
+    indices_per_party = split_indices_per_party(bundestag_frame)
     merged_frame = merged_frame.loc[merged_frame["clean_name"].isin(indices_per_speaker.keys())]
     merged_frame = merged_frame[["clean_name", "seat_type"]]
     merged_frame.rename(columns={"clean_name": "Speaker"}, inplace=True)
