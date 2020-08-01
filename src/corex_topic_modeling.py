@@ -555,7 +555,7 @@ def main():
                                        bundestag_frame,
                                        general_entity=general_ratios, party_dict=party_dict,
                                        party_dict_with_seat_type=indices_per_party_and_seat_type)
-        legislation_party_dict = dict()
+    legislation_party_dict = dict()
     for key in indices_per_legislation_party:
         legislation_party_dict = predict_for_party(indices_per_legislation_party, vocabs, [topic_model, tm_layer2, tm_layer3],
                                                     key, bundestag_frame, general_entity=general_ratios, party_dict=legislation_party_dict)
