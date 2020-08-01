@@ -12,6 +12,9 @@ import os
 
 from tqdm import tqdm
 
+from src.corex_topic_modeling import evaluate_corpus, split_indices_per_party, split_indices_per_speaker, \
+    split_indices_per_party_and_seat_type, predict_for_party, predict_for_speaker
+
 
 def print_all_topics(topic_model, filename, anchor_strength=0):
     with open(filename, "a+") as file:
@@ -22,129 +25,6 @@ def print_all_topics(topic_model, filename, anchor_strength=0):
             topic_words, _ = zip(*topic)
             topic_words = [str(word) for word in topic_words]
             file.write('{}: '.format(n) + ','.join(topic_words) + "\n")
-
-
-def plot_topic_ratios(plottable_elements, comparison_entity, general_entity=None, party_values=None):
-    y_pos = np.arange(len(plottable_elements))
-    plt.bar(y_pos, plottable_elements, align='center', alpha=0.5)
-
-    if general_entity is not None:
-        y_pos = np.arange(len(general_entity))
-        plt.bar(y_pos, general_entity, align='center', alpha=0.5)
-
-    if party_values is not None:
-        y_pos = np.arange(len(general_entity))
-        plt.bar(y_pos, party_values, align='center', alpha=0.5)
-
-    plt.ylabel('Ratio of topic assignments')
-    plt.title('Topic distribution for all documents vs. ' + comparison_entity + ' documents')
-    plt.legend([comparison_entity + " topic ratios", "overall topic ratios", "values for according party"])
-    plt.tight_layout()
-
-    output_path = "data" + os.path.sep + "plots" + os.path.sep
-    if not os.path.isdir(output_path):
-        os.makedirs(output_path)
-    plt.savefig(output_path + comparison_entity + "_barplot.png")
-    plt.close()
-
-    # Piechart seems not to fit the use-case
-    # labels = []
-    # for i in range(0, len(plottable_elements)):
-    #    labels.append("topic " + str(i))
-    # patches, texts = plt.pie(plottable_elements, shadow=True, startangle=90)
-    # plt.legend(patches, labels, loc="best")
-    # plt.axis('equal')
-    # plt.tight_layout()
-    # plt.savefig(output_path + comparison_entity + "_pieplot.png")
-    # plt.close()
-
-
-def evaluate_document_topic_matrix(document_topic_matrix, comparison_entity=None, general_entity=None,
-                                   print_matrices=True,
-                                   return_ratios=False, party_values=None):
-    document_topic_matrix = np.array(document_topic_matrix)
-    res_string = ""
-
-    mean_per_topic = np.mean(document_topic_matrix, axis=0)
-    topic_occurences = np.count_nonzero(document_topic_matrix >= 0.7, axis=0)
-    total_amount = np.sum(topic_occurences)
-    average_topic_assignments = np.mean(np.count_nonzero(document_topic_matrix >= 0.7, axis=1))
-
-    if general_entity is not None and comparison_entity is not None:
-        plot_topic_ratios(topic_occurences / total_amount, comparison_entity, general_entity, party_values=party_values)
-
-    if print_matrices:
-        res_string += "\nOriginal document-topic matrix: \n"
-        for row in document_topic_matrix:
-            res_string += str(row) + "\n"
-    res_string += "Shape of document-topic matrix: \n" + str(document_topic_matrix.shape) + "\n"
-    res_string += "Total number of elements: \n" + str(total_amount) + "\n"
-    res_string += "Mean confidence per topic: \n" + str(mean_per_topic) + "\n"
-    res_string += "Number of occurences per topic with confidence over 0.7: \n" + str(topic_occurences) + "\n"
-    res_string += "Ratios of occurences per topic with confidence over 0.7: \n" + str(
-        topic_occurences / total_amount) + "\n"
-    res_string += "Average topic assignments per document with confidence over 0.7: \n" + str(
-        average_topic_assignments) + "\n"
-
-    if return_ratios:
-        return res_string, topic_occurences / total_amount
-    else:
-        return res_string
-
-
-def predict_for_party(party_index_dict, vocabulary, layers, party, bundestag_dataframe, general_entity=None,
-                      party_dict=None):
-    party_indices = party_index_dict[party]
-    speeches = bundestag_dataframe['Speech text']
-    speeches = speeches.fillna("")
-    corpus = speeches[party_indices]
-    output_path = "data" + os.path.sep + "output" + os.path.sep + "parties" + os.path.sep
-    if not os.path.isdir(output_path):
-        os.makedirs(output_path, exist_ok=True)
-    output_file = output_path + party + "_prediction.txt"
-
-    party_dict = evaluate_corpus(layers, output_file, vocabulary, corpus, print_matrices=False,
-                                 general_entity=general_entity,
-                                 comparison_entity=party, party_dict=party_dict)
-    return party_dict
-
-
-def evaluate_corpus(layers, output_file, vocabulary, corpus, print_matrices=True, return_ratios=False,
-                    general_entity=None,
-                    comparison_entity=None, party_dict=None, party_values=None):
-    with open(output_file, "w+") as out:
-        vectorizer = CountVectorizer(vocabulary=vocabulary)
-        document_term_matrix = vectorizer.fit_transform(corpus)
-        topic_ratios = []
-
-        for i, layer in enumerate(layers):
-            out.write("Prediction of layer " + str(i) + ":\n\n\n")
-            prediction_1, ignored = layer.predict_proba(document_term_matrix)
-            if party_dict is not None and i == 0:
-                evaluation, ratios = evaluate_document_topic_matrix(prediction_1, print_matrices=print_matrices,
-                                                                    return_ratios=True, general_entity=general_entity,
-                                                                    comparison_entity=comparison_entity)
-                party_dict[comparison_entity] = ratios
-            else:
-                evaluation = evaluate_document_topic_matrix(prediction_1, print_matrices=print_matrices,
-                                                            return_ratios=return_ratios, general_entity=general_entity,
-                                                            comparison_entity=comparison_entity,
-                                                            party_values=party_values)
-
-            if return_ratios and i == 0:
-                topic_ratios = evaluation[1]
-                evaluation = evaluation[0]
-            elif return_ratios:
-                evaluation = evaluation[0]
-            out.write(evaluation)
-            out.write("\n\n")
-            document_term_matrix = np.array(prediction_1)
-            general_entity = None
-
-        if return_ratios:
-            return topic_ratios
-        elif party_dict is not None:
-            return party_dict
 
 
 def visualize_topics(topic_model, speeches, vocabulary):
@@ -189,55 +69,6 @@ def visualize_topics(topic_model, speeches, vocabulary):
         plt.close()
     print(topics)
 
-
-def split_indices_per_party(bundestag_frame):
-    party_index = dict()
-    parties = bundestag_frame["Speaker party"].unique()
-    for party in parties:
-        # We only consider lines with a clear party affiliation so we exclude nan values
-        if type(party) != str:
-            continue
-        mask = bundestag_frame["Speaker party"] == party
-        party_index[party] = [i for i, truth_value in enumerate(mask) if truth_value]
-
-    return party_index
-
-
-def split_indices_per_speaker(bundestag_frame):
-    speaker_index = dict()
-    speakers = bundestag_frame["Speaker"].unique()
-    for speaker in speakers:
-        # We only consider lines with a clear speaker so we exclude nan values
-        if type(speaker) != str:
-            continue
-        mask = bundestag_frame["Speaker"] == speaker
-        speaker_index[speaker] = [i for i, truth_value in enumerate(mask) if truth_value]
-
-    return speaker_index
-
-
-def predict_for_speaker(indices_per_speaker, vocabs, topic_layers, speaker, bundestag_frame, general_entity=None,
-                        party_dict=None):
-    speaker_indices = indices_per_speaker[speaker]
-    party_values = None
-    if party_dict is not None:
-        party_affiliation = (bundestag_frame.loc[bundestag_frame['Speaker'] == speaker]['Speaker party']).tolist()[0]
-        if party_affiliation in party_dict.keys():
-            party_values = party_dict[party_affiliation]
-        else:
-            party_values = None
-    speeches = bundestag_frame['Speech text']
-    speeches = speeches.fillna("")
-    corpus = speeches[speaker_indices]
-    output_path = "data" + os.path.sep + "output" + os.path.sep + "speakers" + os.path.sep
-    if not os.path.isdir(output_path):
-        os.makedirs(output_path, exist_ok=True)
-    output_file = output_path + speaker + "_prediction.txt"
-
-    evaluate_corpus(topic_layers, output_file, vocabs, corpus, print_matrices=False, general_entity=general_entity,
-                    comparison_entity=speaker, party_values=party_values)
-
-
 def predict_all(vocabs, topic_layers, bundestag_frame):
     corpus = bundestag_frame['Speech text']
     corpus = corpus.fillna("")
@@ -262,6 +93,15 @@ def main():
     # bundestag_frame = pd.read_csv("data/merged/final_single/newbundestag_speeches_pp17.csv")
     indices_per_party = split_indices_per_party(bundestag_frame)
     indices_per_speaker = split_indices_per_speaker(bundestag_frame)
+    seats_frame = pd.read_csv("data/seats.csv")
+    people_frame = pd.read_csv("data/people.csv")
+    people_frame.rename(columns={"id": "occupant__id"}, inplace=True)
+    merged_frame = people_frame.merge(seats_frame, on=["occupant__id"])
+    merged_frame = merged_frame.loc[merged_frame["clean_name"].isin(indices_per_speaker.keys())]
+    merged_frame = merged_frame[["clean_name", "seat_type"]]
+    merged_frame.rename(columns={"clean_name": "Speaker"}, inplace=True)
+    merged_frame = merged_frame.merge(bundestag_frame, on=["Speaker"])
+    indices_per_party_and_seat_type = split_indices_per_party_and_seat_type(merged_frame)
     # bundestag_frame = bundestag
     speeches = bundestag_frame["Speech text"]
     speeches = speeches.fillna("")
@@ -324,7 +164,8 @@ def main():
     for i in tqdm(range(0, len(parties))):
         party_dict = predict_for_party(indices_per_party, vocabs, [topic_model, tm_layer2, tm_layer3], parties[i],
                                        bundestag_frame,
-                                       general_entity=general_ratios, party_dict=party_dict)
+                                       general_entity=general_ratios, party_dict=party_dict,
+                                       party_dict_with_seat_type=indices_per_party_and_seat_type)
     speakers = list(indices_per_speaker.keys())
     for i in tqdm(range(0, len(speakers))):
         # This speaker has a question mark at the end of his name after preprocessing. Therefore we exclude him.
