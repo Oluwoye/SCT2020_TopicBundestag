@@ -425,8 +425,8 @@ def main():
         new_data = pd.read_csv(file)
         legislation_dates[filename] = {}
         print(filename)
-        print(new_data['Date'].iloc[0])
-        print(new_data['Date'].iloc[-1])
+        print(new_data['Date'].min())
+        print(new_data['Date'].max())
         print(new_data['Speaker party'].unique().tolist())
         print('--------------------------------')
         legislation_dates[filename]['start'] = new_data['Date'].min()
@@ -442,8 +442,8 @@ def main():
     indices_per_legislation_party = split_indices_per_legislation_party(bundestag_frame, legislation_dates, parties_per_legislation)
     print('INDIZES')
     bad_keys = [key for key, val in indices_per_legislation_party.items() if len(val) == 0]
-    for key, val in indices_per_legislation_party.items():
-        print(key, len(val))
+    for key in bad_keys:
+        del indices_per_legislation_party[key]
     speeches = bundestag_frame["Speech text"]
     speeches = speeches.fillna("")
     speeches = speeches.tolist()
