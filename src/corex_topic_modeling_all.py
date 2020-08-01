@@ -427,11 +427,11 @@ def main():
         print(filename)
         print(new_data['Date'].iloc[0])
         print(new_data['Date'].iloc[-1])
-        print(new_data['Speaker party'].unique().tolist())
+        print(new_data['Speaker party'].unique().dropna().tolist())
         print('--------------------------------')
         legislation_dates[filename]['start'] = new_data['Date'].min()
         legislation_dates[filename]['end'] = new_data['Date'].max()
-        parties_per_legislation[filename] = new_data['Speaker party'].unique().tolist()
+        parties_per_legislation[filename] = new_data['Speaker party'].unique().dropna().tolist()
         if bundestag_frame.empty:
             bundestag_frame = new_data
         else:
