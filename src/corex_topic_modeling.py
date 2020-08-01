@@ -76,7 +76,6 @@ def plot_topic_ratios(plottable_elements, comparison_entity, general_entity=None
 
     for i in range(50):
         ax.axvline(i, color='grey', alpha=0.1)
-
     x_labels = get_top_words_of_topics()
     ax.set_xticks(y_pos)
     ax.set_xticklabels(x_labels, rotation=90)
@@ -274,6 +273,20 @@ def split_indices_per_party(bundestag_frame):
     return party_index
 
 
+def split_indices_per_legislation_party(bundestag_frame, dates, parties_per_legislation):
+    legislation_party_index = dict()
+    for key, value in dates.items():
+        for party in parties_per_legislation[key]:
+            if type(party) != str:
+                continue
+            print(key, parties_per_legislation[key])
+            print(party)
+            name = key + '_' +  party
+            mask = (bundestag_frame["Date"] >= value['start']) & (bundestag_frame["Date"] <= value["end"]) & (bundestag_frame["Speaker party"] == party)
+            legislation_party_index[name] = [i for i, truth_value in enumerate(mask) if truth_value]
+        
+    return legislation_party_index
+
 def split_indices_per_speaker(bundestag_frame):
     speaker_index = dict()
     speakers = bundestag_frame["Speaker"].unique()
@@ -462,24 +475,11 @@ def split_indices_per_party_and_seat_type(merged_frame):
 
 
 def main():
-    # plot_topic_ratios([1.0] * 50, "test", general_entity=[0.5] * 50, party_values=[1.5] * 50)
-    # arts = plot_student_results({'test1': 0.222, 'test2':0.111}, 0.15, {'green': 0.1}, str(1))
-    # plt.savefig("testitest.png")
-    # plt.close()
-    # path = 'data/merged/final/'
-    # bundestag_frame = pd.DataFrame()
-    # for filename in os.listdir(path):
-    #     file = os.path.join(path, filename)
-    #     if bundestag_frame.empty:
-    #         bundestag_frame = pd.read_csv(file)
-    #     else:
-    #         bundestag_frame = pd.concat([bundestag_frame, pd.read_csv(file)], ignore_index=True)
     bundestag_frame = pd.read_csv("data/merged/final_single/newbundestag_speeches_pp17.csv")
     seats_frame = pd.read_csv("data/seats.csv")
     people_frame = pd.read_csv("data/people.csv")
     people_frame.rename(columns={"id": "occupant__id"}, inplace=True)
     merged_frame = people_frame.merge(seats_frame, on=["occupant__id"])
-    indices_per_party = split_indices_per_party(bundestag_frame)
     indices_per_speaker = split_indices_per_speaker(bundestag_frame)
     merged_frame = merged_frame.loc[merged_frame["clean_name"].isin(indices_per_speaker.keys())]
     merged_frame = merged_frame[["clean_name", "seat_type"]]
@@ -487,6 +487,20 @@ def main():
     merged_frame = merged_frame.merge(bundestag_frame, on=["Speaker"])
     indices_per_party_and_seat_type = split_indices_per_party_and_seat_type(merged_frame)
     # bundestag_frame = bundestag
+    bundestag_frame = pd.read_csv("data/merged/final_single/bundestag_17.csv")
+    filename = "bundestag_17.csv"
+    legislation_dates = {}
+    parties_per_legislation = {}
+    legislation_dates[filename] = {}
+    legislation_dates[filename]['start'] = bundestag_frame['Date'].min()
+    legislation_dates[filename]['end'] = bundestag_frame['Date'].max()
+    parties_per_legislation[filename] = bundestag_frame['Speaker party'].unique().tolist()
+    indices_per_party = split_indices_per_party(bundestag_frame)
+    indices_per_speaker = split_indices_per_speaker(bundestag_frame)
+    indices_per_legislation_party = split_indices_per_legislation_party(bundestag_frame, legislation_dates, parties_per_legislation)
+    bad_keys = [key for key, val in indices_per_legislation_party.items() if len(val) == 0]
+    for key in bad_keys:
+        del indices_per_legislation_party[key]
     speeches = bundestag_frame["Speech text"]
     speeches = speeches.fillna("")
     speeches = speeches.tolist()
@@ -506,15 +520,6 @@ def main():
 
     print("Begin topic extraction")
 
-    #    for i in range(1, 5):
-
-    #        topic_model = ct.Corex(n_hidden=5)
-    #       topic_model.fit(document_term_matrix, words=vocabs, anchors=[["kohle"]], anchor_strength=i)
-    #
-    #       print("First layer topics")
-    #        visualize_topics(topic_model, coal_speeches, vocabs)
-    #        print_all_topics(topic_model, filename="OutLevel1.txt", anchor_strength=i)
-    #        vt.vis_rep(topic_model, column_label=vocabs, prefix='topic-model-example')
     anchor_words = [['kohle', 'bergbau'], ['kernenergie', 'atomkraft'], ['solarenergie', 'wasserkraft']]
     topic_model = ct.Corex(n_hidden=50, seed=2)
     topic_model.fit(document_term_matrix, words=vocabs)
@@ -550,6 +555,10 @@ def main():
                                        bundestag_frame,
                                        general_entity=general_ratios, party_dict=party_dict,
                                        party_dict_with_seat_type=indices_per_party_and_seat_type)
+        legislation_party_dict = dict()
+    for key in indices_per_legislation_party:
+        legislation_party_dict = predict_for_party(indices_per_legislation_party, vocabs, [topic_model, tm_layer2, tm_layer3],
+                                                    key, bundestag_frame, general_entity=general_ratios, party_dict=legislation_party_dict)
     speakers = list(indices_per_speaker.keys())
     for i in tqdm(range(0, len(speakers))):
         # This speaker has a question mark at the end of his name after preprocessing. Therefore we exclude him.

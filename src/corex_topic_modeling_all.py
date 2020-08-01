@@ -1,8 +1,11 @@
 import random
+from collections import Counter
+
 import numpy as np
 import matplotlib.pyplot as plt
 
 import pandas as pd
+from matplotlib.ticker import MaxNLocator
 from sklearn.feature_extraction.text import CountVectorizer
 from corextopic import corextopic as ct
 from corextopic import vis_topic as vt
@@ -13,7 +16,7 @@ import os
 from tqdm import tqdm
 
 from src.corex_topic_modeling import split_indices_per_party_and_seat_type, evaluate_corpus, predict_for_party, \
-    predict_for_speaker
+    predict_for_speaker, evaluate_document_topic_matrix, split_indices_per_party, split_indices_per_speaker
 
 
 def print_all_topics(topic_model, filename, anchor_strength=0):
@@ -25,6 +28,24 @@ def print_all_topics(topic_model, filename, anchor_strength=0):
             topic_words, _ = zip(*topic)
             topic_words = [str(word) for word in topic_words]
             file.write('{}: '.format(n) + ','.join(topic_words) + "\n")
+
+
+def autolabel_bars(rects, ax):
+    for rect in rects:
+        height = rect.get_pos()
+        ax.annotate('{}'.format(height),
+                    xy=(rect.get_x() + rect.get_width() / 2, height),
+                    xytext=(0, 3),  # 3 points vertical offset
+                    textcoords="offset points",
+                    ha='center', va='bottom')
+
+
+def get_top_words_of_topics(d=',', n=3):
+    with open("tm-example_layer1/topics.txt", 'r', encoding='utf_8') as topic_file:
+        x_labels = topic_file.readlines()
+        x_labels = [d.join(label.split(d, n)[:n]) for label in x_labels]
+        x_labels = [label.replace('~', '') for label in x_labels]
+    return x_labels
 
 
 def visualize_topics(topic_model, speeches, vocabulary):
@@ -70,32 +91,49 @@ def visualize_topics(topic_model, speeches, vocabulary):
     print(topics)
 
 
-def split_indices_per_party(bundestag_frame):
-    party_index = dict()
-    parties = bundestag_frame["Speaker party"].unique()
-    for party in parties:
-        # We only consider lines with a clear party affiliation so we exclude nan values
-        if type(party) != str:
-            continue
-        mask = bundestag_frame["Speaker party"] == party
-        party_index[party] = [i for i, truth_value in enumerate(mask) if truth_value]
+def split_indices_per_legislation_party(bundestag_frame, dates, parties_per_legislation):
+    legislation_party_index = dict()
+    for key, value in dates.items():
+        for party in parties_per_legislation[key]:
+            if type(party) != str:
+                continue
+            print(key, parties_per_legislation[key])
+            print(party)
+            name = key + '_' +  party
+            mask = (bundestag_frame["Date"] >= value['start']) & (bundestag_frame["Date"] <= value["end"]) & (bundestag_frame["Speaker party"] == party)
+            legislation_party_index[name] = [i for i, truth_value in enumerate(mask) if truth_value]
 
-    return party_index
-
-
-def split_indices_per_speaker(bundestag_frame):
-    speaker_index = dict()
-    speakers = bundestag_frame["Speaker"].unique()
-    for speaker in speakers:
-        # We only consider lines with a clear speaker so we exclude nan values
-        if type(speaker) != str:
-            continue
-        mask = bundestag_frame["Speaker"] == speaker
-        speaker_index[speaker] = [i for i, truth_value in enumerate(mask) if truth_value]
-
-    return speaker_index
+    return legislation_party_index
 
 
+def predict_for_speaker(indices_per_speaker, vocabs, topic_layers, speaker, bundestag_frame, general_entity=None,
+                        party_dict=None):
+    corpus, party_values = query_corpus_for_speaker(bundestag_frame, indices_per_speaker, party_dict, speaker)
+    output_path = "data" + os.path.sep + "output" + os.path.sep + "speakers" + os.path.sep
+    if not os.path.isdir(output_path):
+        os.makedirs(output_path, exist_ok=True)
+    output_file = output_path + speaker + "_prediction.txt"
+
+    evaluate_corpus(topic_layers, output_file, vocabs, corpus, print_matrices=False, general_entity=general_entity,
+                    comparison_entity=speaker, party_values=party_values)
+
+
+def query_corpus_for_speaker(bundestag_frame, indices_per_speaker, party_dict, speaker):
+    speaker_indices = indices_per_speaker[speaker]
+    party_values = None
+    if party_dict is not None:
+        party_affiliation = (bundestag_frame.loc[bundestag_frame['Speaker'] == speaker]['Speaker party']).tolist()[0]
+        if party_affiliation in party_dict.keys():
+            party_values = party_dict[party_affiliation]
+        else:
+            party_values = None
+    speeches = bundestag_frame['Speech text']
+    speeches = speeches.fillna("")
+    corpus = speeches[speaker_indices]
+    return corpus, party_values
+
+
+>>>>>>> 600a0a00288a849a691fa991dc437c404289964d
 def predict_all(vocabs, topic_layers, bundestag_frame):
     corpus = bundestag_frame['Speech text']
     corpus = corpus.fillna("")
@@ -108,15 +146,147 @@ def predict_all(vocabs, topic_layers, bundestag_frame):
     return topic_ratios
 
 
+def compare_plot_per_topic(speaker_collection, general_ratio, indices_per_speaker, party_dict, topic_num, frame, vocabs,
+                           layers, vocabulary):
+    speaker_ratios = dict()
+    party_ratios = dict()
+    party_colours = {"gruene": "green", "spd": "red", "cducsu": "black", "fdp": "yellow", "linke": "darkred"}
+    for key, values in speaker_collection.items():
+        party_colour = party_colours[key]
+        party_ratios[party_colour] = party_dict[key][topic_num]
+        for speaker in values:
+            corpus, ignored = query_corpus_for_speaker(frame, indices_per_speaker, party_dict, speaker)
+            vectorizer = CountVectorizer(vocabulary=vocabulary)
+            document_term_matrix = vectorizer.fit_transform(corpus)
+            prediction_1, ignored = layers[0].predict_proba(document_term_matrix)
+            ignored, ratios = evaluate_document_topic_matrix(prediction_1, print_matrices=False,
+                                                             return_ratios=True, general_entity=None,
+                                                             comparison_entity=speaker)
+            speaker_ratios[(speaker + " (" + key + ")")] = ratios[topic_num]
+
+    arts = plot_politicians_results(speaker_ratios, general_ratio, party_ratios, get_top_words_of_topics(n=5)[topic_num])
+    save_path = os.path.join("data", "plots", "comparison")
+    if not os.path.isdir(save_path):
+        os.makedirs(save_path, exist_ok=True)
+    save_path = os.path.join(save_path, "comparison_topic_" + str(topic_num) + ".png")
+    plt.savefig(save_path, bbox_inches='tight')
+    plt.close()
+
+
+def plot_politicians_results(scores, general_ratio, party_ratios, topic):
+    #  create the figure
+    fig, ax1 = plt.subplots(figsize=(9, 7))
+    fig.subplots_adjust(left=0.115, right=0.88)
+    fig.canvas.set_window_title('Comparison for several speakers')
+
+    pos = np.arange(len(scores.keys()))
+    keys = []
+    values = []
+    for key, value in scores.items():
+        keys.append(key)
+        values.append(value)
+    place_holders = [''] * len(keys)
+
+    rects = ax1.barh(pos, values,
+                     align='center',
+                     height=0.5,
+                     alpha=0.25,
+                     tick_label=place_holders
+                     )
+
+    ax1.set_title("Comparison for topic: " + topic + " over several politicians")
+
+    # ax1.set_xlim([0, 1])
+    # ax1.xaxis.set_major_locator(MaxNLocator(11))
+    # ax1.xaxis.grid(True, linestyle='--', which='major',
+    #               color='grey', alpha=.25)
+
+    # Plot a solid vertical gridline to highlight the median position
+    ax1.axvline(general_ratio, color='grey', alpha=0.25)
+    for party_colour, party_value in party_ratios.items():
+        ax1.axvline(party_value, color=party_colour, alpha=0.25)
+
+    # Set the right-hand Y-axis ticks and labels
+    ax2 = ax1.twinx()
+
+    # set the tick locations
+    ax2.set_yticks(pos)
+    # make sure that the limits are set equally on both yaxis so the
+    # ticks line up
+    ax2.set_ylim(ax1.get_ylim())
+
+    # set the tick labels
+    ax2.set_yticklabels(scores.keys())
+
+    ax2.set_ylabel('Politician')
+
+    ax1.set_xlabel("Share of speeches regarding the topic")
+
+    rect_labels = []
+    # Lastly, write in the ranking inside each bar to aid in interpretation
+    for i in range(len(rects)):
+        rect = rects[i]
+        # Rectangle widths are already integer-valued but are floating
+        # type, so it helps to remove the trailing decimal point and 0 by
+        # converting width to int type
+        width = int(rect.get_width())
+
+        rankStr = str(values[i])
+        # The bars aren't wide enough to print the ranking inside
+        if width < 0.4:
+            # Shift the text to the right side of the right edge
+            xloc = 5
+            # Black against white background
+            clr = 'black'
+            align = 'left'
+        else:
+            # Shift the text to the left side of the right edge
+            xloc = -5
+            # White on magenta
+            clr = 'white'
+            align = 'right'
+
+        # Center the text vertically in the bar
+        yloc = rect.get_y() + rect.get_height() / 2
+        label = ax1.annotate(rankStr, xy=(width, yloc), xytext=(xloc, 0),
+                             textcoords="offset points",
+                             ha=align, va='center',
+                             color=clr, weight='bold', clip_on=True)
+        rect_labels.append(label)
+
+    # return all of the artists created
+    return {'fig': fig,
+            'ax': ax1,
+            'ax_right': ax2,
+            'bars': rects,
+            'perc_labels': rect_labels}
+
+
 def main():
     path = 'data/preprocessed_up_sample/'
     bundestag_frame = pd.DataFrame()
+    legislation_dates = {}
+    parties_per_legislation = {}
     for filename in os.listdir(path):
+        if filename == 'bundestag_19.csv':
+            print('19 filtered')
+            continue
         file = os.path.join(path, filename)
+        new_data = pd.read_csv(file)
+        legislation_dates[filename] = {}
+        print(filename)
+        print(new_data['Date'].min())
+        print(new_data['Date'].max())
+        print(new_data['Speaker party'].unique().tolist())
+        print('--------------------------------')
+        legislation_dates[filename]['start'] = new_data['Date'].min()
+        legislation_dates[filename]['end'] = new_data['Date'].max()
+        parties_per_legislation[filename] = new_data['Speaker party'].unique().tolist()
         if bundestag_frame.empty:
-            bundestag_frame = pd.read_csv(file)
+            bundestag_frame = new_data
         else:
-            bundestag_frame = pd.concat([bundestag_frame, pd.read_csv(file)], ignore_index=True)
+            bundestag_frame = pd.concat([bundestag_frame, new_data], ignore_index=True)
+    # bundestag_frame = pd.read_csv("data/merged/final_single/newbundestag_speeches_pp17.csv")
     indices_per_party = split_indices_per_party(bundestag_frame)
     indices_per_speaker = split_indices_per_speaker(bundestag_frame)
     seats_frame = pd.read_csv("data/seats.csv")
@@ -129,6 +299,11 @@ def main():
     merged_frame = merged_frame.merge(bundestag_frame, on=["Speaker"])
     indices_per_party_and_seat_type = split_indices_per_party_and_seat_type(merged_frame)
     # bundestag_frame = bundestag
+    indices_per_legislation_party = split_indices_per_legislation_party(bundestag_frame, legislation_dates, parties_per_legislation)
+    print('INDIZES')
+    bad_keys = [key for key, val in indices_per_legislation_party.items() if len(val) == 0]
+    for key in bad_keys:
+        del indices_per_legislation_party[key]
     speeches = bundestag_frame["Speech text"]
     speeches = speeches.fillna("")
     speeches = speeches.tolist()
@@ -192,6 +367,11 @@ def main():
                                        bundestag_frame,
                                        general_entity=general_ratios, party_dict=party_dict,
                                        party_dict_with_seat_type=indices_per_party_and_seat_type)
+    legislation_parties = list(indices_per_legislation_party.keys())
+    legislation_party_dict = dict()
+    for i in tqdm(range(0, len(legislation_parties))):
+        legislation_party_dict = predict_for_party(indices_per_legislation_party, vocabs, [topic_model, tm_layer2, tm_layer3],
+                                                    legislation_parties[i], bundestag_frame, general_entity=general_ratios, party_dict=legislation_party_dict)
     speakers = list(indices_per_speaker.keys())
     for i in tqdm(range(0, len(speakers))):
         # This speaker has a question mark at the end of his name after preprocessing. Therefore we exclude him.
@@ -199,6 +379,17 @@ def main():
             continue
         predict_for_speaker(indices_per_speaker, vocabs, [topic_model, tm_layer2, tm_layer3], speakers[i],
                             bundestag_frame, general_entity=general_ratios, party_dict=party_dict)
+
+    speaker_collection = dict()
+    speaker_collection["cducsu"] = ["Dr. Angela Merkel"]
+    speaker_collection["gruene"] = ["Renate Künast"]
+    speaker_collection["fdp"] = ["Christian Lindner"]
+    speaker_collection["linke"] = ["Jan Aken"]
+    speaker_collection["spd"] = ["Sigmar Gabriel"]
+
+    for i in range(50):
+        compare_plot_per_topic(speaker_collection, general_ratios[i], indices_per_speaker, party_dict, i,
+                               bundestag_frame, vocabs, [topic_model], vocabs)
 
 
 if __name__ == "__main__":

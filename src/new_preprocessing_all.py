@@ -7,8 +7,8 @@ from nltk.stem import WordNetLemmatizer
 from commons import get_chair, get_custom_stopwords, get_filter_indicators, get_tagesordnung_indicators, \
     replace_special_characters, get_frame_and_dates, filter_by_pos, get_mdb_names, get_wordnet_pos
 
-MINIMAL_TAGES_MATCHES = 1
-MINIMAL_MATCHES = 3
+MINIMAL_TAGES_MATCHES = 2
+MINIMAL_MATCHES = 5
 MIN_WORD_COUNT = 50
 
 lemmatizer = WordNetLemmatizer()
@@ -60,14 +60,12 @@ def merge_speeches(df, filename):
             write = False
             tages_key_match = 0
             for key in filter_indicators:
-                if key in speech['Speech text']:
-                    tages_key_match += 1
+                tages_key_match += speech['Speech text'].count(key)
             if tages_key_match >= MINIMAL_TAGES_MATCHES:
                 write = True
         individ_key_match = 0
         for key in filter_indicators:
-            if key in speech['Speech text']:
-                individ_key_match += 1
+            individ_key_match += speech['Speech text'].count(key)
         if individ_key_match < MINIMAL_MATCHES:
             continue
         if write:

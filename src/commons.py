@@ -102,7 +102,46 @@ def get_custom_stopwords():
             'malecha', 'minden', 'fibich', 'stattgegeben', 'erklären', 'spricht', 'geblieben', 'niemals', 'wann',
             'genossinnen', 'genossen', 'ropa', 'ungeheuerliche', 'denunzieren', 'geholfen', 'diktiert', 'kant',
             'bekomme', 'davonlaufen', 'umgekehrt', 'schließt', 'berührt', 'dauerhaften', 'größeren', 'ausgelöst',
-            'sogenanntes', 'veranschlagt', 'zurückgeht', 'bewältigen', 'beklagen', 'hinterlassen', 'erkennbar']))
+            'sogenanntes', 'veranschlagt', 'zurückgeht', 'bewältigen', 'beklagen', 'hinterlassen', 'erkennbar',
+            'seit', 'wirklich', 'genau', 'gemacht', 'überhaupt', 'darüber', 'darauf', 'geben', 'wichtig', 'gilt',
+            'deswegen', 'möglich', 'bisher', 'beschlossen', 'diejenigen', 'darf', 'dürfen', 'eigenen', 'fordern',
+            'schließe', 'neben', 'vielen', 'dank', 'bleibt', 'trotz', 'helfen', 'besonders', 'drei', 'statt', 'fest',
+            'guten', 'genommen', 'weniger', 'geworden', 'obwohl', 'stärker', 'seite', 'eigene', 'vergessen', 'schwer',
+            'erklärt', 'hohe', 'verbessern', 'andererseits', 'einerseits', 'minder', 'sonntags', 'polemisieren',
+            'vergiftet', 'eingebüßt', 'errungen', 'rund', 'handelt', 'zehn', 'angesichts', 'weit', 'trotzdem',
+            'entstehen', 'teilweise', 'erwähnt', 'gebracht', 'ebenso', 'nennen', 'großer', 'daraus', 'eingehen',
+            'geführt', 'kaum', 'kleinen', 'gehören', 'gezeigt', 'versucht', 'betreiben', 'dahin', 'gehend',
+            'theoretische', 'grenzt', 'führt', 'gerecht', 'mindestens', 'dadurch', 'hohen', 'gefunden', 'legen',
+            'verpflichtet', 'erforderlich', 'schützen', 'januar', 'september', 'oktober', 'november', 'april',
+            'genannten', 'februar', 'märz', 'mai', 'juni', 'juli', 'august', 'dezember', 'steht', 'frage', 'fragen',
+            'gestellt', 'nachdem', 'gerigk', 'schewe', 'ordentliches', 'zusam', 'jann', 'hamburg', 'bremen', 'aachen',
+            'frankfurt', 'endgültiges', 'backnang', 'heringen', 'emmendingen', 'chemnitz', 'spandau', 'handeln',
+            'auseinander', 'ausgesetzt', 'nochmals', 'schrittweise', 'überwunden', 'langfristigen', 'vorgeschoben',
+            'erzähle', 'durchgepeitscht', 'nähren', 'hochwertiger', 'einschließlich', 'münchen', 'dresden', 'rehbock',
+            'zureich', 'mettmann', 'detmold', 'pali', 'ßungsantrag', 'emotionalen', 'entschlie', 'qualifizieren',
+            'schärfen', 'zugespitzt', 'dazwischenrufen', 'jeglichen', 'zukommen', 'zählen', 'aufeinander',
+            'danielmeier', 'wettig', 'hesse', 'jota', 'vorgesorgt', 'unannehmbar', 'leihen', 'hierhinstellen',
+            'brömer', 'grosse', 'sarai', 'djir', 'cruise', 'abzugrenzen', 'verbannt', 'dreistelliger', 'fehlerhafte',
+            'entgegensehen', 'allererster', 'eingewandt', 'geeigneter', 'vaters', 'schwindet', 'vorgetragene',
+            'alltägliche', 'erneuter', 'bezahlbarer', 'strebt', 'einzugestehen', 'litern', 'auseinanderklaffen',
+            'gleichzeitigen', 'rungen', 'häufigsten', 'belehrt', 'mutwillig', 'repräsentieren', 'nadel',
+            'unkontrollierte', 'heißer', 'ordnungsgemäße', 'außergewöhnliche', 'weiterer', 'vorübergehend',
+            'einstehen', 'verantwortlichen', 'widerspiegeln', 'sage', 'richtig', 'klar', 'eigentlich', 'gefährliche',
+            'beträchtliche', 'knüpfen', 'schwieriges', 'teuersten', 'unterdessen', 'beschlossenen', 'gesicherten',
+            'rückblickend', 'stehen', 'notwendig', 'große', 'besser', 'vermindert', 'verzweifelt', 'tief',
+            'wahrlich', 'mahnen', 'spezifische', 'letztes', 'veränderter', 'aktuelle', 'bezahlen', 'sicherlich',
+            'zeigen', 'früher', 'vernetzten', 'übertrieben', 'geäußert', 'eingeleitet', 'eingegriffen',
+            'leidenschaftlich', 'eingesetzt', 'mögliche', 'endlich', 'vier', 'erreicht', 'erfolgreich', 'sinnvoll',
+            'richtigen', 'gesetzt', 'richtige', 'gefährlicher', 'befindliche', 'warnt', 'fünftel', 'zudem',
+            'vorliegenden', 'setzt', 'fordert', 'geforderten', 'ausreichend', 'geplanten', 'spezielle',
+            'potenzielle', 'funktionierender', 'kapiert', 'jüngste', 'bewährtes', 'kurz', 'verboten',
+            'beschäftigt', 'vorbei', 'hoher', 'zurück', 'extrem', 'zurückgezahlt', 'bezahlt', 'stattdessen',
+            'organisieren', 'befassen', 'nahezu', 'begründet', 'eigentliche', 'zerstört', 'belohnt', 'optimale',
+            'strikt', 'verkehren', 'schwächeren', 'größerer', 'versorgt', 'erfreulicherweise', 'derartig',
+            'fertiggestellt', 'erweist', 'tagtäglich', 'konstatieren', 'stetig', 'sehenden', 'ordnungsrechtliche',
+            'regelmäßig', 'vermieden', 'beide', 'empfohlen', 'gelandet', 'arbeitet', 'realistisch', 'lediglich',
+            'vermeintlich', 'stabil', 'gründlich', 'erteilt', 'zweifeln', 'reine', 'stecken', 'herangezogen',
+            'langem', 'ignoriert', 'scheint', 'ohnehin', 'gelassen', 'verabschiedet']))
 
 
 def get_speech_start_indicators():
@@ -114,21 +153,34 @@ def get_speech_start_indicators():
 
 def get_tagesordnung_indicators():
     return [' rufe den punkt', ' zusatzpunkt ', ' der tagesordnung ', ' heutigen tagesordnung ',
-            'zur tagesordnung', ' drucksache ']
+            'zur tagesordnung', ' auf drucksache ', ' geschäftsbereich des bundesministeriums', ' zu den bereichen ', 'rufe ich den tagesordnungspunkt']
 
 
 def get_filter_indicators():
-    return ['kohle', 'kernkraft', 'energie', 'treibhaus', 'atom', 'umwelt', 'klimawandel', 'erderwärmung',
+    return list(set(['kohle', 'kernkraft', 'energie', 'umwelt', 'klimawandel', 'erderwärmung',
             'ökologisch', 'abgase', 'abholzung', 'artenschutz', 'erdatmosphäre', 'bergbau',
             'bevölkerungswachstum', 'biogas', 'umweltministerium', 'chemikalien', 'verseuchung', 'co2',
             'dürre', 'naturkatastrophe', 'flut', 'elektromobilität', 'emission', 'erdgas',
-            'erneuerbare energien', 'extremwetter', 'feinstaub', 'fischerei', 'fleischkonsum',
-            'fossile rohstoffe', 'geothermie', 'gletscher', 'hitzewelle', 'klimaschutz', 'klimaskeptiker',
+            'erneuerbar', 'extremwetter', 'feinstaub', 'fischerei', 'fleischkonsum',
+            'fossile', 'geothermie', 'gletscher', 'hitzewelle', 'klimaschutz', 'klimaskeptiker',
             'lichtverschmutzung', 'luftqualität', 'luftverschmutzung', 'mikroplastik', 'nachhaltigkeit',
             'nachwachsende rohstoffe', 'naturbewusstsein', 'naturschutz', 'ökobilanz', 'öl', 'ozon',
             'permafrost', 'photovoltaik', 'radioaktiv', 'recycling', 'regenwald', 'ressourcenschonung',
             'schadstoffe', 'smog', 'solar', 'strom', 'tschernobyl', 'überfischung', 'umweltpolitik',
-            'umweltverschmutzung', 'klimagipfel', 'versiegelung', 'dürre']
+            'umweltverschmutzung', 'klimagipfel', 'versiegelung', 'dürre', 'klimaforschung', 'natur',
+            'fckw', 'dekarbonisierung', 'klimakrise', 'aerosole', 'albedo', 'anthropogen', 'barrel',
+            'diesel', 'co2', 'emission', 'fracking', 'kernschmelze', 'kilowattstunde', 'klimafinanzierung',
+            'kohleimporte', 'kohlendioxid', 'kokskohle', 'kyotoprotokoll', 'luftverkehr', 'meeresspiegel',
+            'methan', 'montrealprotokoll', 'opec', 'permafrost', 'fotovoltaik', 'rspo', 'solarthermie',
+            'stromkonzerne', 'stromexport', 'treibhauseffekt', 'treibhausgase', 'versauerung', 'wälder',
+            'wärmepumpe', 'wärmestrahlung', 'weltklimarat', 'windenergie', 'cdm', 'ipcc', 'kohlenstoffsenke',
+            'mitigation', 'napa', 'redd', 'thg', 'unfcc', 'cop', 'desertifikation', 'energielobby', 'kerosin',
+            'klimatologie', 'stickstoffoxide', 'troposphäre', 'zivilisationskatastrophe', 'atomausstieg',
+            'atomkraft', 'atomenergie', 'atommüll', 'biodiesel', 'bioenergie', 'bioethanol', 'biogas',
+            'blockheizkraftwerke', 'brennstoffzelle', 'eigenerzeugung', 'einspeisevergütung', 'energieeffizienz',
+            'energiestandard', 'erdwärme', 'fernwärmevorranggebiet', 'heizwert', 'windpark', 'ökostrom', 'smog',
+            'wasserkraft', 'fußabdruck', 'klimapolitik', 'energiewende', 'atomausstieg', 'kohleausstieg',
+            'klimaflüchtlinge', 'klimaleugner', 'hambach', 'eeg']))
 
 
 def replace_special_characters(col):
