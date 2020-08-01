@@ -475,19 +475,21 @@ def split_indices_per_party_and_seat_type(merged_frame):
 
 
 def main():
-    bundestag_frame = pd.read_csv("data/merged/final_single/newbundestag_speeches_pp17.csv")
+    bundestag_frame = pd.read_csv("data/merged/final_single/bundestag_17.csv")
+    filename = "bundestag_17.csv"
     seats_frame = pd.read_csv("data/seats.csv")
     people_frame = pd.read_csv("data/people.csv")
+
+    indices_per_party = split_indices_per_party(bundestag_frame)
+    indices_per_speaker = split_indices_per_speaker(bundestag_frame)
+
     people_frame.rename(columns={"id": "occupant__id"}, inplace=True)
     merged_frame = people_frame.merge(seats_frame, on=["occupant__id"])
-    indices_per_speaker = split_indices_per_speaker(bundestag_frame)
-    indices_per_party = split_indices_per_party(bundestag_frame)
     merged_frame = merged_frame.loc[merged_frame["clean_name"].isin(indices_per_speaker.keys())]
     merged_frame = merged_frame[["clean_name", "seat_type"]]
     merged_frame.rename(columns={"clean_name": "Speaker"}, inplace=True)
     merged_frame = merged_frame.merge(bundestag_frame, on=["Speaker"])
     indices_per_party_and_seat_type = split_indices_per_party_and_seat_type(merged_frame)
-    filename = "bundestag_17.csv"
     legislation_dates = {}
     parties_per_legislation = {}
     legislation_dates[filename] = {}
@@ -501,13 +503,6 @@ def main():
     speeches = bundestag_frame["Speech text"]
     speeches = speeches.fillna("")
     speeches = speeches.tolist()
-    # coal_speeches = [speech for speech in speeches if "kohle" in speech]
-
-    # fdp_coal = bundestag_frame.loc[bundestag_frame["Speaker party"] == "fdp"]
-    # fdp_coal = fdp_coal["Speech text"]
-    # fdp_coal = fdp_coal.fillna("")
-    # fdp_coal = fdp_coal.tolist()
-    # fdp_coal = [speech for speech in fdp_coal if "kohle" in speech]
 
     vectorizer = CountVectorizer()
     document_term_matrix = vectorizer.fit_transform(speeches).toarray()

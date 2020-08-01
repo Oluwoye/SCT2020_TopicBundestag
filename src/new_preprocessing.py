@@ -96,7 +96,7 @@ def main():
     path = 'data/input/bundestag_speeches_from_10'
     output_path = 'data/merged/final_single/'
     for filename in os.listdir(path):
-        if filename != 'bundestag_19.csv':
+        if filename != 'bundestag_17.csv':
             continue
         file = os.path.join(path, filename)
         bundestag = pd.read_csv(file)
