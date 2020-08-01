@@ -236,6 +236,8 @@ def split_indices_per_legislation_party(bundestag_frame, dates, parties_per_legi
         for party in parties_per_legislation[key]:
             if type(party) != str:
                 continue
+            print(key, parties_per_legislation[key])
+            print(party)
             name = key + '_' +  party
             mask = (bundestag_frame["Date"] >= value['start']) & (bundestag_frame["Date"] <= value["end"]) & (bundestag_frame["Speaker party"] == party)
             legislation_party_index[name] = [i for i, truth_value in enumerate(mask) if truth_value]
@@ -433,6 +435,8 @@ def main():
     indices_per_party = split_indices_per_party(bundestag_frame)
     indices_per_speaker = split_indices_per_speaker(bundestag_frame)
     indices_per_legislation_party = split_indices_per_legislation_party(bundestag_frame, legislation_dates, parties_per_legislation)
+    print('INDIZES')
+    print(indices_per_legislation_party)
     speeches = bundestag_frame["Speech text"]
     speeches = speeches.fillna("")
     speeches = speeches.tolist()
@@ -495,10 +499,11 @@ def main():
         party_dict = predict_for_party(indices_per_party, vocabs, [topic_model, tm_layer2, tm_layer3], parties[i],
                                        bundestag_frame,
                                        general_entity=general_ratios, party_dict=party_dict)
+    legislation_parties = list(indices_per_legislation_party.keys())
     legislation_party_dict = dict()
-    for key in indices_per_legislation_party:
+    for i in tqdm(range(0, len(legislation_parties))):
         legislation_party_dict = predict_for_party(indices_per_legislation_party, vocabs, [topic_model, tm_layer2, tm_layer3],
-                                                    key, bundestag_frame, general_entity=general_ratios, party_dict=legislation_party_dict)
+                                                    legislation_parties[i], bundestag_frame, general_entity=general_ratios, party_dict=legislation_party_dict)
     speakers = list(indices_per_speaker.keys())
     for i in tqdm(range(0, len(speakers))):
         # This speaker has a question mark at the end of his name after preprocessing. Therefore we exclude him.
