@@ -486,8 +486,6 @@ def main():
     merged_frame.rename(columns={"clean_name": "Speaker"}, inplace=True)
     merged_frame = merged_frame.merge(bundestag_frame, on=["Speaker"])
     indices_per_party_and_seat_type = split_indices_per_party_and_seat_type(merged_frame)
-    # bundestag_frame = bundestag
-    bundestag_frame = pd.read_csv("data/merged/final_single/bundestag_17.csv")
     filename = "bundestag_17.csv"
     legislation_dates = {}
     parties_per_legislation = {}
@@ -495,8 +493,6 @@ def main():
     legislation_dates[filename]['start'] = bundestag_frame['Date'].min()
     legislation_dates[filename]['end'] = bundestag_frame['Date'].max()
     parties_per_legislation[filename] = bundestag_frame['Speaker party'].unique().tolist()
-    indices_per_party = split_indices_per_party(bundestag_frame)
-    indices_per_speaker = split_indices_per_speaker(bundestag_frame)
     indices_per_legislation_party = split_indices_per_legislation_party(bundestag_frame, legislation_dates, parties_per_legislation)
     bad_keys = [key for key, val in indices_per_legislation_party.items() if len(val) == 0]
     for key in bad_keys:
