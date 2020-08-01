@@ -56,7 +56,7 @@ def plot_topic_ratios(plottable_elements, comparison_entity, general_entity=None
     for i in range(50):
         ax.axvline(i, color='grey', alpha=0.1)
     if suffix is not None:
-        ax.set_y_label('Total topic assignments')
+        ax.set_ylabel('Total topic assignments')
     else:
         ax.set_ylabel('Ratio of topic assignments')
     ax.set_title('Topic distribution for all documents vs. ' + comparison_entity + ' documents')
