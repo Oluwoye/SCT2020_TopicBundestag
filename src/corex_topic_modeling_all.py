@@ -359,10 +359,11 @@ def main():
                                        general_entity=general_ratios, party_dict=party_dict,
                                        party_dict_with_seat_type=indices_per_party_and_seat_type)
     legislation_parties = list(indices_per_legislation_party.keys())
-    predict_for_speaker(indices_per_legislation_party, vocabs, [topic_model, tm_layer2, tm_layer3],
-                            legislation_parties[i], bundestag_frame,
-                            general_entity=legislation_ratios[legislation_parties[i].split('-')[0]],
-                            party_dict=party_dict, do_it_special=True)
+    for i in tqdm(range(0, len(legislation_parties))):
+        predict_for_speaker(indices_per_legislation_party, vocabs, [topic_model, tm_layer2, tm_layer3],
+                                legislation_parties[i], bundestag_frame,
+                                general_entity=legislation_ratios[legislation_parties[i].split('-')[0]],
+                                party_dict=party_dict, do_it_special=True)
     # for i in tqdm(range(0, len(legislation_parties))):
     #     legislation_party_dict = predict_for_party(indices_per_legislation_party, vocabs, [topic_model, tm_layer2, tm_layer3],
     #                                                 legislation_parties[i], bundestag_frame, general_entity=general_ratios, party_dict=legislation_party_dict)
