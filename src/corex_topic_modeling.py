@@ -176,7 +176,7 @@ def predict_for_party(party_index_dict, vocabulary, layers, party, bundestag_dat
 
 def evaluate_corpus(layers, output_file, vocabulary, corpus, print_matrices=True, return_ratios=False,
                     general_entity=None,
-                    comparison_entity=None, party_dict=None, party_values=None, corpus_2=None):
+                    comparison_entity=None, party_dict=None, party_values=None, corpus_2=None, do_it_special=False):
     with open(output_file, "w+") as out:
         vectorizer = CountVectorizer(vocabulary=vocabulary)
         document_term_matrix = vectorizer.fit_transform(corpus)
@@ -194,7 +194,10 @@ def evaluate_corpus(layers, output_file, vocabulary, corpus, print_matrices=True
                                                                     return_ratios=True, general_entity=general_entity,
                                                                     comparison_entity=comparison_entity,
                                                                     prediction_2=prediction_2)
-                party_dict[comparison_entity] = ratios
+                if do_it_special:
+                    party_dict[comparison_entity.split('-')[1]] = ratios
+                else:
+                    party_dict[comparison_entity] = ratios
             else:
                 evaluation = evaluate_document_topic_matrix(prediction_1, print_matrices=print_matrices,
                                                             return_ratios=return_ratios, general_entity=general_entity,
@@ -281,7 +284,7 @@ def split_indices_per_legislation_party(bundestag_frame, dates, parties_per_legi
                 continue
             print(key, parties_per_legislation[key])
             print(party)
-            name = key + '_' +  party
+            name = key + '-' +  party
             mask = (bundestag_frame["Date"] >= value['start']) & (bundestag_frame["Date"] <= value["end"]) & (bundestag_frame["Speaker party"] == party)
             legislation_party_index[name] = [i for i, truth_value in enumerate(mask) if truth_value]
         
@@ -301,22 +304,25 @@ def split_indices_per_speaker(bundestag_frame):
 
 
 def predict_for_speaker(indices_per_speaker, vocabs, topic_layers, speaker, bundestag_frame, general_entity=None,
-                        party_dict=None):
-    corpus, party_values = query_corpus_for_speaker(bundestag_frame, indices_per_speaker, party_dict, speaker)
+                        party_dict=None, do_it_special=False):
+    corpus, party_values = query_corpus_for_speaker(bundestag_frame, indices_per_speaker, party_dict, speaker, do_it_special)
     output_path = "data" + os.path.sep + "output" + os.path.sep + "speakers" + os.path.sep
     if not os.path.isdir(output_path):
         os.makedirs(output_path, exist_ok=True)
     output_file = output_path + speaker + "_prediction.txt"
 
     evaluate_corpus(topic_layers, output_file, vocabs, corpus, print_matrices=False, general_entity=general_entity,
-                    comparison_entity=speaker, party_values=party_values)
+                    comparison_entity=speaker, party_values=party_values, do_it_special=do_it_special)
 
 
-def query_corpus_for_speaker(bundestag_frame, indices_per_speaker, party_dict, speaker):
+def query_corpus_for_speaker(bundestag_frame, indices_per_speaker, party_dict, speaker, do_it_special=False):
     speaker_indices = indices_per_speaker[speaker]
     party_values = None
     if party_dict is not None:
-        party_affiliation = (bundestag_frame.loc[bundestag_frame['Speaker'] == speaker]['Speaker party']).tolist()[0]
+        if do_it_special:
+            party_affiliation = speaker.split('-')[1]
+        else:
+            party_affiliation = (bundestag_frame.loc[bundestag_frame['Speaker'] == speaker]['Speaker party']).tolist()[0]
         if party_affiliation in party_dict.keys():
             party_values = party_dict[party_affiliation]
         else:
@@ -540,6 +546,10 @@ def main():
     vt.vis_hierarchy([topic_model, tm_layer2, tm_layer3], column_label=vocabs, max_edges=200)
 
     general_ratios = predict_all(vocabs, [topic_model, tm_layer2, tm_layer3], bundestag_frame)
+    legislation_ratios = {}
+    for key, val in legislation_dates.items():
+        legislation_frame = bundestag_frame.loc[(bundestag_frame["Date"] >= val["start"]) & (bundestag_frame["Date"] <= val["end"])]
+        legislation_ratios[key] = predict_all(vocabs, [topic_model, tm_layer2, tm_layer3], legislation_frame)
     parties = list(indices_per_party.keys())
     party_dict = dict()
     for i in tqdm(range(0, len(parties))):
@@ -547,10 +557,18 @@ def main():
                                        bundestag_frame,
                                        general_entity=general_ratios, party_dict=party_dict,
                                        party_dict_with_seat_type=indices_per_party_and_seat_type)
-    legislation_party_dict = dict()
-    for key in indices_per_legislation_party:
-        legislation_party_dict = predict_for_party(indices_per_legislation_party, vocabs, [topic_model, tm_layer2, tm_layer3],
-                                                    key, bundestag_frame, general_entity=general_ratios, party_dict=legislation_party_dict)
+    
+    legislation_parties = list(indices_per_legislation_party.keys())
+    for i in tqdm(range(0, len(legislation_parties))):
+        predict_for_speaker(indices_per_legislation_party, vocabs, [topic_model, tm_layer2, tm_layer3],
+                            legislation_parties[i], bundestag_frame,
+                            general_entity=legislation_ratios[legislation_parties[i].split('-')[0]],
+                            party_dict=party_dict, do_it_special=True)
+    # legislation_parties = list(indices_per_legislation_party.keys())
+    # legislation_party_dict = dict()
+    # for i in tqdm(range(0, len(legislation_parties))):
+    #     legislation_party_dict = predict_for_party(indices_per_legislation_party, vocabs, [topic_model, tm_layer2, tm_layer3],
+    #                                                 legislation_parties[i], bundestag_frame, general_entity=general_ratios, party_dict=legislation_party_dict)
     speakers = list(indices_per_speaker.keys())
     for i in tqdm(range(0, len(speakers))):
         # This speaker has a question mark at the end of his name after preprocessing. Therefore we exclude him.
@@ -562,7 +580,7 @@ def main():
     speaker_collection = dict()
     speaker_collection["cducsu"] = ["Dr. Angela Merkel"]
     speaker_collection["gruene"] = ["Renate Künast"]
-    speaker_collection["fdp"] = ["Christian Lindner"]
+    speaker_collection["fdp"] = ["Michael Kauch"]
     speaker_collection["linke"] = ["Dr. Gregor Gysi"]
     speaker_collection["spd"] = ["Sigmar Gabriel"]
 

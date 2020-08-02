@@ -99,7 +99,7 @@ def split_indices_per_legislation_party(bundestag_frame, dates, parties_per_legi
                 continue
             print(key, parties_per_legislation[key])
             print(party)
-            name = key + '_' +  party
+            name = key + '-' +  party
             mask = (bundestag_frame["Date"] >= value['start']) & (bundestag_frame["Date"] <= value["end"]) & (bundestag_frame["Speaker party"] == party)
             legislation_party_index[name] = [i for i, truth_value in enumerate(mask) if truth_value]
 
@@ -347,6 +347,10 @@ def main():
     vt.vis_hierarchy([topic_model, tm_layer2, tm_layer3], column_label=vocabs, max_edges=200)
 
     general_ratios = predict_all(vocabs, [topic_model, tm_layer2, tm_layer3], bundestag_frame)
+    legislation_ratios = {}
+    for key, val in legislation_dates.items():
+        legislation_frame = bundestag_frame.loc[(bundestag_frame["Date"] >= val["start"]) & (bundestag_frame["Date"] <= val["end"])]
+        legislation_ratios[key] = predict_all(vocabs, [topic_model, tm_layer2, tm_layer3], legislation_frame)
     parties = list(indices_per_party.keys())
     party_dict = dict()
     for i in tqdm(range(0, len(parties))):
@@ -355,10 +359,13 @@ def main():
                                        general_entity=general_ratios, party_dict=party_dict,
                                        party_dict_with_seat_type=indices_per_party_and_seat_type)
     legislation_parties = list(indices_per_legislation_party.keys())
-    legislation_party_dict = dict()
-    for i in tqdm(range(0, len(legislation_parties))):
-        legislation_party_dict = predict_for_party(indices_per_legislation_party, vocabs, [topic_model, tm_layer2, tm_layer3],
-                                                    legislation_parties[i], bundestag_frame, general_entity=general_ratios, party_dict=legislation_party_dict)
+    predict_for_speaker(indices_per_legislation_party, vocabs, [topic_model, tm_layer2, tm_layer3],
+                            legislation_parties[i], bundestag_frame,
+                            general_entity=legislation_ratios[legislation_parties[i].split('-')[0]],
+                            party_dict=party_dict, do_it_special=True)
+    # for i in tqdm(range(0, len(legislation_parties))):
+    #     legislation_party_dict = predict_for_party(indices_per_legislation_party, vocabs, [topic_model, tm_layer2, tm_layer3],
+    #                                                 legislation_parties[i], bundestag_frame, general_entity=general_ratios, party_dict=legislation_party_dict)
     speakers = list(indices_per_speaker.keys())
     for i in tqdm(range(0, len(speakers))):
         # This speaker has a question mark at the end of his name after preprocessing. Therefore we exclude him.
@@ -370,7 +377,7 @@ def main():
     speaker_collection = dict()
     speaker_collection["cducsu"] = ["Dr. Angela Merkel"]
     speaker_collection["gruene"] = ["Renate Künast"]
-    speaker_collection["fdp"] = ["Christian Lindner"]
+    speaker_collection["fdp"] = ["Michael Kauch"]
     speaker_collection["linke"] = ["Jan Aken"]
     speaker_collection["spd"] = ["Sigmar Gabriel"]
 
