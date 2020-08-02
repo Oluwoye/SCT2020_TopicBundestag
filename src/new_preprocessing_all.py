@@ -78,6 +78,8 @@ def merge_speeches(df, filename):
     for speech in speeches:
         if len(speech['Speech text']) <= MIN_WORD_COUNT:
             continue
+        if isinstance(speech['Speaker'], str) and 'CDU/CSU' in speech['Speaker']:
+            speech['Speaker'] = ''
         result.append({
             'Speech DB ID': speech['Speech DB ID'],
             'Date': speech['Date'],
