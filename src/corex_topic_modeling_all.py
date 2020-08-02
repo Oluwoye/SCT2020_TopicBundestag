@@ -15,7 +15,7 @@ import os
 
 from tqdm import tqdm
 
-from src.corex_topic_modeling import split_indices_per_party_and_seat_type, evaluate_corpus, predict_for_party, \
+from corex_topic_modeling import split_indices_per_party_and_seat_type, evaluate_corpus, predict_for_party, \
     predict_for_speaker, evaluate_document_topic_matrix, split_indices_per_party, split_indices_per_speaker
 
 
@@ -104,18 +104,6 @@ def split_indices_per_legislation_party(bundestag_frame, dates, parties_per_legi
             legislation_party_index[name] = [i for i, truth_value in enumerate(mask) if truth_value]
 
     return legislation_party_index
-
-
-def predict_for_speaker(indices_per_speaker, vocabs, topic_layers, speaker, bundestag_frame, general_entity=None,
-                        party_dict=None):
-    corpus, party_values = query_corpus_for_speaker(bundestag_frame, indices_per_speaker, party_dict, speaker)
-    output_path = "data" + os.path.sep + "output" + os.path.sep + "speakers" + os.path.sep
-    if not os.path.isdir(output_path):
-        os.makedirs(output_path, exist_ok=True)
-    output_file = output_path + speaker + "_prediction.txt"
-
-    evaluate_corpus(topic_layers, output_file, vocabs, corpus, print_matrices=False, general_entity=general_entity,
-                    comparison_entity=speaker, party_values=party_values)
 
 
 def query_corpus_for_speaker(bundestag_frame, indices_per_speaker, party_dict, speaker):
